@@ -41,14 +41,14 @@ export default {
   color: #2c3e50;
 }
 #car {
-  background-color: #F3D9A4;
+  background-color: #f3d9a4;
   margin-left: 150px;
   margin-top: 15px;
   margin-bottom: 15px;
   padding: 20px;
 }
-#shlist{
-   background-color: #F3D9A4;
+#shlist {
+  background-color: #f3d9a4;
   margin-right: 150px;
   margin-top: 15px;
   margin-bottom: 15px;

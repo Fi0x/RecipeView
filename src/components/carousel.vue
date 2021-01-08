@@ -1,11 +1,10 @@
 <template>
   <div>
     <h2>Suggested Recipe: {{ mealName }}</h2>
- 
 
     <div>
       <img v-bind:src="mealImg" v-bind:alt="mealName" />
-         <button v-on:click="loadrecipe">load new random recipe</button>
+      <button v-on:click="loadrecipe">load new random recipe</button>
       <p>Check out this awesome {{ mealName }}</p>
       <!--  <div class="attributes" v-on:click="srcbycat">{{ mealCategory }}</div>
       <div class="attributes" v-on:click="srcbyarea">{{ mealArea }}</div> -->

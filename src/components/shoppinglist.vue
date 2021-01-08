@@ -27,11 +27,14 @@ a pop up with all ingredients in form of buttons. On-click these are added to th
         >
           <li class="strikethrough">
             {{ item }}
-                    <b-button class="trashbtn" type="button" v-on:click="clearitem(index)">🗑️</b-button>
+            <b-button
+              class="trashbtn"
+              type="button"
+              v-on:click="clearitem(index)"
+              >🗑️</b-button
+            >
           </li>
-
         </b-checkbox>
-
       </div>
     </ul>
 
@@ -62,8 +65,8 @@ export default {
       this.shoplist = [];
     },
     clearitem(index) {
-this.shoplist.splice(index, 1);
-    }
+      this.shoplist.splice(index, 1);
+    },
   },
 };
 </script>
@@ -76,13 +79,13 @@ this.shoplist.splice(index, 1);
   text-align: left;
 }
 .trashbtn {
-    padding: 0px;
-    background-color: #F3D9A4;
-    border-color:#F3D9A4;
+  padding: 0px;
+  background-color: #f3d9a4;
+  border-color: #f3d9a4;
 }
 .trashbtn:hover {
-    background-color:lightcoral;
-    border-color: lightcoral;
+  background-color: lightcoral;
+  border-color: lightcoral;
 }
 b-checkbox:checked + li.strikethrough {
   text-decoration: line-through;
