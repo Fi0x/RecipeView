@@ -1,5 +1,22 @@
 <template>
-    <div>
-        this is the footer 
-    </div>
+  <div id="footer">
+    <div><img src="../assets/logosimple.png" alt="recipefinder" id="logoimg">is a Vue-js-based Single-Page-Application.</div>
+    <div>© 2021 Felix Pechtl and Sophia Ochs</div>
+    <div>powered by <a href="https://themealdb.com" target="_blank">themealdb</a></div>
+  </div>
 </template>
+
+<style scoped>
+#footer {
+          background-color: #223d57;
+          color: #FFFFFF80;
+          padding-top: 20px;
+          padding-bottom: 20px;
+}
+#logoimg {
+    height: 55px;
+}
+#footer a {
+    color: #D4AD39;
+}
+</style>
