@@ -10,6 +10,7 @@
       </b-col>
     </b-row>
     <RecipeView />
+    <Footer />
   </div>
 </template>
 
@@ -19,6 +20,7 @@ import Header from "./components/header.vue";
 import Carousel from "./components/carousel.vue";
 import Shoppinglist from "./components/shoppinglist.vue";
 import RecipeView from "./components/recipeview.vue";
+import Footer from "./components/footer.vue";
 
 export default {
   name: "App",
@@ -27,6 +29,7 @@ export default {
     Carousel,
     Shoppinglist,
     RecipeView,
+    Footer,
   },
 };
 </script>
