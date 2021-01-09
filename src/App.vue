@@ -16,7 +16,11 @@
       <b-col><RecipeView id="recipeview" /></b-col>
       <b-col sm="1"></b-col>
     </b-row>
-
+    <b-row>
+      <b-col sm="1"></b-col>
+      <b-col><Search /></b-col>
+      <b-col sm="1"></b-col>
+    </b-row>
     <Footer />
   </div>
 </template>
@@ -27,6 +31,7 @@ import Header from "./components/header.vue";
 import Carousel from "./components/carousel.vue";
 import Shoppinglist from "./components/shoppinglist.vue";
 import RecipeView from "./components/recipeview.vue";
+import Search from "./components/search.vue;"
 import Footer from "./components/footer.vue";
 
 export default {
@@ -36,6 +41,7 @@ export default {
     Carousel,
     Shoppinglist,
     RecipeView,
+    Search,
     Footer,
   },
 };
