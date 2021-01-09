@@ -10,7 +10,7 @@
 #footer {
           background-color: #223d57;
           color: #FFFFFF80;
-          padding-top: 20px;
+          padding-top: 15px;
           padding-bottom: 20px;
 }
 #logoimg {
