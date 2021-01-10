@@ -1,18 +1,20 @@
+<!------------------------------TEMPLATE-------------------------------------->
 <template>
   <div>
     <h2>recipe title</h2>
     <b-row>
       <b-col sm="1"></b-col>
-      <b-col sm="6">
-        <img src="../assets/logoimg.png" alt="dummy-image" />
-      </b-col>
       <b-col sm="4">
+        <img src="../assets/logoimg.png" alt="dummy-image" id="mealimage"/>
+      </b-col>
+      <b-col sm="6">
         <h5>Ingredients</h5>
-        <ul>
-          <li>ingredient 1</li>
-          <li>ingredient 2</li>
-          <li>ingredient 3</li>
-        </ul>
+        <table>
+          <tr>
+            <td>measurement</td>
+            <td>ingredientName</td>
+          </tr>
+        </table>
       </b-col>
       <b-col sm="1"></b-col>
     </b-row>
@@ -32,3 +34,19 @@
     </div>
   </div>
 </template>
+<!--------------------------------SCRIPT----------------------------------->
+<script>
+"use strict";
+export default {
+  
+}
+</script>
+<!--------------------------------STYLE------------------------------------>
+<style scoped>
+table {
+  width: 90%;
+}
+#mealimage {
+  max-width: 100%;
+}
+</style>

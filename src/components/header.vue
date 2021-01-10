@@ -1,3 +1,4 @@
+<!------------------------------TEMPLATE-------------------------------------->
 <template>
   <div>
     <b-navbar id="navbar" toggleable="lg" type="dark">
@@ -33,7 +34,7 @@
     </b-navbar>
   </div>
 </template>
-
+<!--------------------------------STYLE----------------------------------->
 <style scoped>
 #headerlogo {
   width: 150px;

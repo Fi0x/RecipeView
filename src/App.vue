@@ -1,3 +1,4 @@
+<!------------------------------TEMPLATE-------------------------------------->
 <template>
   <div id="app">
     <Header id="head" />
@@ -13,7 +14,9 @@
     </b-row>
     <b-row>
       <b-col sm="1"></b-col>
-      <b-col><RecipeView id="recipeview" /></b-col>
+      <b-col sm="7">
+        <RecipeView id="recipeview" />
+        </b-col>
       <b-col sm="1"></b-col>
     </b-row>
     <b-row>
@@ -24,9 +27,8 @@
     <Footer />
   </div>
 </template>
-
+<!--------------------------------SCRIPT----------------------------------->
 <script>
-/* contains script */
 import Header from "./components/header.vue";
 import Carousel from "./components/carousel.vue";
 import Shoppinglist from "./components/shoppinglist.vue";
@@ -46,9 +48,8 @@ export default {
   },
 };
 </script>
-
+<!--------------------------------STYLE----------------------------------->
 <style>
-/* contains css */
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -72,5 +73,9 @@ export default {
 }
 #recipeview {
     background-color: #f3d9a4;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 </style>

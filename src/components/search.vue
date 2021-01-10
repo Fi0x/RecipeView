@@ -1,3 +1,4 @@
+<!--------------------------------TEMPLATE----------------------------------->
 <template>
   <div>
     <!--dummy searchbar for development. 
@@ -26,7 +27,7 @@ Should be exported to header.vue later.-->
     </div>
   </div>
 </template>
-
+<!--------------------------------SCRIPT----------------------------------->
 <script>
 "use strict";
 export default {
@@ -65,7 +66,7 @@ export default {
   },
 };
 </script>
-
+<!--------------------------------STYLE----------------------------------->
 <style scoped>
 #searchresults {
     text-align: left;

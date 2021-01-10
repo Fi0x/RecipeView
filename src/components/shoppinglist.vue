@@ -2,7 +2,7 @@
 items can also be striked-through/ticked off and deleted by clicking on a trashcan symbol. 
 interesting functionality that could be added aswell: clicking on a button under a recipe shows 
 a pop up with all ingredients in form of buttons. On-click these are added to the shopping list.-->
-
+<!------------------------------TEMPLATE-------------------------------------->
 <template>
   <div>
     <h2>Your shopping list</h2>
@@ -47,6 +47,7 @@ a pop up with all ingredients in form of buttons. On-click these are added to th
 
 <!--------------------------------------SCRIPT-------------------------------------->
 <script>
+"use strict";
 //////////// menge der zutaten ggf mit store speichern VUEX -> ggf wie einkaufskorb auf website
 export default {
   name: "Shoppinglist",
@@ -70,7 +71,7 @@ export default {
   },
 };
 </script>
-
+<!---------------------------------------STYLE---------------------------------------->
 <style scoped>
 #listinput {
   margin-left: 10px;

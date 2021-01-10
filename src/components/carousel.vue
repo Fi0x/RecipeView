@@ -1,3 +1,4 @@
+<!--------------------------------TEMPLATE----------------------------------->
 <template>
   <div>
     <h2>Suggested Recipe: {{ mealName }}</h2>
@@ -15,7 +16,7 @@
     </div>
   </div>
 </template>
-
+<!--------------------------------SCRIPT----------------------------------->
 <script>
 "use strict";
 export default {
@@ -107,7 +108,7 @@ export default {
   },
 };
 </script>
-
+<!--------------------------------STYLE----------------------------------->
 <style scoped>
 img {
   width: 40%;
