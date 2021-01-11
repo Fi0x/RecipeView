@@ -5,7 +5,7 @@
     <b-row>
       <b-col sm="1"></b-col>
       <b-col sm="4">
-        <img src="../assets/logoimg.png" alt="dummy-image" id="mealimage"/>
+        <img src="../assets/logoimg.png" alt="dummy-image" id="mealimage" />
       </b-col>
       <b-col sm="6">
         <h5>Ingredients</h5>
@@ -37,9 +37,13 @@
 <!--------------------------------SCRIPT----------------------------------->
 <script>
 "use strict";
+import { recipeByIdHelper } from "../helpers/recipeById.js";
 export default {
-  
-}
+  name: "RecipeView",
+  beforeMount() {
+    recipeByIdHelper();
+  },
+};
 </script>
 <!--------------------------------STYLE------------------------------------>
 <style scoped>

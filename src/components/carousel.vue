@@ -19,6 +19,7 @@
 <!--------------------------------SCRIPT----------------------------------->
 <script>
 "use strict";
+import {randomrecipe} from "../helpers/randrecipe.js"
 export default {
   name: "carousel",
   data: function () {
@@ -33,32 +34,12 @@ export default {
     };
   },
   beforeMount() {
-    this.loadrecipe();
+    randomrecipe();
     //state = landingPage
   },
   methods: {
-    async loadrecipe() {
-      //load function asynchronically
-      let response;
-      let apiUrl = "https://www.themealdb.com/api/json/v1/1/random.php";
-
-      try {
-        response = await this.axios
-          .get(apiUrl) //promise should await this response
-          .then((response) => (this.mealInfo = response.data.meals));
-        console.log(response);
-        this.mealName = this.mealInfo[0].strMeal;
-        this.mealImg = this.mealInfo[0].strMealThumb;
-        this.mealInstructions = this.mealInfo[0].strInstructions;
-        this.mealCategory = this.mealInfo[0].strCategory;
-        this.mealArea = this.mealInfo[0].strArea;
-
-        //also needed: save each new loaded recipe in an array so it's possible to iterate between previous recipes
-      } catch (e) {
-        //if promise can't be fulfilled, throw error
-        console.error(e);
-      }
-    },
+     loadrecipe() {
+     randomrecipe ();
     /*   async srcbycat() {
       //search meal by clicking on category tag
       // eslint-disable-next-line no-unused-vars
@@ -106,7 +87,8 @@ export default {
     //  }
     //
   },
-};
+  }
+}
 </script>
 <!--------------------------------STYLE----------------------------------->
 <style scoped>

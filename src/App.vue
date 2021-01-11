@@ -35,7 +35,6 @@ import Shoppinglist from "./components/shoppinglist.vue";
 import RecipeView from "./components/recipeview.vue";
 import Search from "./components/search.vue";
 import Footer from "./components/footer.vue";
-import test, {bla} from "./helpers/test.js";
 
 export default {
   name: "App",
@@ -47,7 +46,6 @@ export default {
     Search,
     Footer,
   },
-  mounted: function () {console.log (test, bla)}
 };
 
 

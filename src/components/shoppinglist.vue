@@ -49,7 +49,7 @@ a pop up with all ingredients in form of buttons. On-click these are added to th
 <script>
 "use strict";
 //import test from "../helpers/test.js"//so würde der default importiert werden 
-import {test} from "../helpers/test.js";
+import {test} from "../helpers/shoppinglist.js";
 //////////// menge der zutaten ggf mit store speichern VUEX -> ggf wie einkaufskorb auf website
 export default {
   name: "Shoppinglist",
