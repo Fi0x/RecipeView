@@ -1,7 +1,7 @@
 <!------------------------------TEMPLATE-------------------------------------->
 <template>
   <div>
-    <h2>recipe title</h2>
+    <h2>{{ mealName }}</h2> <!--DOESN'T WORK ATM FOR SOME REASON-->
     <b-row>
       <b-col sm="1"></b-col>
       <b-col sm="4">
@@ -43,6 +43,7 @@ export default {
   beforeMount() {
     recipeByIdHelper();
   },
+
 };
 </script>
 <!--------------------------------STYLE------------------------------------>

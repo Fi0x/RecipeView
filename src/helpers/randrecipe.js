@@ -14,9 +14,7 @@ export async function randomrecipe() {
       this.mealCategory = this.mealInfo[0].strCategory;
       this.mealArea = this.mealInfo[0].strArea;
 
-      //also needed: save each new loaded recipe in an array so it's possible to iterate between previous recipes
     } catch (e) {
-      //if promise can't be fulfilled, throw error
       console.error(e);
     }
 }
