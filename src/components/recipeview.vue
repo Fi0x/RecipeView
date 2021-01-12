@@ -40,9 +40,13 @@
 import { recipeByIdHelper } from "../helpers/recipeById.js";
 export default {
   name: "RecipeView",
-  beforeMount() {
+    beforeMount() {
     recipeByIdHelper();
   },
+  props: [
+    
+  ]
+
 
 };
 </script>
