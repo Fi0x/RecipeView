@@ -16,5 +16,4 @@ export function recipeByIdHelper() {
             mealName = mealInfoById.strMeal;
             console.log(mealName);
         });
-
 }
