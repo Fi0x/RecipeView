@@ -9,10 +9,6 @@
       <p>Check out this awesome {{ mealName }}</p>
       <!--  <div class="attributes" v-on:click="srcbycat">{{ mealCategory }}</div>
       <div class="attributes" v-on:click="srcbyarea">{{ mealArea }}</div> -->
-      <h5>Ingredients</h5>
-
-      <h5>Instructions</h5>
-      <p>{{ mealInstructions }}</p>
     </div>
   </div>
 </template>
