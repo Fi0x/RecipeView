@@ -5,7 +5,7 @@
 
     <div>
       <img v-bind:src="mealImg" v-bind:alt="mealName" />
-      <button v-on:click="loadrecipe">load new random recipe</button>
+      <button v-on:click="randomrecipe">load new random recipe</button>
       <p>Check out this awesome {{ mealName }}</p>
       <!--  <div class="attributes" v-on:click="srcbycat">{{ mealCategory }}</div>
       <div class="attributes" v-on:click="srcbyarea">{{ mealArea }}</div> -->
@@ -19,12 +19,10 @@
 <!--------------------------------SCRIPT----------------------------------->
 <script>
 "use strict";
-import {randomrecipe} from "../helpers/randrecipe.js"
 export default {
   name: "carousel",
   data: function () {
     return {
-      // eslint-disable-next-line no-unused-labels
       mealInfo: "",
       mealName: "",
       mealImg: "",
@@ -33,13 +31,29 @@ export default {
       mealArea: "",
     };
   },
-  beforeMount() {
-    randomrecipe();
+      beforeMount() {
+    this.randomrecipe();
     //state = landingPage
   },
   methods: {
-     loadrecipe() {
-     randomrecipe ();
+    async randomrecipe() {
+      let apiUrl = "https://www.themealdb.com/api/json/v1/1/random.php"; 
+      let mealInfo;
+
+      try {
+        this.response = await this.axios
+          .get(apiUrl) //promise should await this response
+          .then((response) => (mealInfo = response.data.meals[0]));
+        this.mealName = mealInfo.strMeal;
+        this.mealImg = mealInfo.strMealThumb;
+        this.mealInstructions = mealInfo.strInstructions;
+        this.mealCategory = mealInfo.strCategory;
+        this.mealArea = mealInfo.strArea;
+      } catch (e) {
+        console.error(e);   //throws error if promise can't be fulfilled
+      }
+    },
+
     /*   async srcbycat() {
       //search meal by clicking on category tag
       // eslint-disable-next-line no-unused-vars
@@ -87,8 +101,7 @@ export default {
     //  }
     //
   },
-  }
-}
+};
 </script>
 <!--------------------------------STYLE----------------------------------->
 <style scoped>
