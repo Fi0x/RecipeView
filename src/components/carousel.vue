@@ -27,13 +27,13 @@ export default {
       mealArea: "",
     };
   },
-      beforeMount() {
+  beforeMount() {
     this.randomrecipe();
     //state = landingPage
   },
   methods: {
     async randomrecipe() {
-      let apiUrl = "https://www.themealdb.com/api/json/v1/1/random.php"; 
+      let apiUrl = "https://www.themealdb.com/api/json/v1/1/random.php";
       let mealInfo;
 
       try {
@@ -46,7 +46,7 @@ export default {
         this.mealCategory = mealInfo.strCategory;
         this.mealArea = mealInfo.strArea;
       } catch (e) {
-        console.error(e);   //throws error if promise can't be fulfilled
+        console.error(e); //throws error if promise can't be fulfilled
       }
     },
 
