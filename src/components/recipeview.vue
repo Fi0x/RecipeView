@@ -43,9 +43,7 @@ export default {
     beforeMount() {
     recipeByIdHelper();
   },
-  props: [
-    
-  ]
+ 
 
 
 };
