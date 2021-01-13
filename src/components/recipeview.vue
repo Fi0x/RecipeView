@@ -21,8 +21,8 @@
     </b-row>
     <div>
       <h5>Instructions</h5>
-      <div> 
-{{mealInstructions}}
+      <div>
+        {{ mealInstructions }}
       </div>
     </div>
   </div>
@@ -32,7 +32,7 @@
 "use strict";
 export default {
   name: "RecipeView",
-    data: function () {
+  data: function () {
     return {
       mealInfo: "",
       mealName: "",
@@ -47,8 +47,7 @@ export default {
   },
   methods: {
     async recipeById() {
-      let apiUrl =
-        "https://www.themealdb.com/api/json/v1/1/lookup.php?i=52772"
+      let apiUrl = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=52772";
       // mealId needs to be interchangeable later and should work with vue-router
       let mealInfo;
 
@@ -62,7 +61,7 @@ export default {
         this.mealCategory = mealInfo.strCategory;
         this.mealArea = mealInfo.strArea;
       } catch (e) {
-        console.error(e);   //throws error if promise can't be fulfilled
+        console.error(e); //throws error if promise can't be fulfilled
       }
     },
   },
