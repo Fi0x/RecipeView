@@ -39,12 +39,11 @@
 "use strict";
 import { recipeByIdHelper } from "../helpers/recipeById.js";
 export default {
+  
   name: "RecipeView",
     beforeMount() {
     recipeByIdHelper();
   },
- 
-
 
 };
 </script>
