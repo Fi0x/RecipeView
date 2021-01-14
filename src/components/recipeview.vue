@@ -6,7 +6,7 @@
     <b-row>
       <b-col sm="1"></b-col>
       <b-col sm="4">
-        <img v-bind:src="mealImg" v-bind:alt="mealName" id="mealimage" />
+        <img v-bind:src="mealImg" v-bind:alt="mealName" id="mealimage"/>
       </b-col>
       <b-col sm="6">
         <h5>Ingredients</h5>
@@ -64,8 +64,9 @@ export default {
 
       try {
         this.response = await this.axios
-          .get(apiUrl) //promise should await this response
-          .then((response) => (mealInfo = response.data.meals[0]));
+            .get(apiUrl) //promise should await this response
+            .then((response) => (mealInfo = response.data.meals[0]));
+
         this.mealName = mealInfo.strMeal;
         this.mealImg = mealInfo.strMealThumb;
         this.mealInstructions = mealInfo.strInstructions
@@ -86,6 +87,7 @@ export default {
 table {
   width: 90%;
 }
+
 #mealimage {
   max-width: 100%;
 }
