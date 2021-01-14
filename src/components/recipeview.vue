@@ -27,9 +27,9 @@
       <h5>Instructions</h5>
       <ul id="instructions">
         <b-checkbox
-          class="listitem"
-          v-for="(paragraph, index) in mealInstructions"
-          :key="index"
+            class="listitem"
+            v-for="(paragraph, index) in mealInstructions"
+            :key="index"
         >
           <li>
             {{ paragraph }}
@@ -59,7 +59,7 @@ export default {
 
   methods: {
     async recipeById() {
-      let apiUrl = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=52772"; //Todo: Id has to be interchangeable; need to work with vue router
+      let apiUrl = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=52772"; //Todo: Id needs to work with vue router
       let mealInfo;
 
       try {
@@ -70,9 +70,9 @@ export default {
         this.mealName = mealInfo.strMeal;
         this.mealImg = mealInfo.strMealThumb;
         this.mealInstructions = mealInfo.strInstructions
-          .split("\r\n")
-          .filter((e) => e.trim().length > 0)
-          .map((e) => e.trim());
+            .split("\r\n")
+            .filter((e) => e.trim().length > 0)
+            .map((e) => e.trim());
         this.mealCategory = mealInfo.strCategory;
         this.mealArea = mealInfo.strArea;
       } catch (e) {
@@ -91,6 +91,7 @@ table {
 #mealimage {
   max-width: 100%;
 }
+
 #instructions {
   text-align: left;
 }

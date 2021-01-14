@@ -1,30 +1,32 @@
 <!------------------------------TEMPLATE-------------------------------------->
 <template>
   <div id="app">
-    <Header id="head" />
+    <Header id="head"/>
     <b-row>
       <b-col sm="1"></b-col>
       <b-col sm="7">
-        <Carousel id="car" />
+        <Carousel id="car"/>
       </b-col>
       <b-col sm="3">
-        <Shoppinglist id="shlist" />
+        <Shoppinglist id="shlist"/>
       </b-col>
       <b-col sm="1"></b-col>
     </b-row>
     <b-row>
       <b-col sm="1"></b-col>
       <b-col sm="7">
-        <RecipeView id="recipeview" />
-        </b-col>
+        <RecipeView id="recipeview"/>
+      </b-col>
       <b-col sm="1"></b-col>
     </b-row>
     <b-row>
       <b-col sm="1"></b-col>
-      <b-col><Search /></b-col>
+      <b-col>
+        <Search/>
+      </b-col>
       <b-col sm="1"></b-col>
     </b-row>
-    <Footer />
+    <Footer/>
   </div>
 </template>
 <!--------------------------------SCRIPT----------------------------------->
@@ -59,6 +61,7 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+
 #car {
   background-color: #f3d9a4;
 
@@ -66,6 +69,7 @@ export default {
   margin-bottom: 15px;
   padding: 20px;
 }
+
 #shlist {
   background-color: #f3d9a4;
 
@@ -73,11 +77,12 @@ export default {
   margin-bottom: 15px;
   padding: 20px;
 }
+
 #recipeview {
-    background-color: #f3d9a4;
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+  background-color: #f3d9a4;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 </style>
