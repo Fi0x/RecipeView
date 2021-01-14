@@ -9,40 +9,38 @@ a pop up with all ingredients in form of buttons. On-click these are added to th
     <form>
       <label for="listinput">Create a new entry:</label>
       <input
-          type="text"
-          v-model="input"
-          id="listinput"
-          placeholder="Bananas, Pork, ..."
-          v-on:keyup.enter="additem()"
-      /><!--Webpage currently refreshes when enter is clicked, only when in form. BAD-->
+        type="text"
+        v-model="input"
+        id="listinput"
+        placeholder="Bananas, Pork, ..."
+        v-on:keyup.enter="additem()"
+      /><!-- TODO Webpage currently refreshes when enter is clicked, only when in form. BAD-->
       <b-button type="button" v-on:click="additem()"> +</b-button>
     </form>
 
     <ul>
       <div class="item">
         <b-checkbox
-            class="listitem"
-            v-for="(item, index) in shoplist"
-            :key="index"
+          class="listitem"
+          v-for="(item, index) in shoplist"
+          :key="index"
         >
           <li class="strikethrough">
             {{ item }}
             <b-button
-                class="trashbtn"
-                type="button"
-                v-on:click="clearitem(index)"
-            >🗑️
-            </b-button
-            >
+              class="trashbtn"
+              type="button"
+              v-on:click="clearitem(index)"
+              >🗑️
+            </b-button>
           </li>
         </b-checkbox>
       </div>
     </ul>
 
     <b-button type="button" v-on:click="clearlist()"
-    >Clear entire list
-    </b-button
-    >
+      >Clear entire list
+    </b-button>
   </div>
 </template>
 
@@ -50,7 +48,7 @@ a pop up with all ingredients in form of buttons. On-click these are added to th
 <!--------------------------------------SCRIPT-------------------------------------->
 <script>
 "use strict";
-//////////// menge der zutaten ggf mit store speichern VUEX -> ggf wie einkaufskorb auf website
+//////////// Todo menge der zutaten ggf mit store speichern VUEX -> ggf wie einkaufskorb auf website
 export default {
   name: "Shoppinglist",
   data: function () {
