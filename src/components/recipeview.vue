@@ -25,9 +25,17 @@
     </b-row>
     <div>
       <h5>Instructions</h5>
-      <div>
-        {{ mealInstructions }}
-      </div>
+      <ul id="instructions">
+        <b-checkbox
+          class="listitem"
+          v-for="(paragraph, index) in mealInstructions"
+          :key="index"
+        >
+          <li>
+            {{ paragraph }}
+          </li>
+        </b-checkbox>
+      </ul>
     </div>
   </div>
 </template>
@@ -40,7 +48,7 @@ export default {
     return {
       mealName: "",
       mealImg: "",
-      mealInstructions: "",
+      mealInstructions: [],
       mealCategory: "",
       mealArea: "",
     };
@@ -60,7 +68,10 @@ export default {
           .then((response) => (mealInfo = response.data.meals[0]));
         this.mealName = mealInfo.strMeal;
         this.mealImg = mealInfo.strMealThumb;
-        this.mealInstructions = mealInfo.strInstructions;
+        this.mealInstructions = mealInfo.strInstructions
+          .split("\r\n")
+          .filter((e) => e.trim().length > 0)
+          .map((e) => e.trim());
         this.mealCategory = mealInfo.strCategory;
         this.mealArea = mealInfo.strArea;
       } catch (e) {
@@ -77,5 +88,8 @@ table {
 }
 #mealimage {
   max-width: 100%;
+}
+#instructions {
+  text-align: left;
 }
 </style>
