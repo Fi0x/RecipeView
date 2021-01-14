@@ -12,8 +12,12 @@
         <h5>Ingredients</h5>
         <table>
           <tr>
-            <td>measurement</td>
+            <td>measurements</td>
             <td>ingredientName</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
           </tr>
         </table>
       </b-col>
@@ -34,7 +38,6 @@ export default {
   name: "RecipeView",
   data: function () {
     return {
-      mealInfo: "",
       mealName: "",
       mealImg: "",
       mealInstructions: "",
@@ -45,10 +48,10 @@ export default {
   beforeMount() {
     this.recipeById();
   },
+
   methods: {
     async recipeById() {
-      let apiUrl = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=52772";
-      // mealId needs to be interchangeable later and should work with vue-router
+      let apiUrl = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=52772"; //Todo: Id has to be interchangeable; need to work with vue router
       let mealInfo;
 
       try {
