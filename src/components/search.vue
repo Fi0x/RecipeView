@@ -8,6 +8,7 @@ Should be exported to header.vue later.-->
         size="sm"
         class="mr-sm-2"
         placeholder="Search"
+        v-model="userInput"
       ></b-form-input>
       <b-button
         size="sm"
@@ -36,6 +37,7 @@ export default {
   name: "search",
   data: function () {
     return {
+      userInput: "",
       mealInfo: "",
       mealName: "",
       mealImg: "",
@@ -49,8 +51,7 @@ export default {
       //load function asynchronically
       let response;
       let apiUrl =
-        "https://www.themealdb.com/api/json/v1/1/search.php?s=" + "tomatoe";
-      console.log("button has been clicked!");
+        "https://www.themealdb.com/api/json/v1/1/search.php?s=" + this.userInput;
       try {
         response = await this.axios
           .get(apiUrl) //promise should await this response
