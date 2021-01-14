@@ -3,20 +3,35 @@
   <div>
     <div>
       <h2>{{ mealName }}</h2>
-      <img
-        src="../assets/chevron-left.svg"
-        alt="chevron-left"
-        id="chevron-left"
-        class="chevron"
-      />
+      <!--Both Chevrons are Scaling Vector Graphics from https://kruxor.com/view/code/1pheD/chevron-left/-->
+      <svg
+        width="3em"
+        height="3em"
+        viewBox="0 0 16 16"
+        class="bi bi-chevron-left"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
+        />
+      </svg>
       <img v-bind:src="mealImg" v-bind:alt="mealName" />
-      <img
-        v-on:click="randomrecipe"
-        src="../assets/chevron-right.svg"
-        alt="chevron-right"
-        id="chevron-right"
+      <!--Both Chevrons are Scaling Vector Graphics from https://kruxor.com/view/code/1pheD/chevron-right/-->
+      <svg
+        width="3em"
+        height="3em"
+        viewBox="0 0 16 16"
         class="chevron"
-      />
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+        />
+      </svg>
       <p>Check out this awesome {{ mealName }}</p>
 
       <!--  <div class="attributes" v-on:click="srcbycat">{{ mealCategory }}</div>
