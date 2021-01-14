@@ -17,6 +17,10 @@
           <b-nav-item href="#">last recipe</b-nav-item>
         </b-navbar-nav>
 
+        <b-nav-item-dropdown text="Categories" right>
+          <b-dropdown-item href="#"></b-dropdown-item>
+        </b-nav-item-dropdown>
+
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
           <b-nav-form>
