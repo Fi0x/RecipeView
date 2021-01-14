@@ -12,8 +12,8 @@
         <h5>Ingredients</h5>
         <table>
           <tr>
-            <td>measurements</td>
-            <td>ingredientName</td>
+            <td>measurements: {{ measurements }}</td>
+            <td>ingredientName: {{ ingredients }}</td>
           </tr>
           <tr>
             <td></td>
@@ -51,21 +51,21 @@ export default {
       mealInstructions: [],
       mealCategory: "",
       mealArea: "",
+      measurements: [],
+      ingredients: []
     };
   },
   beforeMount() {
-    this.recipeById();
+    this.recipeById("52772");//Todo: Id needs to work with vue router
   },
 
   methods: {
-    async recipeById() {
-      let apiUrl = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=52772"; //Todo: Id needs to work with vue router
+    async recipeById(id) {
+      let apiUrl = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + id;
       let mealInfo;
 
       try {
-        this.response = await this.axios
-            .get(apiUrl) //promise should await this response
-            .then((response) => (mealInfo = response.data.meals[0]));
+        await this.axios.get(apiUrl).then((response) => (mealInfo = response.data.meals[0]));
 
         this.mealName = mealInfo.strMeal;
         this.mealImg = mealInfo.strMealThumb;
@@ -75,6 +75,11 @@ export default {
             .map((e) => e.trim());
         this.mealCategory = mealInfo.strCategory;
         this.mealArea = mealInfo.strArea;
+
+        for (var i = 1; i <= 20; i++) {
+          this.measurements.push(mealInfo.strMeasure$i);
+          this.ingredients.push(mealInfo.strIngredient$i);
+        }
       } catch (e) {
         console.error(e); //throws error if promise can't be fulfilled
       }
