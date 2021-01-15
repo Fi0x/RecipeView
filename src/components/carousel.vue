@@ -4,7 +4,8 @@
     <div>
       <h2>{{ mealName }}</h2>
       <!--Both Chevrons are Scaling Vector Graphics from https://kruxor.com/view/code/1pheD/chevron-left/-->
-      <svg
+
+ <svg
         width="3em"
         height="3em"
         viewBox="0 0 16 16"
@@ -18,7 +19,7 @@
           d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
         />
       </svg>
-      <img v-bind:src="mealImg" v-bind:alt="mealName" />
+      <img v-bind:src="mealImg" v-bind:alt="mealName" id="carouselimg" />
       <!--Both Chevrons are Scaling Vector Graphics from https://kruxor.com/view/code/1pheD/chevron-right/-->
       <svg
         width="3em"
@@ -34,6 +35,7 @@
           d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
         />
       </svg>
+     
 
       <!--  <div class="attributes" v-on:click="srcbycat">{{ mealCategory }}</div>
       <div class="attributes" v-on:click="srcbyarea">{{ mealArea }}</div> -->
@@ -174,6 +176,7 @@ img {
   padding: 5px;
 }
 
+ 
 .chevron {
   max-width: 50px;
 }
