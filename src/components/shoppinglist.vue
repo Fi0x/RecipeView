@@ -48,7 +48,7 @@ a pop up with all ingredients in form of buttons. On-click these are added to th
 <!--------------------------------------SCRIPT-------------------------------------->
 <script>
 "use strict";
-//////////// Todo menge der zutaten ggf mit store speichern VUEX -> ggf wie einkaufskorb auf website
+//////////// todo menge der zutaten ggf mit store speichern VUEX -> ggf wie einkaufskorb auf website
 export default {
   name: "Shoppinglist",
   data: function () {

@@ -9,8 +9,8 @@
         <img v-bind:src="mealImg" v-bind:alt="mealName" id="mealimage"/>
       </b-col>
       <b-col sm="6">
-        <h5 class="left-bound">Ingredients</h5>
         <table>
+          <thead><tr><th>Ingredients bla bla bla bla </th></tr></thead>     <!--todo fix this header-->
           <tr v-for="(mes, index) in measurements" :key="index">
             <td class="measurements"> {{ mes }}</td>
             <td class="ingredients"> {{ ingredients[index] }}</td>
@@ -18,7 +18,12 @@
      
         </table>
       </b-col>
-      <div>
+      <b-col sm="1"></b-col>
+    </b-row>
+    <b-row>
+      <b-col sm="1"></b-col>
+      <b-col>
+              <div>
       <h5 class="left-bound">Instructions</h5>
       <ul id="instructions">
         <b-checkbox
@@ -32,6 +37,7 @@
         </b-checkbox>
       </ul>
     </div>
+      </b-col>
       <b-col sm="1"></b-col>
     </b-row>
     
@@ -113,5 +119,9 @@ table {
 .left-bound {
   text-align: left;
   padding-left: 35px;
+}
+
+.centered {
+  text-align: center;
 }
 </style>
