@@ -22,10 +22,10 @@ Should be exported to header.vue later.-->
     <div id="searchresults">
       You searched for PLACEHOLDER {{}} These are your results:
       <ul>
-        <li v-for="result in mealInfo" :key="result.i">
-          <img v-bind:src="mealImg" v-bind:alt="mealName" />
-          <h5>{{ mealName }}</h5>
-          <div id="tags">{{ mealCategory }} {{ mealArea }}</div>
+        <li v-for="(result, idx) in mealInfo" :key="idx">
+          <img v-bind:src="result.strMealThumb" v-bind:alt="result.strMeal" />
+          <h5>{{ result.strMeal }}</h5>
+          <div id="tags">{{ result.strCategory }} {{ result.strArea }}</div>
         </li>
       </ul>
     </div>
@@ -40,10 +40,6 @@ export default {
     return {
       userInput: "",
       mealInfo: "",
-      mealName: "",
-      mealImg: "",
-      mealCategory: "",
-      mealArea: "",
     };
   },
 
@@ -51,20 +47,12 @@ export default {
     async recipesearch() {
       //load function asynchronically
       let response;
-      let mealInfo;
-      let apiUrl =
-        "https://www.themealdb.com/api/json/v1/1/search.php?s=" +
-        this.userInput;
+      let apiUrl = "https://www.themealdb.com/api/json/v1/1/search.php?s=" + this.userInput;
       try {
         response = await this.axios
           .get(apiUrl) //promise should await this response
-          .then((response) => (mealInfo = response.data.meals));
+          .then((response) => (this.mealInfo = response.data.meals));
         console.log(response);
-        let i = 0; //todo placeholder since for-loop doesn't work properly at the current moment BUG BUG BUG
-        this.mealName = mealInfo[i].strMeal;
-        this.mealImg = mealInfo[i].strMealThumb;
-        this.mealCategory = mealInfo[i].strCategory;
-        this.mealArea = mealInfo[i].strArea;
       } catch (e) {
         console.error(e);
       }
