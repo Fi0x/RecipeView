@@ -11,9 +11,9 @@
       <b-col sm="6">
         <h5>Ingredients</h5>
         <table>
-          <tr>
-            <td>measurements: {{ measurements }}</td>
-            <td>ingredientName: {{ ingredients }}</td>
+          <tr v-for="(mes, index) in measurements" :key="index">
+            <td> {{ mes }}</td>
+            <td> {{ ingredients[index] }}</td>
           </tr>
           <tr>
             <td></td>
@@ -77,8 +77,9 @@ export default {
         this.mealArea = mealInfo.strArea;
 
         for (var i = 1; i <= 20; i++) {
-          this.measurements.push(mealInfo.strMeasure$i);
-          this.ingredients.push(mealInfo.strIngredient$i);
+          if (mealInfo["strIngredient" + i] === "") break;
+          this.ingredients.push(mealInfo["strIngredient" + i]);
+          this.measurements.push(mealInfo["strMeasure" + i]);
         }
       } catch (e) {
         console.error(e); //throws error if promise can't be fulfilled
