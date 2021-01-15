@@ -5,33 +5,33 @@
       <h2>{{ mealName }}</h2>
       <!--Both Chevrons are Scaling Vector Graphics from https://kruxor.com/view/code/1pheD/chevron-left/-->
       <svg
-          width="3em"
-          height="3em"
-          viewBox="0 0 16 16"
-          class="chevron"
-          fill="currentColor"
-          xmlns="http://www.w3.org/2000/svg"
-          v-on:click="previousRecipe"
+        width="3em"
+        height="3em"
+        viewBox="0 0 16 16"
+        class="chevron"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+        v-on:click="previousRecipe"
       >
         <path
-            fill-rule="evenodd"
-            d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
+          fill-rule="evenodd"
+          d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
         />
       </svg>
-      <img v-bind:src="mealImg" v-bind:alt="mealName"/>
+      <img v-bind:src="mealImg" v-bind:alt="mealName" />
       <!--Both Chevrons are Scaling Vector Graphics from https://kruxor.com/view/code/1pheD/chevron-right/-->
       <svg
-          width="3em"
-          height="3em"
-          viewBox="0 0 16 16"
-          class="chevron"
-          fill="currentColor"
-          xmlns="http://www.w3.org/2000/svg"
-          v-on:click="nextRecipe"
+        width="3em"
+        height="3em"
+        viewBox="0 0 16 16"
+        class="chevron"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+        v-on:click="nextRecipe"
       >
         <path
-            fill-rule="evenodd"
-            d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+          fill-rule="evenodd"
+          d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
         />
       </svg>
 
@@ -53,7 +53,7 @@ export default {
       mealImg: "",
       mealInstructions: "",
       mealCategory: "",
-      mealArea: ""
+      mealArea: "",
     };
   },
   beforeMount() {
@@ -78,8 +78,8 @@ export default {
 
       try {
         this.response = await this.axios
-            .get(apiUrl) //promise should await this response
-            .then((response) => (mealInfo = response.data.meals[0]));
+          .get(apiUrl) //promise should await this response
+          .then((response) => (mealInfo = response.data.meals[0]));
         this.mealName = mealInfo.strMeal;
         this.mealImg = mealInfo.strMealThumb;
         this.mealInstructions = mealInfo.strInstructions;
@@ -95,9 +95,9 @@ export default {
 
       try {
         this.response = await this.axios
-            .get(apiUrl) //promise should await this response
-            .then((response) => (mealInfo = response.data.meals[0]));
-        this.mealIDs.push(mealInfo.idMeal);
+          .get(apiUrl) //promise should await this response
+          .then((response) => (mealInfo = response.data.meals[0]));
+        this.mealIDs.push(mealInfo.idMeal); //todo bitte versuch noch zu fixen dass zweimal das selbe rezept vorkommen kann, falls möglich
         this.mealName = mealInfo.strMeal;
         this.mealImg = mealInfo.strMealThumb;
         this.mealInstructions = mealInfo.strInstructions;

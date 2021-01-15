@@ -51,19 +51,20 @@ export default {
     async recipesearch() {
       //load function asynchronically
       let response;
+      let mealInfo;
       let apiUrl =
         "https://www.themealdb.com/api/json/v1/1/search.php?s=" +
         this.userInput;
       try {
         response = await this.axios
           .get(apiUrl) //promise should await this response
-          .then((response) => (this.mealInfo = response.data.meals));
+          .then((response) => (mealInfo = response.data.meals));
         console.log(response);
         let i = 0; //todo placeholder since for-loop doesn't work properly at the current moment BUG BUG BUG
-        this.mealName = this.mealInfo[i].strMeal;
-        this.mealImg = this.mealInfo[i].strMealThumb;
-        this.mealCategory = this.mealInfo[i].strCategory;
-        this.mealArea = this.mealInfo[i].strArea;
+        this.mealName = mealInfo[i].strMeal;
+        this.mealImg = mealInfo[i].strMealThumb;
+        this.mealCategory = mealInfo[i].strCategory;
+        this.mealArea = mealInfo[i].strArea;
       } catch (e) {
         console.error(e);
       }

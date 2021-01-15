@@ -18,14 +18,20 @@
           <b-nav-item-dropdown text="Categories" right>
             <b-dropdown-item
               href="#"
-              v-for="(category, index) in categories"
+              v-for="(category, index) in categoryArray"
               :key="index"
             >
               {{ category }}
             </b-dropdown-item>
           </b-nav-item-dropdown>
           <b-nav-item-dropdown text="Countries" right>
-            <b-dropdown-item href="#"> {{}} </b-dropdown-item>
+            <b-dropdown-item
+              href="#"
+              v-for="(area, index) in countryArray"
+              :key="index"
+            >
+              {{ area }}
+            </b-dropdown-item>
           </b-nav-item-dropdown>
         </b-navbar-nav>
 
@@ -53,21 +59,48 @@ export default {
   name: "header",
   data: function () {
     return {
-      categories: [],
+      catArray: [],
+      categoryArray: [],
+      areaArray: [],
+      countryArray: [],
     };
   },
   beforeMount() {
     this.loadCats();
+    this.loadAreas();
   },
   methods: {
     async loadCats() {
       let apiUrl = "https://www.themealdb.com/api/json/v1/1/categories.php";
       let catArray;
+      let i;
       try {
-        this.response = await this.axios.get(apiUrl).then(
-          (response) => catArray.push(response.data.categories.strCategory) //todo: eigentlich will ich das resultat als array speichern den ich dann oben ausgeben kann aber es klappt noch nicht
-        );
-        console.log(this.catArray);
+        this.response = await this.axios
+          .get(apiUrl)
+          .then((response) => (catArray = response.data.categories));
+        for (i = 0; i < catArray.length; i++) {
+          this.categoryArray.push(catArray[i].strCategory);
+        }
+
+        catArray = catArray[0].strCategory;
+
+        console.log(catArray);
+      } catch (e) {
+        console.error(e);
+      }
+    },
+
+    async loadAreas() {
+      let apiUrl = "https://www.themealdb.com/api/json/v1/1/list.php?a=list";
+      let areaArray;
+      let i;
+      try {
+        this.response = await this.axios
+          .get(apiUrl)
+          .then((response) => (areaArray = response.data.meals));
+        for (i = 0; i < areaArray.length; i++) {
+          this.countryArray.push(areaArray[i].strArea);
+        }
       } catch (e) {
         console.error(e);
       }
