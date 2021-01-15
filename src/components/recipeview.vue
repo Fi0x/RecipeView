@@ -1,7 +1,7 @@
 <!------------------------------TEMPLATE-------------------------------------->
 <template>
   <div>
-    <h2>{{ mealName }}</h2>
+    <h2 class="left-bound">{{ mealName }}</h2>
     <!--DOESN'T WORK ATM FOR SOME REASON-->
     <b-row>
       <b-col sm="1"></b-col>
@@ -9,22 +9,17 @@
         <img v-bind:src="mealImg" v-bind:alt="mealName" id="mealimage"/>
       </b-col>
       <b-col sm="6">
-        <h5>Ingredients</h5>
+        <h5 class="left-bound">Ingredients</h5>
         <table>
           <tr v-for="(mes, index) in measurements" :key="index">
-            <td> {{ mes }}</td>
-            <td> {{ ingredients[index] }}</td>
+            <td class="measurements"> {{ mes }}</td>
+            <td class="ingredients"> {{ ingredients[index] }}</td>
           </tr>
-          <tr>
-            <td></td>
-            <td></td>
-          </tr>
+     
         </table>
       </b-col>
-      <b-col sm="1"></b-col>
-    </b-row>
-    <div>
-      <h5>Instructions</h5>
+      <div>
+      <h5 class="left-bound">Instructions</h5>
       <ul id="instructions">
         <b-checkbox
             class="listitem"
@@ -37,6 +32,9 @@
         </b-checkbox>
       </ul>
     </div>
+      <b-col sm="1"></b-col>
+    </b-row>
+    
   </div>
 </template>
 <!--------------------------------SCRIPT----------------------------------->
@@ -96,9 +94,24 @@ table {
 
 #mealimage {
   max-width: 100%;
+  float: left;
 }
 
 #instructions {
   text-align: left;
+}
+
+.measurements {
+  text-align: right;
+}
+
+.ingredients {
+  text-align: left;
+  padding-left: 20px;
+}
+
+.left-bound {
+  text-align: left;
+  padding-left: 35px;
 }
 </style>
