@@ -10,7 +10,7 @@
       </b-col>
       <b-col sm="6">
         <table>
-          <thead><tr><th>Ingredients bla bla bla bla </th></tr></thead>     <!--todo fix this header-->
+          <thead><tr><th colspan="2"><h5>Ingredients</h5></th></tr></thead>     <!--todo fix this header-->
           <tr v-for="(mes, index) in measurements" :key="index">
             <td class="measurements"> {{ mes }}</td>
             <td class="ingredients"> {{ ingredients[index] }}</td>
@@ -100,7 +100,6 @@ table {
 
 #mealimage {
   max-width: 100%;
-  float: left;
 }
 
 #instructions {
@@ -109,11 +108,12 @@ table {
 
 .measurements {
   text-align: right;
+  padding-right: 10px;
 }
 
 .ingredients {
   text-align: left;
-  padding-left: 20px;
+  padding-left: 10px;
 }
 
 .left-bound {

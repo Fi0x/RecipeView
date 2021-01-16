@@ -1,7 +1,7 @@
 <!------------------------------TEMPLATE-------------------------------------->
 <template>
   <div>
-    <b-navbar id="navbar" toggleable="lg" type="dark">
+    <b-navbar id="navbarAll" toggleable="lg" type="dark">
       <b-navbar-brand href="#">
         <img src="../assets/logoimg.png" alt="logo" id="headerlogo" />
       </b-navbar-brand>
@@ -114,7 +114,7 @@ export default {
   width: 150px;
 }
 
-#navbar {
+#navbarAll {
   background-color: #223d57;
 }
 
