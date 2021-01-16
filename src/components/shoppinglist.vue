@@ -19,22 +19,20 @@ a pop up with all ingredients in form of buttons. On-click these are added to th
     </form>
 
     <ul>
-      <div class="item">
-        <b-checkbox
-          class="listitem"
-          v-for="(item, index) in shoplist"
-          :key="index"
-        >
-          <li class="strikethrough">
-            {{ item }}
-            <b-button
+      <div class="item"
+                v-for="(item, index) in shoplist"
+          :key="index">
+      
+         <li class="shlist"
+         v-bind:class="[isActive ? 'done' : 'undone'] ">
+           <b-button
               class="trashbtn"
               type="button"
-              v-on:click="clearitem(index)"
-              >🗑️
+              v-on:click="toggleClass()"
+              >✔️
             </b-button>
+            {{ item }}
           </li>
-        </b-checkbox>
       </div>
     </ul>
 
@@ -55,6 +53,7 @@ export default {
     return {
       shoplist: [],
       input: "",
+      isActive: false,
     };
   },
   methods: {
@@ -67,6 +66,9 @@ export default {
     },
     clearitem(index) {
       this.shoplist.splice(index, 1);
+    },
+    toggleClass: function() {
+      this.isActive =!this.isActive;
     },
   },
 };
@@ -92,7 +94,15 @@ export default {
   border-color: lightcoral;
 }
 
-b-checkbox:checked + li.strikethrough {
+.shlist {
+list-style: none;
+}
+
+.done {
   text-decoration: line-through;
+}
+
+.undone {
+  text-decoration: none;
 }
 </style>
