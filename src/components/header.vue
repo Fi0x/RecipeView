@@ -71,23 +71,20 @@ export default {
   },
   methods: {
     async loadCats() {
-      let apiUrl = "https://www.themealdb.com/api/json/v1/1/categories.php";
+      let apiUrl = "https://www.themealdb.com/api/json/v1/1/list.php?c=list";
       let catArray;
       let i;
       try {
         this.response = await this.axios
           .get(apiUrl)
-          .then((response) => (catArray = response.data.categories));
+          .then((response) => (catArray = response.data.meals));
         for (i = 0; i < catArray.length; i++) {
           this.categoryArray.push(catArray[i].strCategory);
         }
-
-        catArray = catArray[0].strCategory;
       } catch (e) {
         console.error(e);
       }
     },
-
     async loadAreas() {
       let apiUrl = "https://www.themealdb.com/api/json/v1/1/list.php?a=list";
       let areaArray;
