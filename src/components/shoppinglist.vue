@@ -96,13 +96,13 @@ export default {
 }
 
 .shoppingitem:hover {
-  background-color: #d4ad39;
-  border-color: #d4ad39;
+   color: #2c3e50;
 }
 
 .shoppingitem:focus {
   background-color: #f3d0a4;
   border-color: #f3d0a4;
+   color: #2c3e50;
 }
 
 .shlist {

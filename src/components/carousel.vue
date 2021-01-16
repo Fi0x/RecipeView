@@ -36,11 +36,6 @@
         />
       </svg>
       </div>
-      
-     
-
-      <!--  <div class="attributes" v-on:click="srcbycat">{{ mealCategory }}</div>
-      <div class="attributes" v-on:click="srcbyarea">{{ mealArea }}</div> -->
     </div>
   </div>
 </template>
