@@ -5,6 +5,15 @@
     <b-row>
       <b-col sm="1"></b-col>
       <b-col sm="7">
+    <router-view id="showcase"/>
+    </b-col>
+    <b-col sm="1"></b-col>
+    </b-row>
+    <router-link to="search">Search</router-link>
+    <router-link to="recipe">Recipe</router-link>
+    <b-row>
+      <b-col sm="1"></b-col>
+      <b-col sm="7">
         <Carousel id="car"/>
       </b-col>
       <b-col sm="3">
@@ -60,6 +69,14 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+
+#showcase {
+    background-color: #f3d9a4;
+
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding: 20px;
 }
 
 #car {
