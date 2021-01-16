@@ -83,8 +83,6 @@ export default {
         }
 
         catArray = catArray[0].strCategory;
-
-        console.log(catArray);
       } catch (e) {
         console.error(e);
       }

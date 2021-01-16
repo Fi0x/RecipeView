@@ -23,7 +23,7 @@ Should be exported to header.vue later.-->
       You searched for PLACEHOLDER {{}} These are your results:
       <ul>
         <li v-for="(result, idx) in mealInfo" :key="idx">
-          <img v-bind:src="result.strMealThumb" v-bind:alt="result.strMeal" />
+          <img v-bind:src="result.strMealThumb" v-bind:alt="result.strMeal" v-on:click="recipeClicked(result.idMeal)"/>
           <h5>{{ result.strMeal }}</h5>
           <div id="tags">{{ result.strCategory }} {{ result.strArea }}</div>
         </li>
@@ -44,6 +44,9 @@ export default {
   },
 
   methods: {
+    recipeClicked(recipeID){
+      this.$root.$emit('displayRecipe', recipeID)
+    },
     async recipesearch() {
       //load function asynchronically
       let response;

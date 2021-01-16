@@ -59,6 +59,10 @@ export default {
       ingredients: []
     };
   },
+  created: function () {
+    // eslint-disable-next-line no-undef
+    this.$root.$on('displayRecipe', this.recipeById)
+  },
   beforeMount() {
     this.recipeById("52772");//Todo: Id needs to work with vue router
   },
