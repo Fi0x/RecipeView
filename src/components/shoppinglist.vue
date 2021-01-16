@@ -23,15 +23,14 @@ a pop up with all ingredients in form of buttons. On-click these are added to th
                 v-for="(item, index) in shoplist"
           :key="index">
       
-         <li class="shlist"
-         v-bind:class="[isActive ? 'done' : 'undone'] ">
+         <li class="shlist">
            <b-button
-              class="trashbtn"
+              class="shoppingitem"
               type="button"
-              v-on:click="toggleClass()"
-              >✔️
+              v-on:click.prevent="toggleClass (item, $event.target)"
+              >✔️            {{ item }}
             </b-button>
-            {{ item }}
+
           </li>
       </div>
     </ul>
@@ -53,7 +52,7 @@ export default {
     return {
       shoplist: [],
       input: "",
-      isActive: false,
+
     };
   },
   methods: {
@@ -67,8 +66,14 @@ export default {
     clearitem(index) {
       this.shoplist.splice(index, 1);
     },
-    toggleClass: function() {
-      this.isActive =!this.isActive;
+    toggleClass(item, target) {
+      let list = target.classList
+      if (list.contains('strikethrough')) {
+        list.remove('strikethrough');
+      }
+      else {
+        list.add('strikethrough');
+      }
     },
   },
 };
@@ -83,26 +88,29 @@ export default {
   text-align: left;
 }
 
-.trashbtn {
+.shoppingitem {
   padding: 0px;
   background-color: #f3d9a4;
   border-color: #f3d9a4;
+  color: #2c3e50;
 }
 
-.trashbtn:hover {
-  background-color: lightcoral;
-  border-color: lightcoral;
+.shoppingitem:hover {
+  background-color: #d4ad39;
+  border-color: #d4ad39;
+}
+
+.shoppingitem:focus {
+  background-color: #f3d0a4;
+  border-color: #f3d0a4;
 }
 
 .shlist {
 list-style: none;
 }
 
-.done {
+.strikethrough {
   text-decoration: line-through;
 }
 
-.undone {
-  text-decoration: none;
-}
 </style>
