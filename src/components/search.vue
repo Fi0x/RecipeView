@@ -24,8 +24,8 @@ Should be exported to header.vue later.-->
       <ul>
         <li v-for="(result, idx) in mealInfo" :key="idx">
           <img v-bind:src="result.strMealThumb" v-bind:alt="result.strMeal" v-on:click="recipeClicked(result.idMeal)"/>
-          <h5>{{ result.strMeal }}</h5>
-          <div id="tags">{{ result.strCategory }} {{ result.strArea }}</div>
+          <h5 v-on:click="recipeClicked(result.idMeal)">{{ result.strMeal }}</h5>
+          <div id="tags">{{ result.strCategory }} {{ result.strArea }}</div><!--On click start search for category-->
         </li>
       </ul>
     </div>
