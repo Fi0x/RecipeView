@@ -3,17 +3,31 @@
   <div>
     <b-navbar id="navbarAll" toggleable="lg" type="dark">
       <b-navbar-brand href="#">
-        <router-link to="Home"><img src="../assets/logoimg.png" alt="logo" id="headerlogo"/></router-link>
+        <router-link to="Home"
+          ><img src="../assets/logoimg.png" alt="logo" id="headerlogo"
+        /></router-link>
       </b-navbar-brand>
       <b-navbar-brand href="#">
-        <router-link to="Home">  <img src="../assets/logosimple.png" alt="recipefinder" id="logofont" /></router-link>
+        <router-link to="Home">
+          <img src="../assets/logosimple.png" alt="recipefinder" id="logofont"
+        /></router-link>
       </b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
-          <b-nav-item href="#"><router-link to="Recipe" class="nav-link">last viewed recipe</router-link></b-nav-item>
+          <b-nav-item href="#"
+            ><router-link to="Recipe" class="nav-link"
+              >last viewed recipe</router-link
+            ></b-nav-item
+          >
+
+          <b-bav-item>
+            <router-link to="search" class="nav-link">Search</router-link
+            >Search</b-bav-item
+          >
+
           <b-nav-item-dropdown text="Categories" right>
             <b-dropdown-item
               href="#"
@@ -23,6 +37,7 @@
               {{ category }}
             </b-dropdown-item>
           </b-nav-item-dropdown>
+
           <b-nav-item-dropdown text="Countries" right>
             <b-dropdown-item
               href="#"
@@ -56,7 +71,7 @@
 "use strict";
 export default {
   name: "header",
-  data: function () {
+  data: function() {
     return {
       catArray: [],
       categoryArray: [],

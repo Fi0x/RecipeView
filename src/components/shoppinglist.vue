@@ -19,19 +19,15 @@ a pop up with all ingredients in form of buttons. On-click these are added to th
     </form>
 
     <ul>
-      <div class="item"
-                v-for="(item, index) in shoplist"
-          :key="index">
-      
-         <li class="shlist">
-           <b-button
-              class="shoppingitem"
-              type="button"
-              v-on:click.prevent="toggleClass (item, $event.target)"
-              >✔️            {{ item }}
-            </b-button>
-
-          </li>
+      <div class="item" v-for="(item, index) in shoplist" :key="index">
+        <li class="shlist">
+          <b-button
+            class="shoppingitem"
+            type="button"
+            v-on:click.prevent="toggleClass(item, $event.target)"
+            >✔️ {{ item }}
+          </b-button>
+        </li>
       </div>
     </ul>
 
@@ -41,18 +37,16 @@ a pop up with all ingredients in form of buttons. On-click these are added to th
   </div>
 </template>
 
-
 <!--------------------------------------SCRIPT-------------------------------------->
 <script>
 "use strict";
 //////////// todo menge der zutaten ggf mit store speichern VUEX -> ggf wie einkaufskorb auf website
 export default {
   name: "Shoppinglist",
-  data: function () {
+  data: function() {
     return {
       shoplist: [],
       input: "",
-
     };
   },
   methods: {
@@ -67,12 +61,11 @@ export default {
       this.shoplist.splice(index, 1);
     },
     toggleClass(item, target) {
-      let list = target.classList
-      if (list.contains('strikethrough')) {
-        list.remove('strikethrough');
-      }
-      else {
-        list.add('strikethrough');
+      let list = target.classList;
+      if (list.contains("strikethrough")) {
+        list.remove("strikethrough");
+      } else {
+        list.add("strikethrough");
       }
     },
   },
@@ -96,21 +89,20 @@ export default {
 }
 
 .shoppingitem:hover {
-   color: #2c3e50;
+  color: #2c3e50;
 }
 
 .shoppingitem:focus {
   background-color: #f3d0a4;
   border-color: #f3d0a4;
-   color: #2c3e50;
+  color: #2c3e50;
 }
 
 .shlist {
-list-style: none;
+  list-style: none;
 }
 
 .strikethrough {
   text-decoration: line-through;
 }
-
 </style>

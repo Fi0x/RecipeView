@@ -1,65 +1,44 @@
 <!------------------------------TEMPLATE-------------------------------------->
 <template>
   <div id="app">
-    <Header id="head"/>
+    <!--------HEADER-------->
+    <Header id="head" />
     <b-row>
       <b-col sm="1"></b-col>
+      <!------ROUTER-VIEW--------->
       <b-col sm="7">
-    <router-view id="showcase"/>
-    </b-col>
-    <b-col sm="1"></b-col>
-    </b-row>
-    <router-link to="search">Search</router-link>
-    <router-link to="recipe">Recipe</router-link>
-    <b-row>
-      <b-col sm="1"></b-col>
-      <b-col sm="7">
-        <Carousel id="car"/>
+        <router-view id="showcase" />
       </b-col>
+      <!-------SHOPPINGLIST-------->
       <b-col sm="3">
-        <Shoppinglist id="shlist"/>
+        <Shoppinglist id="shlist" />
       </b-col>
       <b-col sm="1"></b-col>
     </b-row>
-    <b-row>
-      <b-col sm="1"></b-col>
-      <b-col sm="7">
-        <RecipeView id="recipeview"/>
-      </b-col>
-      <b-col sm="1"></b-col>
-    </b-row>
-    <b-row>
-      <b-col sm="1"></b-col>
-      <b-col>
-        <Search/>
-      </b-col>
-      <b-col sm="1"></b-col>
-    </b-row>
-    <Footer/>
+
+    <Footer />
   </div>
 </template>
 <!--------------------------------SCRIPT----------------------------------->
 <script>
 import Header from "./components/header.vue";
-import Carousel from "./components/carousel.vue";
+//import Carousel from "./components/carousel.vue";
 import Shoppinglist from "./components/shoppinglist.vue";
-import RecipeView from "./components/recipeview.vue";
-import Search from "./components/search.vue";
+//import RecipeView from "./components/recipeview.vue";
+//import Search from "./components/search.vue";
 import Footer from "./components/footer.vue";
 
 export default {
   name: "App",
   components: {
     Header,
-    Carousel,
+    //Carousel,
     Shoppinglist,
-    RecipeView,
-    Search,
+    //RecipeView,
+    //Search,
     Footer,
   },
 };
-
-
 </script>
 <!--------------------------------STYLE----------------------------------->
 <style>
@@ -72,14 +51,6 @@ export default {
 }
 
 #showcase {
-    background-color: #f3d9a4;
-
-  margin-top: 15px;
-  margin-bottom: 15px;
-  padding: 20px;
-}
-
-#car {
   background-color: #f3d9a4;
 
   margin-top: 15px;
@@ -93,13 +64,5 @@ export default {
   margin-top: 15px;
   margin-bottom: 15px;
   padding: 20px;
-}
-
-#recipeview {
-  background-color: #f3d9a4;
-  padding-left: 50px;
-  padding-right: 50px;
-  padding-top: 20px;
-  padding-bottom: 20px;
 }
 </style>

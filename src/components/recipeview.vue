@@ -6,16 +6,20 @@
     <b-row>
       <b-col sm="1"></b-col>
       <b-col sm="4">
-        <img v-bind:src="mealImg" v-bind:alt="mealName" id="mealimage"/>
+        <img v-bind:src="mealImg" v-bind:alt="mealName" id="mealimage" />
       </b-col>
       <b-col sm="6">
         <table>
-          <thead><tr><th colspan="2"><h5>Ingredients</h5></th></tr></thead>     <!--todo fix this header-->
+          <thead>
+            <tr>
+              <th colspan="2"><h5>Ingredients</h5></th>
+            </tr>
+          </thead>
+          <!--todo fix this header-->
           <tr v-for="(mes, index) in measurements" :key="index">
-            <td class="measurements"> {{ mes }}</td>
-            <td class="ingredients"> {{ ingredients[index] }}</td>
+            <td class="measurements">{{ mes }}</td>
+            <td class="ingredients">{{ ingredients[index] }}</td>
           </tr>
-     
         </table>
       </b-col>
       <b-col sm="1"></b-col>
@@ -23,24 +27,23 @@
     <b-row>
       <b-col sm="1"></b-col>
       <b-col>
-              <div>
-      <h5 class="left-bound">Instructions</h5>
-      <ul id="instructions">
-        <b-checkbox
-            class="listitem"
-            v-for="(paragraph, index) in mealInstructions"
-            :key="index"
-        >
-          <li>
-            {{ paragraph }}
-          </li>
-        </b-checkbox>
-      </ul>
-    </div>
+        <div>
+          <h5 class="left-bound">Instructions</h5>
+          <ul id="instructions">
+            <b-checkbox
+              class="listitem"
+              v-for="(paragraph, index) in mealInstructions"
+              :key="index"
+            >
+              <li>
+                {{ paragraph }}
+              </li>
+            </b-checkbox>
+          </ul>
+        </div>
       </b-col>
       <b-col sm="1"></b-col>
     </b-row>
-    
   </div>
 </template>
 <!--------------------------------SCRIPT----------------------------------->
@@ -48,7 +51,7 @@
 "use strict";
 export default {
   name: "RecipeView",
-  data: function () {
+  data: function() {
     return {
       mealName: "",
       mealImg: "",
@@ -56,15 +59,15 @@ export default {
       mealCategory: "",
       mealArea: "",
       measurements: [],
-      ingredients: []
+      ingredients: [],
     };
   },
-  created: function () {
+  created: function() {
     // eslint-disable-next-line no-undef
-    this.$root.$on('displayRecipe', this.recipeById)
+    this.$root.$on("displayRecipe", this.recipeById);
   },
   beforeMount() {
-    this.recipeById("52772");//Todo: Id needs to work with vue router
+    this.recipeById("52772"); //Todo: Id needs to work with vue router
   },
 
   methods: {
@@ -73,14 +76,16 @@ export default {
       let mealInfo;
 
       try {
-        await this.axios.get(apiUrl).then((response) => (mealInfo = response.data.meals[0]));
+        await this.axios
+          .get(apiUrl)
+          .then((response) => (mealInfo = response.data.meals[0]));
 
         this.mealName = mealInfo.strMeal;
         this.mealImg = mealInfo.strMealThumb;
         this.mealInstructions = mealInfo.strInstructions
-            .split("\r\n")
-            .filter((e) => e.trim().length > 0)
-            .map((e) => e.trim());
+          .split("\r\n")
+          .filter((e) => e.trim().length > 0)
+          .map((e) => e.trim());
         this.mealCategory = mealInfo.strCategory;
         this.mealArea = mealInfo.strArea;
 
