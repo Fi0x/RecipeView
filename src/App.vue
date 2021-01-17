@@ -2,8 +2,8 @@
 <template>
   <div id="app">
     <!--------HEADER-------->
-    <Header id="head" />      //TODO: fix columns 
-    <b-row>
+    <Header id="head" />
+    <b-row class="no-gutters">
       <b-col sm="1"></b-col>
       <!------ROUTER-VIEW--------->
       <b-col sm="7">
@@ -16,7 +16,7 @@
       <b-col sm="1"></b-col>
     </b-row>
 
-    <Footer id="footer"/>
+    <Footer id="footer" />
   </div>
 </template>
 <!--------------------------------SCRIPT----------------------------------->
@@ -49,6 +49,7 @@ export default {
 
   margin-top: 15px;
   margin-bottom: 15px;
+  margin-right: 10px;
   padding: 20px;
 }
 
@@ -57,6 +58,7 @@ export default {
 
   margin-top: 15px;
   margin-bottom: 15px;
+  margin-left: 10px;
   padding: 20px;
 }
 </style>

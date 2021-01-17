@@ -1,7 +1,3 @@
-<!-- basic functionality similar to a to-do-list: items can be added using an input-field.
-items can also be striked-through/ticked off and deleted by clicking on a trashcan symbol. 
-interesting functionality that could be added aswell: clicking on a button under a recipe shows 
-a pop up with all ingredients in form of buttons. On-click these are added to the shopping list.-->
 <!------------------------------TEMPLATE-------------------------------------->
 <template>
   <div>
@@ -43,7 +39,7 @@ a pop up with all ingredients in form of buttons. On-click these are added to th
 //////////// todo menge der zutaten ggf mit store speichern VUEX -> ggf wie einkaufskorb auf website
 export default {
   name: "Shoppinglist",
-  data: function() {
+  data: function () {
     return {
       shoplist: [],
       input: "",
