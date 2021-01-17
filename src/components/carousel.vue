@@ -156,14 +156,6 @@ img {
   padding: 5px;
 }
 
-#car {
-  background-color: #f3d9a4;
-
-  margin-top: 15px;
-  margin-bottom: 15px;
-  padding: 20px;
-}
-
 .chevron {
   max-width: 50px;
 }

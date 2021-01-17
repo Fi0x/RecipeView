@@ -1,7 +1,7 @@
 <!------------------------------TEMPLATE-------------------------------------->
 <template>
   <div>
-    <h2 class="left-bound">{{ mealName }}</h2>
+    <h2><b>{{ mealName }}</b></h2>
     <b-row>
       <b-col sm="1"></b-col>
       <b-col sm="4">
