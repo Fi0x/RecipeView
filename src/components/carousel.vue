@@ -19,13 +19,16 @@
             d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
           />
         </svg>
-        <router-link :to="`/recipe/${this.mealIDs[this.index]}`">
+        <div>
+          <router-link :to="`/recipe/${this.mealIDs[this.index]}`">
           <img
             v-bind:src="mealImg"
             v-bind:alt="mealName"
             id="carouselimg"
           />
         </router-link>
+        </div>
+        
 
         <!--Both Chevrons are Scaling Vector Graphics from https://kruxor.com/view/code/1pheD/chevron-right/-->
         <svg
