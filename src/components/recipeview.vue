@@ -2,7 +2,6 @@
 <template>
   <div>
     <h2 class="left-bound">{{ mealName }}</h2>
-    <!--DOESN'T WORK ATM FOR SOME REASON-->
     <b-row>
       <b-col sm="1"></b-col>
       <b-col sm="4">
@@ -62,17 +61,22 @@ export default {
       ingredients: [],
     };
   },
+  props: ['id'],
   created: function() {
     // eslint-disable-next-line no-undef
-    this.$root.$on("displayRecipe", this.recipeById);
+    this.$root.$on("displayRecipe", this.storeId);
   },
   beforeMount() {
-    this.recipeById("52772"); //Todo: Id needs to work with vue router
+    this.recipeById(); 
   },
 
   methods: {
-    async recipeById(id) {
-      let apiUrl = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + id;
+    storeId(id) {
+      this.id = id;
+      console.log(this.id);
+    },
+    async recipeById() {
+      let apiUrl = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + this.id;
       let mealInfo;
 
       try {

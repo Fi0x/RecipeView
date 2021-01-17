@@ -20,9 +20,10 @@ export default new Router({
             component: Err
         },
         {
-            path: '/recipe',
+            path: '/recipe/:id',
             name: 'Recipe',
-            component: Recipe
+            component: Recipe,
+            props: true,
         },
         {
             path: '/search',
