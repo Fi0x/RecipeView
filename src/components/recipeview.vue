@@ -62,19 +62,11 @@ export default {
     };
   },
   props: ['id'],
-  created: function() {
-    // eslint-disable-next-line no-undef
-    this.$root.$on("displayRecipe", this.storeId);
-  },
   beforeMount() {
     this.recipeById(); 
   },
 
   methods: {
-    storeId(id) {
-      this.id = id;
-      console.log(this.id);
-    },
     async recipeById() {
       let apiUrl = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + this.id;
       let mealInfo;
