@@ -2,7 +2,7 @@
 <template>
   <div id="car">
     <div>
-      <h2 v-on:click="recipeClicked">{{ mealName }}</h2>
+      <h2>{{ mealName }}</h2>
       <!--Both Chevrons are Scaling Vector Graphics from https://kruxor.com/view/code/1pheD/chevron-left/-->
       <div>
         <svg
@@ -19,12 +19,11 @@
             d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
           />
         </svg>
-        <router-link to="recipe/id">
+        <router-link :to="`/recipe/${this.mealIDs[this.index]}`">
           <img
             v-bind:src="mealImg"
             v-bind:alt="mealName"
             id="carouselimg"
-            v-on:click="recipeClicked"
           />
         </router-link>
 
@@ -68,9 +67,6 @@ export default {
     this.firstRecipe();
   },
   methods: {
-    recipeClicked() {
-      this.$root.$emit("displayRecipe", this.mealIDs[this.index]);
-    },
     async previousRecipe() {
       this.index--;
       if (this.index < 0) {
