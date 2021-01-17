@@ -2,7 +2,7 @@
 <template>
   <div id="car">
     <div>
-      <router-link :to="`/${this.mealIDs[this.index]}`">
+      <router-link :to="`/${this.mealIDs[this.index]}`" class="router-links">
       <h2>{{ mealName }}</h2>
       </router-link>
       <!--Both Chevrons are Scaling Vector Graphics from https://kruxor.com/view/code/1pheD/chevron-left/-->
@@ -144,14 +144,9 @@ img {
   max-width: 500px;
 }
 
-.attributes {
-  background-color: gray;
-  color: white;
-  display: inline;
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  padding: 5px;
+.router-links {
+text-decoration: none;
+color: #2c3e50;
 }
 
 .chevron {

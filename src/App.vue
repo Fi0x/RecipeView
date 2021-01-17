@@ -16,7 +16,7 @@
       <b-col sm="1"></b-col>
     </b-row>
 
-    <Footer />
+    <Footer id="footer"/>
   </div>
 </template>
 <!--------------------------------SCRIPT----------------------------------->
