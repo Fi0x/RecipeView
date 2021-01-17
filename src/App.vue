@@ -22,20 +22,14 @@
 <!--------------------------------SCRIPT----------------------------------->
 <script>
 import Header from "./components/header.vue";
-//import Carousel from "./components/carousel.vue";
 import Shoppinglist from "./components/shoppinglist.vue";
-//import RecipeView from "./components/recipeview.vue";
-//import Search from "./components/search.vue";
 import Footer from "./components/footer.vue";
 
 export default {
   name: "App",
   components: {
     Header,
-    //Carousel,
     Shoppinglist,
-    //RecipeView,
-    //Search,
     Footer,
   },
 };
