@@ -52,7 +52,7 @@
 "use strict";
 export default {
   name: "carousel",
-  data: function() {
+  data: function () {
     return {
       index: 0,
       mealIDs: [],
@@ -91,14 +91,9 @@ export default {
       let mealInfo;
 
       try {
-        await this.axios
-          .get(apiUrl) //promise should await this response
-          .then((response) => (mealInfo = response.data.meals[0]));
-        this.mealName = mealInfo.strMeal;
-        this.mealImg = mealInfo.strMealThumb;
-        this.mealInstructions = mealInfo.strInstructions;
-        this.mealCategory = mealInfo.strCategory;
-        this.mealArea = mealInfo.strArea;
+        await this.axios.get(apiUrl) //promise should await this response
+            .then((response) => (mealInfo = response.data["meals"][0]));
+        this.storeData(mealInfo);
       } catch (e) {
         console.error(e); //throws error if promise can't be fulfilled
       }
@@ -109,16 +104,11 @@ export default {
 
       try {
         await this.axios
-          .get(apiUrl) //promise should await this response
-          .then((response) => (mealInfo = response.data.meals[0]));
-        if (this.mealIDs.includes(mealInfo.idMeal)) await this.randomrecipe();
+            .get(apiUrl) //promise should await this response
+            .then((response) => (mealInfo = response.data["meals"][0]));
+        if (this.mealIDs.includes(mealInfo["idMeal"])) await this.randomrecipe();
         else {
-          this.currentID = mealInfo.idMeal;
-          this.mealName = mealInfo.strMeal;
-          this.mealImg = mealInfo.strMealThumb;
-          this.mealInstructions = mealInfo.strInstructions;
-          this.mealCategory = mealInfo.strCategory;
-          this.mealArea = mealInfo.strArea;
+          this.storeData(mealInfo);
         }
       } catch (e) {
         console.error(e); //throws error if promise can't be fulfilled
@@ -129,19 +119,23 @@ export default {
       let mealInfo;
 
       try {
-        await this.axios
-          .get(apiUrl) //promise should await this response
-          .then((response) => (mealInfo = response.data.meals[0]));
-        this.mealIDs.push(mealInfo.idMeal);
-        this.mealName = mealInfo.strMeal;
-        this.mealImg = mealInfo.strMealThumb;
-        this.mealInstructions = mealInfo.strInstructions;
-        this.mealCategory = mealInfo.strCategory;
-        this.mealArea = mealInfo.strArea;
+        await this.axios.get(apiUrl) //promise should await this response
+            .then((response) => (mealInfo = response.data["meals"][0]));
+        this.mealIDs.push(mealInfo["idMeal"]);
+        this.storeData(mealInfo);
+
       } catch (e) {
         console.error(e); //throws error if promise can't be fulfilled
       }
     },
+    storeData(data) {
+      this.currentID = data["idMeal"];
+      this.mealName = data["strMeal"];
+      this.mealImg = data["strMealThumb"];
+      this.mealInstructions = data["strInstructions"];
+      this.mealCategory = data["strCategory"];
+      this.mealArea = data["strArea"];
+    }
   },
 };
 </script>
