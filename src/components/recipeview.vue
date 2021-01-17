@@ -63,7 +63,7 @@ export default {
   },
   props: ['id'],
   beforeMount() {
-    this.recipeById(); 
+    this.recipeById();
   },
 
   methods: {

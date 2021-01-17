@@ -11,13 +11,6 @@ Should be exported to header.vue later.-->
           placeholder="Search"
           v-model="userInput"
       ></b-form-input>
-      <b-button
-          size="sm"
-          class="my-2 my-sm-0"
-          type="submit"
-          v-on:click="recipesearchName"
-      >Search
-      </b-button>
     </div>
     <div id="searchresults">
       You searched for "{{ userInput }}" These are your results:
@@ -42,25 +35,24 @@ export default {
       mealInfo: "",
     };
   },
+  props: ['key'],
+  beforeMount() {
+    this.recipeSearchKey();
+  },
 
   methods: {
     recipeClicked(recipeID) {
       this.$root.$emit('displayRecipe', recipeID)
     },
-    async recipesearchName() {
-      //load function asynchronically
-      let response;
-      let apiUrl = "https://www.themealdb.com/api/json/v1/1/search.php?s=" + this.userInput;
+    async recipeSearchKey() {
+      let apiUrl = "https://www.themealdb.com/api/json/v1/1/search.php?" + this.key;
       try {
-        response = await this.axios
-            .get(apiUrl) //promise should await this response
-            .then((response) => (this.mealInfo = response.data.meals));
-        console.log(response);
+        await this.axios.get(apiUrl).then((response) => (this.mealInfo = response.data.meals));
       } catch (e) {
         console.error(e);
       }
     },
-    async recipesearchIngredient() {
+    async recipeSearchIngredient() {
       //load function asynchronically
       let response;
       let apiUrl = "https://www.themealdb.com/api/json/v1/1/filter.php?i=" + this.userInput;
@@ -73,7 +65,7 @@ export default {
         console.error(e);
       }
     },
-    async recipesearchCategory() {
+    async recipeSearchCategory() {
       //load function asynchronically
       let response;
       let apiUrl = "https://www.themealdb.com/api/json/v1/1/filter.php?c=" + this.userInput;
@@ -86,7 +78,7 @@ export default {
         console.error(e);
       }
     },
-    async recipesearchArea() {
+    async recipeSearchArea() {
       //load function asynchronically
       let response;
       let apiUrl = "https://www.themealdb.com/api/json/v1/1/filter.php?a=" + this.userInput;
