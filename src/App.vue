@@ -2,7 +2,7 @@
 <template>
   <div id="app">
     <!--------HEADER-------->
-    <Header id="head" />
+    <Header id="head" />      //TODO: fix columns 
     <b-row>
       <b-col sm="1"></b-col>
       <!------ROUTER-VIEW--------->
