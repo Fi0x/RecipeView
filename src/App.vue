@@ -1,5 +1,9 @@
 <!------------------------------TEMPLATE-------------------------------------->
 <template>
+  <!--TODO: Add Skeletons to each text-area and image that might get reloaded
+https://bootstrap-vue.org/docs/components/skeleton
+TODO: change app icon----->
+
   <div id="app">
     <!--------HEADER-------->
     <Header id="head" />
