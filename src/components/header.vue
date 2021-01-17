@@ -23,9 +23,9 @@
             ></b-nav-item
           >
 
-          <b-bav-item>
+          <b-nav-item>
             <router-link to="search" class="nav-link">Search</router-link
-            >Search</b-bav-item
+            ></b-nav-item
           >
 
           <b-nav-item-dropdown text="Categories" right>
