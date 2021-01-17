@@ -20,7 +20,7 @@ export default new Router({
             component: Err
         },
         {
-            path: '/recipe/:id',
+            path: '/:id',
             name: 'Recipe',
             component: Recipe,
             props: true,
