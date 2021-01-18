@@ -61,6 +61,9 @@ export default {
     },
     type: function () {
       this.recipeSearchKey();
+    },
+    userInput: function (){
+      this.recipeSearchKey2();
     }
   },
   beforeMount() {
@@ -70,6 +73,14 @@ export default {
   methods: {
     async recipeSearchKey() {
       let apiUrl = "https://www.themealdb.com/api/json/v1/1/" + this.type + ".php?" + this.key;
+      try {
+        await this.axios.get(apiUrl).then((response) => (this.mealInfo = response.data.meals));
+      } catch (e) {
+        console.error(e);
+      }
+    },
+    async recipeSearchKey2() {
+      let apiUrl = "https://www.themealdb.com/api/json/v1/1/search.php?s=" + this.userInput;
       try {
         await this.axios.get(apiUrl).then((response) => (this.mealInfo = response.data.meals));
       } catch (e) {
