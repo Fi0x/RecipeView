@@ -2,7 +2,7 @@
 <template>
   <div id="car">
     <div>
-      <router-link :to="`/${this.mealIDs[this.index]}`" class="router-links">
+      <router-link :to="`/recipe=${this.mealIDs[this.index]}`" class="router-links">
       <h2>{{ mealName }}</h2>
       </router-link>
       <!--Both Chevrons are Scaling Vector Graphics from https://kruxor.com/view/code/1pheD/chevron-left/-->
@@ -21,7 +21,7 @@
             d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
           />
         </svg>
-        <router-link :to="`/${this.mealIDs[this.index]}`">
+        <router-link :to="`/recipe=${this.mealIDs[this.index]}`">
           <img
             v-bind:src="mealImg"
             v-bind:alt="mealName"

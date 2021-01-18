@@ -19,7 +19,7 @@
         <b-navbar-nav>
           <b-nav-item href="#"
           >
-            <router-link to="Recipe" class="nav-link"
+            <router-link :to="`/recipe=${this.lastRecipeID}`" class="nav-link"
             >last viewed recipe
             </router-link
             >
@@ -56,7 +56,7 @@
                 placeholder="Search"
                 v-model="userInput"
             ></b-form-input>
-            <router-link :to="`/${this.searchLink}${this.userInput}`">
+            <router-link :to="`/search=${this.searchLink}${this.userInput}`">
               <b-button size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>
             </router-link>
           </b-nav-form>
@@ -72,6 +72,7 @@ export default {
   name: "header",
   data: function () {
     return {
+      lastRecipeID: "",//TODO Change each time recipe is changed
       userInput: "",
       searchLink: "s=",
       catArray: [],
