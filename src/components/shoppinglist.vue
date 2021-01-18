@@ -36,7 +36,7 @@
 <!--------------------------------------SCRIPT-------------------------------------->
 <script>
 "use strict";
-//////////// todo menge der zutaten ggf mit store speichern VUEX -> ggf wie einkaufskorb auf website
+//////////// TODO: menge der zutaten ggf mit store speichern VUEX -> ggf wie einkaufskorb auf website
 export default {
   name: "Shoppinglist",
   data: function () {
