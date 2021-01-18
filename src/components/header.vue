@@ -19,7 +19,7 @@
         <b-navbar-nav>
           <b-nav-item href="#"
           >
-            <router-link :to="`/recipe=${this.lastRecipeID}`" class="nav-link"
+            <router-link :to="`/recipe-${this.lastRecipeID}`" class="nav-link"
             >last viewed recipe
             </router-link
             >
@@ -32,7 +32,9 @@
                 v-for="(category, index) in categoryArray"
                 :key="index"
             >
-              {{ category }}
+              <router-link :to="`/filter-c=${category}`">
+                {{ category }}
+              </router-link>
             </b-dropdown-item>
           </b-nav-item-dropdown>
 
@@ -42,7 +44,9 @@
                 v-for="(area, index) in countryArray"
                 :key="index"
             >
-              {{ area }}
+              <router-link :to="`/filter-a=${area}`">
+                {{ area }}
+              </router-link>
             </b-dropdown-item>
           </b-nav-item-dropdown>
         </b-navbar-nav>
@@ -56,7 +60,7 @@
                 placeholder="Search"
                 v-model="userInput"
             ></b-form-input>
-            <router-link :to="`/search=${this.searchLink}${this.userInput}`">
+            <router-link :to="`/${this.searchLink}${this.userInput}`">
               <b-button size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>
             </router-link>
           </b-nav-form>
@@ -74,7 +78,7 @@ export default {
     return {
       lastRecipeID: "",//TODO Change each time recipe is changed
       userInput: "",
-      searchLink: "s=",
+      searchLink: "search-s=",
       catArray: [],
       categoryArray: [],
       areaArray: [],
