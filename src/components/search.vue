@@ -23,14 +23,11 @@
 
               v-bind:img-src="result.strMealThumb"
               v-bind:img-alt="result.strMeal"
-              v-on:click="recipeClicked(result.idMeal)"
               img-left
               class="mb-3"
           >
             <b-card-text>
-              <h5 v-on:click="recipeClicked(result.idMeal)">
-                {{ result.strMeal }}
-              </h5>
+              <h5>{{ result.strMeal }}</h5>
               <div id="tags">{{ result.strCategory }} {{ result.strArea }}</div>
             </b-card-text>
           </b-card>
@@ -70,19 +67,8 @@ export default {
   },
 
   methods: {
-    recipeClicked(recipeID) {
-      this.$root.$emit("displayRecipe", recipeID);
-    },
     async recipeSearchKey() {
       let apiUrl = "https://www.themealdb.com/api/json/v1/1/" + this.type + ".php?" + this.key;
-      try {
-        await this.axios.get(apiUrl).then((response) => (this.mealInfo = response.data.meals));
-      } catch (e) {
-        console.error(e);
-      }
-    },
-    async recipeSearchIngredient() {
-      let apiUrl = "https://www.themealdb.com/api/json/v1/1/filter.php?i=" + this.userInput;
       try {
         await this.axios.get(apiUrl).then((response) => (this.mealInfo = response.data.meals));
       } catch (e) {
