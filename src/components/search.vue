@@ -16,10 +16,11 @@
       <!--TODO: filter key object so only the search query gets displayed here-->
       You searched for <b>{{ key }}</b
       >. These are your results:
-      <ul>
-        <li v-for="(result, idx) in mealInfo" :key="idx">
+     <div class="card-wrapper"
+       v-for="(result, idx) in mealInfo" :key="idx">
           <router-link :to="`/recipe-${result.idMeal}`" class="router-links">
             <b-card
+          
               v-bind:img-src="result.strMealThumb"
               v-bind:img-alt="result.strMeal"
               v-on:click="recipeClicked(result.idMeal)"
@@ -27,22 +28,20 @@
               class="mb-3"
             >
               <b-card-text>
-                Some quick example text to build on the card and make up the
-                bulk of the card's content.
-              </b-card-text>
-            </b-card>
-            <h5 v-on:click="recipeClicked(result.idMeal)">
+                 <h5 v-on:click="recipeClicked(result.idMeal)">
               {{ result.strMeal }}
             </h5>
-
-            <div id="tags">{{ result.strCategory }} {{ result.strArea }}</div>
+          <div id="tags">{{ result.strCategory }} {{ result.strArea }}</div>
+              </b-card-text>
+            </b-card>
+           
+  
           </router-link>
-
+</div>
           <!--TODO: show first ?20? words of instructions next to each meal as a teaser-->
 
           <!--On click start search for category-->
-        </li>
-      </ul>
+    
     </div>
   </div>
 </template>
@@ -103,8 +102,13 @@ export default {
 #searchresults {
   text-align: left;
 }
-
+#tags {
+  color: black;
+}
 img {
   max-width: 100px;
+}
+.card-wrapper:hover {
+  text-decoration: none;
 }
 </style>
