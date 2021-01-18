@@ -57,11 +57,13 @@
             <b-form-input
                 size="sm"
                 class="mr-sm-2"
-                placeholder="Search"
+                placeholder="What do you want to eat?"
                 v-model="userInput"
+                id="searchbar"
             ></b-form-input>
             <router-link :to="`/${this.searchLink}${this.userInput}`">
-              <b-button size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>
+            <!--FIXME: stop searchbar from wobbling on mousehover-->
+              <b-button size="sm" class="my-2 my-sm-0" type="submit" id="searchbtn">Search</b-button>
             </router-link>
           </b-nav-form>
         </b-navbar-nav>
@@ -131,5 +133,22 @@ export default {
 
 #logofont {
   height: 80px;
+}
+
+#searchbar {
+  width: 250px;
+    margin: 10px;
+}
+
+#searchbtn {
+  background-color: #D4AD39;
+  border-color: #D4AD39;
+  border-width: 3px;
+  color: #223d57;
+
+}
+
+#searchbtn:hover {
+border-width: 5px;
 }
 </style>

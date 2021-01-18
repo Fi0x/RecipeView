@@ -13,18 +13,19 @@
       ></b-form-input>
     </div>
     <div id="searchresults">
-      <!--FIXME: filter key object so only the search query gets displayed here-->
-      You searched for <b>{{ key }}</b
+     <div id="searchinfo">
+        You searched for <b>{{ key.slice(2) }}</b
     >. These are your results:
+     </div>
       <div class="card-wrapper"
            v-for="(result, idx) in mealInfo" :key="idx">
         <router-link :to="`/recipe-${result.idMeal}`" class="router-links">
+          <!-- Source for cards: https://bootstrap-vue.org/docs/components/card -->
           <b-card
               v-bind:img-src="result.strMealThumb"
               v-bind:img-alt="result.strMeal"
               img-left
-              class="mb-3"
-          >
+              class="mb-3">
             <b-card-text>
               <h5>{{ result.strMeal }}</h5>
               <!--TODO: when searching for categories, the returning json file doesn't contain any category-/area-tags-->
@@ -32,14 +33,8 @@
               </div>
             </b-card-text>
           </b-card>
-
-
         </router-link>
       </div>
-      <!--TODO: show first ?20? words of instructions next to each meal as a teaser-->
-
-      <!--On click start search for category-->
-
     </div>
   </div>
 </template>
@@ -85,6 +80,11 @@ export default {
   text-align: left;
 }
 
+#searchinfo {
+  padding-top:10px;
+  padding-bottom: 10px;
+}
+
 #tags {
   color: black;
 }
@@ -99,11 +99,14 @@ img {
 }
 
 .mb-3 {
-  background-color:   #f3d9a4;
-  border-style: none;
+  background-color:   #f3e0bb;
+  border-color: #f3d9a4;
+  border-width: 1px;
 }
 
 .mb-3:hover{
-  background-color: #f3e0bb;
+  border-left-color: #2c3e50;
+  border-style: solid;
+  border-left-width: 10px;
 }
 </style>
