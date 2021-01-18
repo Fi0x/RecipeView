@@ -3,12 +3,12 @@
   <div>
     <b-navbar id="navbarAll" toggleable="lg" type="dark">
       <b-navbar-brand href="#">
-        <router-link to="Home"
+        <router-link to="home"
         ><img src="../assets/logoimg.png" alt="logo" id="headerlogo"
         /></router-link>
       </b-navbar-brand>
       <b-navbar-brand href="#">
-        <router-link to="Home">
+        <router-link to="home">
           <img src="../assets/logosimple.png" alt="recipefinder" id="logofont"
           /></router-link>
       </b-navbar-brand>
