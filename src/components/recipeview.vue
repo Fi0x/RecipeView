@@ -5,14 +5,14 @@
     <b-row>
       <b-col sm="1"></b-col>
       <b-col sm="4">
-        <img v-bind:src="mealImg" v-bind:alt="mealName" id="mealimage" />
+        <img v-bind:src="mealImg" v-bind:alt="mealName" id="mealimage"/>
       </b-col>
       <b-col sm="6">
         <table>
           <thead>
-            <tr>
-              <th colspan="2"><h5>Ingredients</h5></th>
-            </tr>
+          <tr>
+            <th colspan="2"><h5>Ingredients</h5></th>
+          </tr>
           </thead>
           <!--todo fix this header-->
           <tr v-for="(mes, index) in measurements" :key="index">
@@ -30,9 +30,9 @@
           <h5 class="left-bound">Instructions</h5>
           <ul id="instructions">
             <b-checkbox
-              class="listitem"
-              v-for="(paragraph, index) in mealInstructions"
-              :key="index"
+                class="listitem"
+                v-for="(paragraph, index) in mealInstructions"
+                :key="index"
             >
               <li>
                 {{ paragraph }}
@@ -50,7 +50,7 @@
 "use strict";
 export default {
   name: "RecipeView",
-  data: function() {
+  data: function () {
     return {
       mealName: "",
       mealImg: "",
@@ -72,18 +72,16 @@ export default {
       let mealInfo;
 
       try {
-        await this.axios
-          .get(apiUrl)
-          .then((response) => (mealInfo = response.data.meals[0]));
+        await this.axios.get(apiUrl).then((response) => (mealInfo = response.data["meals"][0]));
 
-        this.mealName = mealInfo.strMeal;
-        this.mealImg = mealInfo.strMealThumb;
-        this.mealInstructions = mealInfo.strInstructions
-          .split("\r\n")
-          .filter((e) => e.trim().length > 0)
-          .map((e) => e.trim());
-        this.mealCategory = mealInfo.strCategory;
-        this.mealArea = mealInfo.strArea;
+        this.mealName = mealInfo["strMeal"];
+        this.mealImg = mealInfo["strMealThumb"];
+        this.mealInstructions = mealInfo["strInstructions"]
+            .split("\r\n")
+            .filter((e) => e.trim().length > 0)
+            .map((e) => e.trim());
+        this.mealCategory = mealInfo["strCategory"];
+        this.mealArea = mealInfo["strArea"];
 
         this.ingredients.splice(0);
         this.measurements.splice(0);
@@ -93,7 +91,7 @@ export default {
           this.measurements.push(mealInfo["strMeasure" + i]);
         }
       } catch (e) {
-        console.error(e); //throws error if promise can't be fulfilled
+        console.error(e);
       }
     },
   },

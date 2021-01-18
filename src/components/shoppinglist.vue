@@ -5,11 +5,11 @@
     <form>
       <label for="listinput">Create a new entry:</label>
       <input
-        type="text"
-        v-model="input"
-        id="listinput"
-        placeholder="Bananas, Pork, ..."
-        v-on:keyup.enter="additem()"
+          type="text"
+          v-model="input"
+          id="listinput"
+          placeholder="Bananas, Pork, ..."
+          v-on:keyup.enter="additem()"
       /><!-- TODO Webpage currently refreshes when enter is clicked, only when in form. BAD-->
       <b-button type="button" v-on:click="additem()"> +</b-button>
     </form>
@@ -18,17 +18,17 @@
       <div class="item" v-for="(item, index) in shoplist" :key="index">
         <li class="shlist">
           <b-button
-            class="shoppingitem"
-            type="button"
-            v-on:click.prevent="toggleClass(item, $event.target)"
-            >✔️ {{ item }}
+              class="shoppingitem"
+              type="button"
+              v-on:click.prevent="toggleClass(item, $event.target)"
+          >✔️ {{ item }}
           </b-button>
         </li>
       </div>
     </ul>
 
     <b-button type="button" v-on:click="clearlist()"
-      >Clear entire list
+    >Clear entire list
     </b-button>
   </div>
 </template>

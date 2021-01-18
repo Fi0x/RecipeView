@@ -6,42 +6,42 @@
     over the search results?-->
     <div id="search">
       <b-form-input
-        size="sm"
-        class="mr-sm-2"
-        placeholder="Looking for something else instead?"
-        v-model="userInput"
+          size="sm"
+          class="mr-sm-2"
+          placeholder="Looking for something else instead?"
+          v-model="userInput"
       ></b-form-input>
     </div>
     <div id="searchresults">
       <!--TODO: filter key object so only the search query gets displayed here-->
       You searched for <b>{{ key }}</b
-      >. These are your results:
-     <div class="card-wrapper"
-       v-for="(result, idx) in mealInfo" :key="idx">
-          <router-link :to="`/recipe-${result.idMeal}`" class="router-links">
-            <b-card
-          
+    >. These are your results:
+      <div class="card-wrapper"
+           v-for="(result, idx) in mealInfo" :key="idx">
+        <router-link :to="`/recipe-${result.idMeal}`" class="router-links">
+          <b-card
+
               v-bind:img-src="result.strMealThumb"
               v-bind:img-alt="result.strMeal"
               v-on:click="recipeClicked(result.idMeal)"
               img-left
               class="mb-3"
-            >
-              <b-card-text>
-                 <h5 v-on:click="recipeClicked(result.idMeal)">
-              {{ result.strMeal }}
-            </h5>
-          <div id="tags">{{ result.strCategory }} {{ result.strArea }}</div>
-              </b-card-text>
-            </b-card>
-           
-  
-          </router-link>
-</div>
-          <!--TODO: show first ?20? words of instructions next to each meal as a teaser-->
+          >
+            <b-card-text>
+              <h5 v-on:click="recipeClicked(result.idMeal)">
+                {{ result.strMeal }}
+              </h5>
+              <div id="tags">{{ result.strCategory }} {{ result.strArea }}</div>
+            </b-card-text>
+          </b-card>
 
-          <!--On click start search for category-->
-    
+
+        </router-link>
+      </div>
+      <!--TODO: show first ?20? words of instructions next to each meal as a teaser-->
+
+      <!--On click start search for category-->
+
     </div>
   </div>
 </template>
@@ -57,6 +57,14 @@ export default {
     };
   },
   props: ["type", "key"],
+  watch: {
+    key: function () {
+      this.recipeSearchKey();
+    },
+    type: function () {
+      this.recipeSearchKey();
+    }
+  },
   beforeMount() {
     this.recipeSearchKey();
   },
@@ -66,30 +74,17 @@ export default {
       this.$root.$emit("displayRecipe", recipeID);
     },
     async recipeSearchKey() {
-      let apiUrl =
-        "https://www.themealdb.com/api/json/v1/1/" +
-        this.type +
-        ".php?" +
-        this.key;
+      let apiUrl = "https://www.themealdb.com/api/json/v1/1/" + this.type + ".php?" + this.key;
       try {
-        await this.axios
-          .get(apiUrl)
-          .then((response) => (this.mealInfo = response.data.meals));
+        await this.axios.get(apiUrl).then((response) => (this.mealInfo = response.data.meals));
       } catch (e) {
         console.error(e);
       }
     },
     async recipeSearchIngredient() {
-      //load function asynchronically
-      let response;
-      let apiUrl =
-        "https://www.themealdb.com/api/json/v1/1/filter.php?i=" +
-        this.userInput;
+      let apiUrl = "https://www.themealdb.com/api/json/v1/1/filter.php?i=" + this.userInput;
       try {
-        response = await this.axios
-          .get(apiUrl) //promise should await this response
-          .then((response) => (this.mealInfo = response.data.meals));
-        console.log(response);
+        await this.axios.get(apiUrl).then((response) => (this.mealInfo = response.data.meals));
       } catch (e) {
         console.error(e);
       }
@@ -102,12 +97,15 @@ export default {
 #searchresults {
   text-align: left;
 }
+
 #tags {
   color: black;
 }
+
 img {
   max-width: 100px;
 }
+
 .card-wrapper:hover {
   text-decoration: none;
 }

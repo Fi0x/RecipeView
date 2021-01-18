@@ -95,11 +95,9 @@ export default {
       let catArray;
       let i;
       try {
-        this.response = await this.axios
-            .get(apiUrl)
-            .then((response) => (catArray = response.data.meals));
+        await this.axios.get(apiUrl).then((response) => (catArray = response.data["meals"]));
         for (i = 0; i < catArray.length; i++) {
-          this.categoryArray.push(catArray[i].strCategory);
+          this.categoryArray.push(catArray[i]["strCategory"]);
         }
       } catch (e) {
         console.error(e);
@@ -110,11 +108,9 @@ export default {
       let areaArray;
       let i;
       try {
-        this.response = await this.axios
-            .get(apiUrl)
-            .then((response) => (areaArray = response.data.meals));
+        await this.axios.get(apiUrl).then((response) => (areaArray = response.data["meals"]));
         for (i = 0; i < areaArray.length; i++) {
-          this.countryArray.push(areaArray[i].strArea);
+          this.countryArray.push(areaArray[i]["strArea"]);
         }
       } catch (e) {
         console.error(e);
