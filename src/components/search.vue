@@ -16,7 +16,7 @@ Should be exported to header.vue later.-->
       You searched for "{{ userInput }}" These are your results:
       <ul>
         <li v-for="(result, idx) in mealInfo" :key="idx">
-          <router-link :to="`/recipe=${result.idMeal}`" class="router-links">
+          <router-link :to="`/recipe-${result.idMeal}`" class="router-links">
             <img v-bind:src="result.strMealThumb" v-bind:alt="result.strMeal"
                  v-on:click="recipeClicked(result.idMeal)"/>
             <h5 v-on:click="recipeClicked(result.idMeal)">{{ result.strMeal }}</h5>
@@ -38,7 +38,7 @@ export default {
       mealInfo: "",
     };
   },
-  props: ['key'],
+  props: ['type', 'key'],
   beforeMount() {
     this.recipeSearchKey();
   },
@@ -48,7 +48,7 @@ export default {
       this.$root.$emit('displayRecipe', recipeID)
     },
     async recipeSearchKey() {
-      let apiUrl = "https://www.themealdb.com/api/json/v1/1/search.php?" + this.key;
+      let apiUrl = "https://www.themealdb.com/api/json/v1/1/" + this.type + ".php?" + this.key;
       try {
         await this.axios.get(apiUrl).then((response) => (this.mealInfo = response.data.meals));
       } catch (e) {
@@ -59,32 +59,6 @@ export default {
       //load function asynchronically
       let response;
       let apiUrl = "https://www.themealdb.com/api/json/v1/1/filter.php?i=" + this.userInput;
-      try {
-        response = await this.axios
-            .get(apiUrl) //promise should await this response
-            .then((response) => (this.mealInfo = response.data.meals));
-        console.log(response);
-      } catch (e) {
-        console.error(e);
-      }
-    },
-    async recipeSearchCategory() {
-      //load function asynchronically
-      let response;
-      let apiUrl = "https://www.themealdb.com/api/json/v1/1/filter.php?c=" + this.userInput;
-      try {
-        response = await this.axios
-            .get(apiUrl) //promise should await this response
-            .then((response) => (this.mealInfo = response.data.meals));
-        console.log(response);
-      } catch (e) {
-        console.error(e);
-      }
-    },
-    async recipeSearchArea() {
-      //load function asynchronically
-      let response;
-      let apiUrl = "https://www.themealdb.com/api/json/v1/1/filter.php?a=" + this.userInput;
       try {
         response = await this.axios
             .get(apiUrl) //promise should await this response
