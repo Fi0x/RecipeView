@@ -13,14 +13,13 @@
       ></b-form-input>
     </div>
     <div id="searchresults">
-      <!--TODO: filter key object so only the search query gets displayed here-->
+      <!--FIXME: filter key object so only the search query gets displayed here-->
       You searched for <b>{{ key }}</b
     >. These are your results:
       <div class="card-wrapper"
            v-for="(result, idx) in mealInfo" :key="idx">
         <router-link :to="`/recipe-${result.idMeal}`" class="router-links">
           <b-card
-
               v-bind:img-src="result.strMealThumb"
               v-bind:img-alt="result.strMeal"
               img-left
@@ -28,7 +27,9 @@
           >
             <b-card-text>
               <h5>{{ result.strMeal }}</h5>
-              <div id="tags">{{ result.strCategory }} {{ result.strArea }}</div>
+              <!--TODO: when searching for categories, the returning json file doesn't contain any category-/area-tags-->
+              <div id="tags">{{ result.strCategory }} {{ result.strArea }}
+              </div>
             </b-card-text>
           </b-card>
 
@@ -92,7 +93,17 @@ img {
   max-width: 100px;
 }
 
-.card-wrapper:hover {
+.router-links{
   text-decoration: none;
+  color: #2c3e50;
+}
+
+.mb-3 {
+  background-color:   #f3d9a4;
+  border-style: none;
+}
+
+.mb-3:hover{
+  background-color: #f3e0bb;
 }
 </style>
