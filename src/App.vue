@@ -15,6 +15,7 @@ https://bootstrap-vue.org/docs/components/skeleton----->
       <!-------SHOPPINGLIST-------->
       <b-col sm="3">
         <Shoppinglist id="shlist" />
+        <Lastviewed />
       </b-col>
       <b-col sm="1"></b-col>
     </b-row>
@@ -27,12 +28,14 @@ https://bootstrap-vue.org/docs/components/skeleton----->
 import Header from "./components/header.vue";
 import Shoppinglist from "./components/shoppinglist.vue";
 import Footer from "./components/footer.vue";
+import Lastviewed from "./components/lastviewedrec.vue";
 
 export default {
   name: "App",
   components: {
     Header,
     Shoppinglist,
+    Lastviewed,
     Footer,
   },
 };
