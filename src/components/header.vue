@@ -19,7 +19,7 @@
         <b-navbar-nav>
           <b-nav-item href="#"
           >
-            <router-link :to="`/recipe/${this.lastRecipeID}`" class="nav-link"
+            <router-link :to="`/recipe/${this.lastRecipe}`" class="nav-link"
             >last viewed recipe
             </router-link
             >
@@ -62,10 +62,10 @@
                 id="searchbar"
             ></b-form-input>
             <router-link :to="`/${this.searchLink}${this.userInput}`">
-            <!--FIXME: stop searchbar from wobbling on mousehover-->
-            <div id="btn-container">
+              <!--FIXME: stop searchbar from wobbling on mousehover-->
+              <div id="btn-container">
                 <b-button size="sm" class="my-2 my-sm-0" type="submit" id="searchbtn">Search</b-button>
-            </div>
+              </div>
             </router-link>
           </b-nav-form>
         </b-navbar-nav>
@@ -80,7 +80,7 @@ export default {
   name: "header",
   data: function () {
     return {
-      lastRecipeID: "",//TODO Change each time recipe is changed
+      lastRecipe: "",
       userInput: "",
       searchLink: "search/s=",
       catArray: [],
@@ -89,11 +89,17 @@ export default {
       countryArray: [],
     };
   },
+  created: function () {
+    this.$root.$on("lastRecipeUpdate", this.storeID)
+  },
   beforeMount() {
     this.loadCats();
     this.loadAreas();
   },
   methods: {
+    storeID(id) {
+      this.lastRecipe = id;
+    },
     async loadCats() {
       let apiUrl = "https://www.themealdb.com/api/json/v1/1/list.php?c=list";
       let catArray;
@@ -139,7 +145,7 @@ export default {
 
 #searchbar {
   width: 250px;
-    margin: 10px;
+  margin: 10px;
 }
 
 #searchbtn {
