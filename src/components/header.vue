@@ -145,17 +145,12 @@ export default {
 #searchbtn {
   background-color: #D4AD39;
   color: #223d57;
-  border-style: none;
-}
-#btn-container {
+  border-color:  #D4AD39;
   border-width: 3px;
-  border-color: #223d57;
-}
-#btn-container:hover {
-    border-color: #D4AD39;
 }
 
 #searchbtn:hover {
-border-width: 5px;
+  background-color: #f3d9a4;
+  border-color: #D4AD39;
 }
 </style>
