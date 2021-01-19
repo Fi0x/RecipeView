@@ -25,13 +25,13 @@ export default new Router({
             component: Err
         },
         {
-            path: '/recipe-:id',
+            path: '/recipe/:id',
             name: 'Recipe',
             component: Recipe,
             props: true,
         },
         {
-            path: '/:type-:key',
+            path: '/:type/:key',
             name: 'Search',
             component: Search,
             props: true,
