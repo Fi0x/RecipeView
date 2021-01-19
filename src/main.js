@@ -13,10 +13,18 @@ import VueAxios from 'vue-axios';
 Vue.use(VueAxios, axios);            
 
 //import vue-router
-import router from './router'
+import router from './router';
+
+//import vue-cookies
+// require
+Vue.use(require('vue-cookies'));
+
+// es2015 module
+import VueCookies from 'vue-cookies';
+Vue.use(VueCookies);
 
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 new Vue({
   render: h => h(App),

@@ -71,6 +71,10 @@ export default {
       let apiUrl = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + this.id;
       let mealInfo;
 
+      //Set cookies
+      this.$cookies.set("lastrecipeid", this.id, "3d");  
+      console.log(this.$cookies.get("lastrecipeid"));
+
       try {
         await this.axios.get(apiUrl).then((response) => (mealInfo = response.data["meals"][0]));
 
