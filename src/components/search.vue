@@ -29,7 +29,7 @@
             <b-card-text>
               <h5>{{ result.strMeal }}</h5>
               <!--TODO: when searching for categories, the returning json file doesn't contain any category-/area-tags-->
-              <div id="badges"><b-badge id="spacing" pill> {{ result.strCategory }} </b-badge>
+              <div id="badges" v-show="'result.strCategory'.length < 0"><b-badge id="spacing" pill> {{ result.strCategory }} </b-badge>
                 <b-badge pill>  {{ result.strArea }} </b-badge></div>
             </b-card-text>
           </b-card>

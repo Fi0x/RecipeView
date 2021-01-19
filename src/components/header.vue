@@ -17,39 +17,35 @@
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
-          <b-nav-item href="#"
-          >
-            <router-link :to="`/recipe/${this.lastRecipe}`" class="nav-link"
-            >last viewed recipe
-            </router-link
-            >
-          </b-nav-item
-          >
+          <b-nav-item href="#">
+            <router-link :to="`/recipe/${this.lastRecipe}`" class="nav-link">last viewed recipe
+            </router-link>
+          </b-nav-item>
 
-          <b-nav-item-dropdown text="Categories" right>
+          <b-nav-item-dropdown text="Categories" right class="drpdown">
             <b-dropdown-item
                 href="#"
                 v-for="(category, index) in categoryArray"
-                :key="index"
-            >
+                :key="index">
               <router-link :to="`/filter/c=${category}`">
                 {{ category }}
               </router-link>
             </b-dropdown-item>
           </b-nav-item-dropdown>
 
-          <b-nav-item-dropdown text="Countries" right>
+          <b-nav-item-dropdown text="Countries" right class="drpdown">
             <b-dropdown-item
                 href="#"
                 v-for="(area, index) in countryArray"
-                :key="index"
-            >
+                :key="index">
               <router-link :to="`/filter/a=${area}`">
                 {{ area }}
               </router-link>
             </b-dropdown-item>
           </b-nav-item-dropdown>
         </b-navbar-nav>
+
+        
 
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
@@ -62,7 +58,6 @@
                 id="searchbar"
             ></b-form-input>
             <router-link :to="`/${this.searchLink}${this.userInput}`">
-              <!--FIXME: stop searchbar from wobbling on mousehover-->
               <div id="btn-container">
                 <b-button size="sm" class="my-2 my-sm-0" type="submit" id="searchbtn">Search</b-button>
               </div>
@@ -158,5 +153,9 @@ export default {
 #searchbtn:hover {
   background-color: #f3d9a4;
   border-color: #D4AD39;
+}
+/* FIXME: maybe there's a more elegant option to align top items? */
+.drpdown {
+  margin-top: 0.5rem;
 }
 </style>
