@@ -1,9 +1,9 @@
 <!--------------------------------TEMPLATE----------------------------------->
 <template>
     <div>
-        <h2>Your last viewed recipe</h2>
-        <h3> {{ mealName }} </h3>
-        <img v-bind:src="mealImg" v-bind:alt="mealName">
+        <div>Your last viewed recipe:</div>
+        <h5> {{ mealName }} </h5>
+        <img v-bind:src="mealImg" v-bind:alt="mealName" id="mealimg">
         <div> {{ mealCategory }} {{ mealArea }} </div>
     </div>
 </template>
@@ -45,6 +45,8 @@ methods: {
 
 <!--------------------------------STYLE----------------------------------->
 <style scoped>
-
+#mealimg {
+    width: 240px;
+}
 
 </style>

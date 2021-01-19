@@ -152,7 +152,6 @@ export default {
   border-color: #223d57;
 }
 #btn-container:hover {
-    border-width: 3px;
     border-color: #D4AD39;
 }
 

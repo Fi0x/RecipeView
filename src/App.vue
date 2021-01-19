@@ -15,7 +15,7 @@ https://bootstrap-vue.org/docs/components/skeleton----->
       <!-------SHOPPINGLIST-------->
       <b-col sm="3">
         <Shoppinglist id="shlist" />
-        <Lastviewed />
+        <Lastviewed id="lastviewed"/>
       </b-col>
       <b-col sm="1"></b-col>
     </b-row>
@@ -52,7 +52,6 @@ export default {
 
 #showcase {
   background-color: #f3d9a4;
-
   margin-top: 15px;
   margin-bottom: 15px;
   margin-right: 10px;
@@ -61,10 +60,18 @@ export default {
 
 #shlist {
   background-color: #f3d9a4;
-
   margin-top: 15px;
   margin-bottom: 15px;
   margin-left: 10px;
   padding: 20px;
 }
+
+#lastviewed {
+  background-color: #f3d9a4;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: 10px;
+  padding: 20px;
+}
+
 </style>
