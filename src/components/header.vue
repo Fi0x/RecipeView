@@ -3,12 +3,12 @@
   <div>
     <b-navbar id="navbarAll" toggleable="lg" type="dark">
       <b-navbar-brand href="#">
-        <router-link to="home"
+        <router-link :to="'/home'"
         ><img src="../assets/logoimg.png" alt="logo" id="headerlogo"
         /></router-link>
       </b-navbar-brand>
       <b-navbar-brand href="#">
-        <router-link to="home">
+        <router-link :to="'/home'">
           <img src="../assets/logosimple.png" alt="recipefinder" id="logofont"
           /></router-link>
       </b-navbar-brand>
@@ -19,7 +19,7 @@
         <b-navbar-nav>
           <b-nav-item href="#"
           >
-            <router-link :to="`/recipe-${this.lastRecipeID}`" class="nav-link"
+            <router-link :to="`/recipe/${this.lastRecipeID}`" class="nav-link"
             >last viewed recipe
             </router-link
             >
@@ -32,7 +32,7 @@
                 v-for="(category, index) in categoryArray"
                 :key="index"
             >
-              <router-link :to="`/filter-c=${category}`">
+              <router-link :to="`/filter/c=${category}`">
                 {{ category }}
               </router-link>
             </b-dropdown-item>
@@ -44,7 +44,7 @@
                 v-for="(area, index) in countryArray"
                 :key="index"
             >
-              <router-link :to="`/filter-a=${area}`">
+              <router-link :to="`/filter/a=${area}`">
                 {{ area }}
               </router-link>
             </b-dropdown-item>
@@ -82,7 +82,7 @@ export default {
     return {
       lastRecipeID: "",//TODO Change each time recipe is changed
       userInput: "",
-      searchLink: "search-s=",
+      searchLink: "search/s=",
       catArray: [],
       categoryArray: [],
       areaArray: [],

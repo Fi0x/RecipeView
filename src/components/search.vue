@@ -19,7 +19,7 @@
      </div>
       <div class="card-wrapper"
            v-for="(result, idx) in mealInfo" :key="idx">
-        <router-link :to="`/recipe-${result.idMeal}`" class="router-links">
+        <router-link :to="`/recipe/${result.idMeal}`" class="router-links">
           <!-- Source for cards: https://bootstrap-vue.org/docs/components/card -->
           <b-card
               v-bind:img-src="result.strMealThumb"
