@@ -1,15 +1,15 @@
 <!--------------------------------TEMPLATE----------------------------------->
 <template>
   <div id="car">
-    <div>
+    
       <router-link :to="`/recipe/${this.mealIDs[this.index]}`" class="router-links">
         <h2>{{ mealName }}</h2>
       </router-link>
       <!--Both Chevrons are Scaling Vector Graphics from https://kruxor.com/view/code/1pheD/chevron-left/-->
       <div>
-        <svg
+          <svg
             width="3em"
-            height="3em"
+            height="9em"
             viewBox="0 0 16 16"
             class="chevron"
             fill="currentColor"
@@ -32,7 +32,7 @@
         <!--Both Chevrons are Scaling Vector Graphics from https://kruxor.com/view/code/1pheD/chevron-right/-->
         <svg
             width="3em"
-            height="3em"
+            height="9em"
             viewBox="0 0 16 16"
             class="chevron"
             fill="currentColor"
@@ -45,7 +45,6 @@
           />
         </svg>
       </div>
-    </div>
   </div>
 </template>
 <!--------------------------------SCRIPT----------------------------------->
