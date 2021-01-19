@@ -29,8 +29,8 @@
             <b-card-text>
               <h5>{{ result.strMeal }}</h5>
               <!--TODO: when searching for categories, the returning json file doesn't contain any category-/area-tags-->
-              <div id="tags">{{ result.strCategory }} {{ result.strArea }}
-              </div>
+              <div id="badges"><b-badge id="spacing" pill> {{ result.strCategory }} </b-badge>
+                <b-badge pill>  {{ result.strArea }} </b-badge></div>
             </b-card-text>
           </b-card>
         </router-link>
@@ -119,5 +119,13 @@ img {
   border-left-color: #2c3e50;
   border-style: solid;
   border-left-width: 10px;
+}
+
+#badges {
+    font-size: 17px;
+}
+
+#spacing {
+    margin-right: 5px;
 }
 </style>

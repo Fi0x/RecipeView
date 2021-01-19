@@ -4,7 +4,8 @@
         <div>Your last viewed recipe:</div>
         <h5> {{ mealName }} </h5>
         <img v-bind:src="mealImg" v-bind:alt="mealName" id="mealimg">
-        <div> {{ mealCategory }} {{ mealArea }} </div>
+        <div id="badges"><b-badge id="spacing" pill> {{ mealCategory }} </b-badge>
+        <b-badge pill>  {{ mealArea }} </b-badge></div>
     </div>
 </template>
 
@@ -48,5 +49,10 @@ methods: {
 #mealimg {
     width: 240px;
 }
-
+#badges {
+    font-size: 17px;
+}
+#spacing {
+    margin-right: 5px;
+}
 </style>
