@@ -63,7 +63,9 @@
             ></b-form-input>
             <router-link :to="`/${this.searchLink}${this.userInput}`">
             <!--FIXME: stop searchbar from wobbling on mousehover-->
-              <b-button size="sm" class="my-2 my-sm-0" type="submit" id="searchbtn">Search</b-button>
+            <div id="btn-container">
+                <b-button size="sm" class="my-2 my-sm-0" type="submit" id="searchbtn">Search</b-button>
+            </div>
             </router-link>
           </b-nav-form>
         </b-navbar-nav>
@@ -142,10 +144,16 @@ export default {
 
 #searchbtn {
   background-color: #D4AD39;
-  border-color: #D4AD39;
-  border-width: 3px;
   color: #223d57;
-
+  border-style: none;
+}
+#btn-container {
+  border-width: 3px;
+  border-color: #223d57;
+}
+#btn-container:hover {
+    border-width: 3px;
+    border-color: #D4AD39;
 }
 
 #searchbtn:hover {
