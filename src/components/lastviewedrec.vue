@@ -12,7 +12,8 @@
     </router-link>
   </div>
 </template>
-
+<!--FIXME: Dringend: lastviewedrecipe link im header funktioniert nicht
+wenn man nach neuöffnung der seite darauf klickt!-->
 
 <!--------------------------------SCRIPT----------------------------------->
 <script>
