@@ -90,6 +90,7 @@ export default {
   beforeMount() {
     this.loadCats();
     this.loadAreas();
+    this.lastRecipe = this.$cookies.get("lastrecipeid");
   },
   methods: {
     storeID(id) {
