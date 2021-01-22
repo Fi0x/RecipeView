@@ -7,7 +7,7 @@
       <img v-bind:src="mealImg" v-bind:alt="mealName" id="mealimg" />
       <div id="badges">
         <!--FIXME: pillbadges get shown if theres no saved cookie-->
-        <b-badge id="spacing" pill> {{ mealCategory }}</b-badge>
+        <b-badge id="spacing" pill > {{ mealCategory }}</b-badge>
         <b-badge pill> {{ mealArea }}</b-badge>
       </div>
     </router-link>
