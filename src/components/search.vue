@@ -77,11 +77,7 @@ export default {
 
   methods: {
     async recipeSearchKey() {
-      let apiUrl =
-        "https://www.themealdb.com/api/json/v1/1/" +
-        this.type +
-        ".php?" +
-        this.searchkey;
+      let apiUrl ="https://www.themealdb.com/api/json/v1/1/" + this.type + ".php?" + this.searchkey;
       try {
         await this.axios
           .get(apiUrl)
@@ -92,8 +88,7 @@ export default {
     },
     async recipeSearchKey2() {
       let apiUrl =
-        "https://www.themealdb.com/api/json/v1/1/search.php?s=" +
-        this.userInput;
+        "https://www.themealdb.com/api/json/v1/1/search.php?s=" + this.userInput;
       try {
         await this.axios
           .get(apiUrl)
