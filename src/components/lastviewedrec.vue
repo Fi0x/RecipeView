@@ -62,14 +62,12 @@ export default {
 #badges {
   font-size: 17px;
 }
-
 #spacing {
   margin-right: 5px;
 }
 #link {
   color: #223d57;
 }
-/* FIXME: stop link from changing colors*/
 #link:hover {
   text-decoration: none;
   color: #6c757d;
