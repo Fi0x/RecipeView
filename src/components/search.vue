@@ -1,9 +1,7 @@
 <!--------------------------------TEMPLATE----------------------------------->
 <template>
   <div>
-    <!--TODO: error catch user inputs
-    TODO: make search query work in both searchbars? /do we even need the searchbar 
-    over the search results?-->
+    <!--TODO: error catch user inputs-->
     <div id="search">
       <b-form-input
           size="sm"

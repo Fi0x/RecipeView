@@ -14,6 +14,12 @@
   color: #FFFFFF80;
   padding-top: 15px;
   padding-bottom: 20px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 150px;
+    width: 100%;
+    overflow:hidden;
 }
 
 #logoimg {
