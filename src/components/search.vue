@@ -12,7 +12,7 @@
     </div>
     <div id="searchresults">
      <div id="searchinfo">
-        You searched for <b>{{ key.slice(2) }}</b
+        You searched for <b>{{ searchkey.slice(2) }}</b
     >. These are your results:
      </div>
      <!--FIXME: If no recipe matches user input, show info -->
@@ -49,8 +49,7 @@ export default {
       mealInfo: "",
     };
   },
-  //FIXME: key is a reserved attribute and cannot be used as component prop
-  props: ["type", "key"],
+  props: ["type", "searchkey"],
   watch: {
     key: function () {
       this.recipeSearchKey();
@@ -68,7 +67,7 @@ export default {
 
   methods: {
     async recipeSearchKey() {
-      let apiUrl = "https://www.themealdb.com/api/json/v1/1/" + this.type + ".php?" + this.key;
+      let apiUrl = "https://www.themealdb.com/api/json/v1/1/" + this.type + ".php?" + this.searchkey;
       try {
         await this.axios.get(apiUrl).then((response) => (this.mealInfo = response.data.meals));
       } catch (e) {
