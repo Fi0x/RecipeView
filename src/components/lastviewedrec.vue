@@ -55,7 +55,6 @@ export default {
 #mealimg {
   width: 240px;
 }
-
 #badges {
   font-size: 17px;
 }
@@ -66,7 +65,6 @@ export default {
 #link {
   color:  #223d57;
 }
-
 /* FIXME: stop link from changing colors*/
 #link:hover {
   text-decoration: none;

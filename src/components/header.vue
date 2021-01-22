@@ -130,32 +130,26 @@ export default {
 #headerlogo {
   width: 150px;
 }
-
 #navbarAll {
   background-color: #223d57;
 }
-
 #logofont {
   height: 80px;
 }
-
 #searchbar {
   width: 250px;
   margin: 10px;
 }
-
 #searchbtn {
   background-color: #D4AD39;
   color: #223d57;
   border-color:  #D4AD39;
   border-width: 3px;
 }
-
 #searchbtn:hover {
   background-color: #f3d9a4;
   border-color: #D4AD39;
 }
-/* FIXME: maybe there's a more elegant option to align top items? */
 .drpdown {
   margin-top: 0.5rem;
 }

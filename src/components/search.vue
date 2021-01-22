@@ -89,41 +89,33 @@ export default {
 #searchresults {
   text-align: left;
 }
-
 #searchinfo {
   padding-top:10px;
   padding-bottom: 10px;
 }
-
 #tags {
   color: black;
 }
-
 img {
   max-width: 100px;
 }
-
 .router-links{
   text-decoration: none;
   color: #2c3e50;
 }
-
 .mb-3 {
   background-color:   #f3e0bb;
   border-color: #f3d9a4;
   border-width: 1px;
 }
-
 .mb-3:hover{
   border-left-color: #2c3e50;
   border-style: solid;
   border-left-width: 10px;
 }
-
 #badges {
     font-size: 17px;
 }
-
 #spacing {
     margin-right: 5px;
 }

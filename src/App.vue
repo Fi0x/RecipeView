@@ -49,7 +49,6 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
-
 #showcase {
   background-color: #f3d9a4;
   margin-top: 15px;
@@ -57,7 +56,6 @@ export default {
   margin-right: 10px;
   padding: 20px;
 }
-
 #shlist {
   background-color: #f3d9a4;
   margin-top: 15px;
@@ -65,7 +63,6 @@ export default {
   margin-left: 10px;
   padding: 20px;
 }
-
 #lastviewed {
   background-color: #f3d9a4;
   margin-top: 15px;
@@ -73,5 +70,4 @@ export default {
   margin-left: 10px;
   padding: 20px;
 }
-
 </style>

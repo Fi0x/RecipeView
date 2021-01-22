@@ -138,16 +138,13 @@ img {
   width: 65%;
   max-width: 500px;
 }
-
 .router-links {
   text-decoration: none;
   color: #2c3e50;
 }
-
 .chevron {
   max-width: 50px;
 }
-
 .chevron:hover {
   background-color: #d4ad39;
 }

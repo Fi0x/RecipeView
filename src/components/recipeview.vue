@@ -106,30 +106,24 @@ export default {
 table {
   width: 90%;
 }
-
 #mealimage {
   max-width: 100%;
 }
-
 #instructions {
   text-align: left;
 }
-
 .measurements {
   text-align: right;
   padding-right: 10px;
 }
-
 .ingredients {
   text-align: left;
   padding-left: 10px;
 }
-
 .left-bound {
   text-align: left;
   padding-left: 35px;
 }
-
 .centered {
   text-align: center;
 }

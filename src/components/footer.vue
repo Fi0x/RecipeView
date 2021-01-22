@@ -21,11 +21,9 @@
     width: 100%;
     overflow:hidden;
 }
-
 #logoimg {
   height: 55px;
 }
-
 #footer a {
   color: #D4AD39;
 }
