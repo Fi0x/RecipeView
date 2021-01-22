@@ -27,10 +27,8 @@
               class="mb-3">
             <b-card-text>
               <h5>{{ result.strMeal }}</h5>
-
-              <!--FIXME: badges still dont work-->
-              <div id="badges"><b-badge id="spacing" pill> {{ result.strCategory }} </b-badge> <!--  v-show="'result.strCategory'.length < 0"-->
-                <b-badge pill>  {{ result.strArea }} </b-badge></div>
+              <div id="badges"><b-badge id="spacing" pill v-if="result.strCategory != null"> {{ result.strCategory }} </b-badge>
+                <b-badge pill v-if="result.strArea">  {{ result.strArea }} </b-badge></div>
             </b-card-text>
           </b-card>
         </router-link>
