@@ -1,12 +1,11 @@
 <!--------------------------------TEMPLATE----------------------------------->
 <template>
-  <div>
+  <div v-if="mealName.length > 0">
     <div>Your last viewed recipe:</div>
     <router-link :to="`/recipe/${this.recipeID}`" id="link">
       <h5>{{ mealName }}</h5>
       <img v-bind:src="mealImg" v-bind:alt="mealName" id="mealimg" />
-      <div id="badges">
-        <!--FIXME: pillbadges get shown if theres no saved cookie-->
+      <div id="badges" >
         <b-badge id="spacing" pill > {{ mealCategory }}</b-badge>
         <b-badge pill> {{ mealArea }}</b-badge>
       </div>
