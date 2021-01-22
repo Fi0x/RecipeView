@@ -4,34 +4,46 @@
     <!--TODO: error catch user inputs-->
     <div id="search">
       <b-form-input
-          size="sm"
-          class="mr-sm-2"
-          placeholder="Looking for something else instead?"
-          v-model="userInput"
+        size="sm"
+        class="mr-sm-2"
+        placeholder="Looking for something else instead?"
+        v-model="userInput"
       ></b-form-input>
     </div>
     <div id="searchresults">
-     <div id="searchinfo">
+      <div id="searchinfo">
         You searched for <b>{{ searchkey.slice(2) }}</b
-    >. These are your results:
-     </div>
-     <!--FIXME: If no recipe matches user input, show info -->
-      <div class="card-wrapper"
-           v-for="(result, idx) in mealInfo" :key="idx">
-        <router-link :to="`/recipe/${result.idMeal}`" class="router-links">
-          <!-- Source for cards: https://bootstrap-vue.org/docs/components/card -->
-          <b-card
+        >. These are your results:
+      </div>
+      <!--FIXME: live search works now but header search doesn't anymore -->
+      <div v-if="mealInfo != null">
+        <div class="card-wrapper" v-for="(result, idx) in mealInfo" :key="idx">
+          <router-link :to="`/recipe/${result.idMeal}`" class="router-links">
+            <!-- Source for cards: https://bootstrap-vue.org/docs/components/card -->
+            <b-card
               v-bind:img-src="result.strMealThumb"
               v-bind:img-alt="result.strMeal"
               img-left
-              class="mb-3">
-            <b-card-text>
-              <h5>{{ result.strMeal }}</h5>
-              <div id="badges"><b-badge id="spacing" pill v-if="result.strCategory != null"> {{ result.strCategory }} </b-badge>
-                <b-badge pill v-if="result.strArea">  {{ result.strArea }} </b-badge></div>
-            </b-card-text>
-          </b-card>
-        </router-link>
+              class="mb-3"
+            >
+              <b-card-text>
+                <h5>{{ result.strMeal }}</h5>
+                <div id="badges">
+                  <b-badge id="spacing" pill v-if="result.strCategory != null">
+                    {{ result.strCategory }}
+                  </b-badge>
+                  <b-badge pill v-if="result.strArea">
+                    {{ result.strArea }}
+                  </b-badge>
+                </div>
+              </b-card-text>
+            </b-card>
+          </router-link>
+        </div>
+      </div>
+      <div v-else>
+        We are sorry to inform you that no recipes match your search. Maybe you
+        can try something else!
       </div>
     </div>
   </div>
@@ -55,9 +67,9 @@ export default {
     type: function () {
       this.recipeSearchKey();
     },
-    userInput: function (){
+    userInput: function () {
       this.recipeSearchKey2();
-    }
+    },
   },
   beforeMount() {
     this.recipeSearchKey();
@@ -65,17 +77,27 @@ export default {
 
   methods: {
     async recipeSearchKey() {
-      let apiUrl = "https://www.themealdb.com/api/json/v1/1/" + this.type + ".php?" + this.searchkey;
+      let apiUrl =
+        "https://www.themealdb.com/api/json/v1/1/" +
+        this.type +
+        ".php?" +
+        this.searchkey;
       try {
-        await this.axios.get(apiUrl).then((response) => (this.mealInfo = response.data.meals));
+        await this.axios
+          .get(apiUrl)
+          .then((response) => (this.mealInfo = response.data.meals));
       } catch (e) {
         console.error(e);
       }
     },
     async recipeSearchKey2() {
-      let apiUrl = "https://www.themealdb.com/api/json/v1/1/search.php?s=" + this.userInput;
+      let apiUrl =
+        "https://www.themealdb.com/api/json/v1/1/search.php?s=" +
+        this.userInput;
       try {
-        await this.axios.get(apiUrl).then((response) => (this.mealInfo = response.data.meals));
+        await this.axios
+          .get(apiUrl)
+          .then((response) => (this.mealInfo = response.data.meals));
       } catch (e) {
         console.error(e);
       }
@@ -89,7 +111,7 @@ export default {
   text-align: left;
 }
 #searchinfo {
-  padding-top:10px;
+  padding-top: 10px;
   padding-bottom: 10px;
 }
 #tags {
@@ -98,24 +120,24 @@ export default {
 img {
   max-width: 100px;
 }
-.router-links{
+.router-links {
   text-decoration: none;
   color: #2c3e50;
 }
 .mb-3 {
-  background-color:   #f3e0bb;
+  background-color: #f3e0bb;
   border-color: #f3d9a4;
   border-width: 1px;
 }
-.mb-3:hover{
+.mb-3:hover {
   border-left-color: #2c3e50;
   border-style: solid;
   border-left-width: 10px;
 }
 #badges {
-    font-size: 17px;
+  font-size: 17px;
 }
 #spacing {
-    margin-right: 5px;
+  margin-right: 5px;
 }
 </style>
