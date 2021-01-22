@@ -15,6 +15,7 @@
         You searched for <b>{{ key.slice(2) }}</b
     >. These are your results:
      </div>
+     <!--FIXME: If no recipe matches user input, show info -->
       <div class="card-wrapper"
            v-for="(result, idx) in mealInfo" :key="idx">
         <router-link :to="`/recipe/${result.idMeal}`" class="router-links">

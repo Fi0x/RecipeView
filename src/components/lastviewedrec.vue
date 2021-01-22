@@ -3,7 +3,7 @@
   <div>
     <div>Your last viewed recipe:</div>
     <router-link :to="`/recipe/${this.recipeID}`">
-      <h5> {{ mealName }} </h5>
+      <h5 id="linktorec"> {{ mealName }} </h5>
       <img v-bind:src="mealImg" v-bind:alt="mealName" id="mealimg">
       <div id="badges">
         <b-badge id="spacing" pill> {{ mealCategory }}</b-badge>
@@ -62,5 +62,14 @@ export default {
 
 #spacing {
   margin-right: 5px;
+}
+#link {
+  color:  #223d57;
+}
+
+/* FIXME: stop link from changing colors*/
+#link:hover {
+  text-decoration: none;
+  color: #6c757d;
 }
 </style>

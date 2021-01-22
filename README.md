@@ -92,3 +92,7 @@ Um den Code übersichtlicher zu machen und einige technische Dinge zu ermöglich
 - Die Navbar in der Header-Komponente stammt in leicht veränderter Form von https://bootstrap-vue.org/docs/components/navbar
 
 
+- Die Logos wurden mit Canva erstellt: https://www.canva.com/
+
+
+
