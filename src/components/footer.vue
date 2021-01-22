@@ -7,6 +7,7 @@
     <div>powered by <a href="https://themealdb.com" target="_blank">themealdb</a></div>
   </div>
 </template>
+
 <!--------------------------------STYLE----------------------------------->
 <style scoped>
 #footer {

@@ -12,6 +12,7 @@
     </router-link>
   </div>
 </template>
+
 <!--------------------------------SCRIPT----------------------------------->
 <script>
 export default {

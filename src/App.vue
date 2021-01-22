@@ -1,7 +1,7 @@
 <!------------------------------TEMPLATE-------------------------------------->
 <template>
   <!--TODO: Add Skeletons to each text-area and image that might get reloaded
-https://bootstrap-vue.org/docs/components/skeleton----->
+https://bootstrap-vue.org/docs/components/skeleton ----->
 
   <div id="app">
     <!--------HEADER-------->
@@ -19,10 +19,10 @@ https://bootstrap-vue.org/docs/components/skeleton----->
       </b-col>
       <b-col sm="1"></b-col>
     </b-row>
-
     <Footer id="footer" />
   </div>
 </template>
+
 <!--------------------------------SCRIPT----------------------------------->
 <script>
 import Header from "./components/header.vue";
@@ -40,6 +40,7 @@ export default {
   },
 };
 </script>
+
 <!--------------------------------STYLE----------------------------------->
 <style>
 #app {
