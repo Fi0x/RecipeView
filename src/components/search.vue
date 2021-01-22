@@ -12,7 +12,7 @@
     </div>
     <div id="searchresults">
       <div id="searchinfo">
-        You searched for <b>{{ searchkey.slice(2) }}</b
+        You searched for <b>{{ searchKey.slice(2) }}</b
         >. These are your results:
       </div>
       <!--FIXME: live search works now but header search doesn't anymore -->
@@ -59,9 +59,9 @@ export default {
       mealInfo: "",
     };
   },
-  props: ["type", "searchkey"],
+  props: ["type", "searchKey"],
   watch: {
-    key: function () {
+    searchKey: function () {
       this.recipeSearchKey();
     },
     type: function () {
@@ -77,7 +77,7 @@ export default {
 
   methods: {
     async recipeSearchKey() {
-      let apiUrl ="https://www.themealdb.com/api/json/v1/1/" + this.type + ".php?" + this.searchkey;
+      let apiUrl ="https://www.themealdb.com/api/json/v1/1/" + this.type + ".php?" + this.searchKey;
       try {
         await this.axios
           .get(apiUrl)
