@@ -2,8 +2,9 @@
 <template>
   <div>
     <div>Your last viewed recipe:</div>
-    <router-link :to="`/recipe/${this.recipeID}`">
-      <h5 id="linktorec"> {{ mealName }} </h5>
+    <router-link :to="`/recipe/${this.recipeID}`"
+    id="link">
+      <h5> {{ mealName }} </h5>
       <img v-bind:src="mealImg" v-bind:alt="mealName" id="mealimg">
       <div id="badges">
         <b-badge id="spacing" pill> {{ mealCategory }}</b-badge>
