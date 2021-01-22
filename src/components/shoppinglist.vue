@@ -10,7 +10,7 @@
           id="listinput"
           placeholder="Bananas, Pork, ..."
           v-on:keyup.enter="additem()"
-      /><!-- TODO Webpage currently refreshes when enter is clicked, only when in form. BAD-->
+      />
       <b-button type="button" v-on:click="additem()"> +</b-button>
     </form>
 

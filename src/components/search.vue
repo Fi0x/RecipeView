@@ -27,8 +27,9 @@
               class="mb-3">
             <b-card-text>
               <h5>{{ result.strMeal }}</h5>
-              <!--TODO: when searching for categories, the returning json file doesn't contain any category-/area-tags-->
-              <div id="badges" v-show="'result.strCategory'.length < 0"><b-badge id="spacing" pill> {{ result.strCategory }} </b-badge>
+
+              <!--FIXME: badges still dont work-->
+              <div id="badges"><b-badge id="spacing" pill> {{ result.strCategory }} </b-badge> <!--  v-show="'result.strCategory'.length < 0"-->
                 <b-badge pill>  {{ result.strArea }} </b-badge></div>
             </b-card-text>
           </b-card>
@@ -48,6 +49,7 @@ export default {
       mealInfo: "",
     };
   },
+  //FIXME: key is a reserved attribute and cannot be used as component prop
   props: ["type", "key"],
   watch: {
     key: function () {

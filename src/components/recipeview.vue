@@ -14,7 +14,6 @@
             <th colspan="2"><h5>Ingredients</h5></th>
           </tr>
           </thead>
-          <!--todo fix this header-->
           <tr v-for="(mes, index) in measurements" :key="index">
             <td class="measurements">{{ mes }}</td>
             <td class="ingredients">{{ ingredients[index] }}</td>
