@@ -72,7 +72,7 @@
 <script>
 "use strict";
 export default {
-  name: "header",
+  name: "top",
   data: function () {
     return {
       lastRecipe: "",

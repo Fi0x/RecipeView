@@ -5,7 +5,7 @@ https://bootstrap-vue.org/docs/components/skeleton ----->
 
   <div id="app">
     <!--------HEADER-------->
-    <Header id="head" />
+    <Top />
     <b-row class="no-gutters">
       <b-col sm="1"></b-col>
       <!------ROUTER-VIEW--------->
@@ -19,13 +19,13 @@ https://bootstrap-vue.org/docs/components/skeleton ----->
       </b-col>
       <b-col sm="1"></b-col>
     </b-row>
-    <Footer id="footer" />
+    <Footer />
   </div>
 </template>
 
 <!--------------------------------SCRIPT----------------------------------->
 <script>
-import Header from "./components/header.vue";
+import Top from "./components/top.vue";
 import Shoppinglist from "./components/shoppinglist.vue";
 import Footer from "./components/footer.vue";
 import Lastviewed from "./components/lastviewedrec.vue";
@@ -33,7 +33,7 @@ import Lastviewed from "./components/lastviewedrec.vue";
 export default {
   name: "App",
   components: {
-    Header,
+    Top,
     Shoppinglist,
     Lastviewed,
     Footer,
