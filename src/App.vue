@@ -1,7 +1,7 @@
 <!------------------------------TEMPLATE-------------------------------------->
 <template>
   <!--TODO: Add Skeletons to each text-area and image that might get reloaded
-https://bootstrap-vue.org/docs/components/skeleton ----->
+https://bootstrap-vue.org/docs/components/skeleton----->
 
   <div id="app">
     <!--------HEADER-------->
