@@ -88,8 +88,8 @@ export default {
     this.lastRecipe = this.$cookies.get("lastrecipeid");
   },
   methods: {
-    storeID(id) {
-      this.lastRecipe = id;
+    storeID() {
+      this.lastRecipe = this.$cookies.get("lastrecipeid");
     },
     async loadCats() {
       let apiUrl = "https://www.themealdb.com/api/json/v1/1/list.php?c=list";

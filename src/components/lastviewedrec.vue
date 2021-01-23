@@ -29,23 +29,16 @@ export default {
   watch: {
     $route(to, from) {
       if (from["name"] === "Recipe") {
-        this.recipeID = this.$cookies.get("lastrecipeid");
+        this.recipeID = from["params"]["id"];
         this.recipeById();
-        this.$cookies.set("lastrecipeid", from["params"]["id"], "3d");
       }
     }
-  },
-  created: function () {
-    this.$root.$on("lastRecipeUpdate", this.storeOldCookie);
   },
   beforeMount() {
     this.recipeID = this.$cookies.get("lastrecipeid");
     this.recipeById();
   },
   methods: {
-    storeOldCookie(){
-      this.recipeID = this.$cookies.get("lastrecipeid");
-    },
     async recipeById() {
       let apiUrl =
           "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + this.recipeID;
