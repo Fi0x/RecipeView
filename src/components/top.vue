@@ -36,7 +36,6 @@
 
           <b-nav-item-dropdown text="Countries" right class="drpdown">
             <b-dropdown-item  class="dropdownitem"
-                href="#"
                 v-for="(area, index) in countryArray"
                 :key="index">
               <router-link :to="`/filter/a=${area}`" class="link">
@@ -158,5 +157,11 @@ export default {
 .link {
   text-decoration: none;
   color: #223d57;
+  width: 100%;
+  /* FIXME: float element is currently breaking the layout  */
+  float: left;
+}
+.link:hover{
+  background-color: none;
 }
 </style>

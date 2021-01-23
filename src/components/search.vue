@@ -15,7 +15,6 @@
         You searched for <b>{{ searchKey.slice(2) }}</b
         >. These are your results:
       </div>
-      <!--FIXME: live search works now but header search doesn't anymore -->
       <div v-if="mealInfo != null">
         <div class="card-wrapper" v-for="(result, idx) in mealInfo" :key="idx">
           <router-link :to="`/recipe/${result.idMeal}`" class="router-links">
