@@ -7,7 +7,7 @@
       <b-col sm="4">
         <img v-bind:src="mealImg" v-bind:alt="mealName" id="mealimage"/>
         <b-col>Like this Recipe? Share it! 
-        <div>
+        <div> <!--Icon source: https://pixabay.com -->
         <a v-bind:href="twitter" target="_blanc"><img src="../assets/twitter.png" alt="twitter-icon" class="social-icons"></a>
         <a v-bind:href="facebook" target="_blanc"><img src="../assets/facebook.png" alt="facebook-icon" class="social-icons"></a>
         <a v-bind:href="email" target="_blanc"><img src="../assets/email.png" alt="email-icon" class="social-icons"></a>
