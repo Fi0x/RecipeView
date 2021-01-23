@@ -1,6 +1,6 @@
 <!------------------------------TEMPLATE-------------------------------------->
 <template>
-<!--FIXME:    entire dropdown content is clickable -->
+  <!--FIXME:    entire dropdown content is clickable -->
   <div>
     <b-navbar id="navbarAll" toggleable="lg" type="dark">
       <b-navbar-brand href="#">
@@ -25,22 +25,19 @@
 
           <b-nav-item-dropdown text="Categories" right class="drpdown">
             <b-dropdown-item class="dropdownitem"
-                href="#"
-                v-for="(category, index) in categoryArray"
-                :key="index">
-              <router-link :to="`/filter/c=${category}`" class="link">
-                {{ category }}
-              </router-link>
+                             :href="`/filter/c=${category}`"
+                             v-for="(category, index) in categoryArray"
+                             :key="index">
+              {{ category }}
             </b-dropdown-item>
           </b-nav-item-dropdown>
 
           <b-nav-item-dropdown text="Countries" right class="drpdown">
-            <b-dropdown-item  class="dropdownitem"
-                v-for="(area, index) in countryArray"
-                :key="index">
-              <router-link :to="`/filter/a=${area}`" class="link">
-                {{ area }}
-              </router-link>
+            <b-dropdown-item class="dropdownitem"
+                             :href="`/filter/a=${area}`"
+                             v-for="(area, index) in countryArray"
+                             :key="index">
+              {{ area }}
             </b-dropdown-item>
           </b-nav-item-dropdown>
         </b-navbar-nav>
@@ -128,32 +125,40 @@ export default {
 #headerlogo {
   width: 150px;
 }
+
 #navbarAll {
   background-color: #223d57;
 }
+
 #logofont {
   height: 80px;
 }
+
 #searchbar {
   width: 250px;
   margin: 10px;
 }
+
 #searchbtn {
   background-color: #D4AD39;
   color: #223d57;
-  border-color:  #D4AD39;
+  border-color: #D4AD39;
   border-width: 3px;
 }
+
 #searchbtn:hover {
   background-color: #f3d9a4;
   border-color: #D4AD39;
 }
+
 .drpdown {
   margin-top: 0.5rem;
 }
+
 .dropdownitem {
   color: #223d57;
 }
+
 .link {
   text-decoration: none;
   color: #223d57;
@@ -161,7 +166,8 @@ export default {
   /* FIXME: float element is currently breaking the layout  */
   float: left;
 }
-.link:hover{
+
+.link:hover {
   background-color: none;
 }
 </style>
