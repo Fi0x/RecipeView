@@ -1,6 +1,6 @@
 <!--------------------------------TEMPLATE----------------------------------->
 <template>
-  <div v-if="mealName.length > 0">
+  <div v-if="mealName.length > 0 && validRecipe">
     <div>Your last viewed recipe:</div>
     <router-link :to="`/recipe/${this.recipeID}`" id="link">
       <h5>{{ mealName }}</h5>
@@ -19,6 +19,7 @@ export default {
   name: "LastViewed",
   data: function () {
     return {
+      validRecipe: false,
       recipeID: "",
       mealName: "",
       mealImg: "",
@@ -31,14 +32,21 @@ export default {
       if (from["name"] === "Recipe") {
         this.recipeID = from["params"]["id"];
         this.recipeById();
+        this.validRecipe = true;
       }
     }
+  },
+  created: function () {
+    this.$root.$on("newRecipe", this.checkIfValid);
   },
   beforeMount() {
     this.recipeID = this.$cookies.get("lastrecipeid");
     this.recipeById();
   },
   methods: {
+    checkIfValid(id) {
+      this.validRecipe = this.recipeID !== id;
+    },
     async recipeById() {
       let apiUrl =
           "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + this.recipeID;
