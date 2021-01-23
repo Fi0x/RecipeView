@@ -22,9 +22,9 @@
       </b-col>
       <b-col>Like this Recipe? Share it with your friends!
         <!--Interpolation is not possible, how can we fix this?-->
-        <a href="http://twitter.com/share?text=Check out this recipe for!&url=[URL]" target="_blanc">Twitter</a>
-        <a href="http://www.facebook.com/sharer.php?u=[EncodedURL]" target="_blanc" >Facebook</a>
-        <a href="mailto:?subject=[Awesome Recipe]&body=Check out this Recipe! [URL]" target="_blanc">E-Mail</a>
+        <a v-bind:href="twitter" target="_blanc">Twitter</a>
+        <a v-bind:href="facebook" target="_blanc" >Facebook</a>
+        <a v-bind:href="email" target="_blanc">E-Mail</a>
       </b-col>
       <b-col sm="1"></b-col>
     </b-row>
@@ -66,6 +66,8 @@ export default {
       measurements: [],
       ingredients: [],
       twitter: "",
+      facebook: "",
+      email: "",
     };
   },
   props: ['id'],
@@ -94,8 +96,10 @@ export default {
         this.mealCategory = mealInfo["strCategory"];
         this.mealArea = mealInfo["strArea"];
 
-        //TODO:Social sharing links:
-
+        //Social sharing links:
+        this.twitter = "http://twitter.com/share?text=Check out this recipe for " + this.mealName + "!&url=https://recipe-view.netlify.app/recipe/" + this.id;
+        this.facebook = "http://www.facebook.com/sharer.php?u=https://recipe-view.netlify.app/recipe/" + this.id;
+        this.email = "mailto:?subject=Great Recipe&body=Check out this site https://recipe-view.netlify.app/recipe/" + this.id;
 
         this.ingredients.splice(0);
         this.measurements.splice(0);
