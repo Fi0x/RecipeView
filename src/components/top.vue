@@ -18,11 +18,6 @@
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
-          <b-nav-item href="#">
-            <router-link :to="`/recipe/${this.lastRecipe}`" class="nav-link">last viewed recipe
-            </router-link>
-          </b-nav-item>
-
           <b-nav-item-dropdown text="Categories" right class="drpdown">
             <b-dropdown-item class="dropdownitem"
                              :href="`/filter/c=${category}`"
