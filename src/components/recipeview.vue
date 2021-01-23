@@ -82,8 +82,8 @@ export default {
       let mealInfo;
 
       //Set cookies
+      this.$root.$emit("lastRecipeUpdate");
       this.$cookies.set("lastrecipeid", this.id, "3d");
-      this.$root.$emit("lastRecipeUpdate", this.id);
 
       try {
         await this.axios.get(apiUrl).then((response) => (mealInfo = response.data["meals"][0]));
