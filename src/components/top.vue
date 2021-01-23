@@ -158,16 +158,4 @@ export default {
 .dropdownitem {
   color: #223d57;
 }
-
-.link {
-  text-decoration: none;
-  color: #223d57;
-  width: 100%;
-  /* FIXME: float element is currently breaking the layout  */
-  float: left;
-}
-
-.link:hover {
-  background-color: none;
-}
 </style>
