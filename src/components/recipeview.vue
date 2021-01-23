@@ -6,8 +6,15 @@
       <b-col sm="1"></b-col>
       <b-col sm="4">
         <img v-bind:src="mealImg" v-bind:alt="mealName" id="mealimage"/>
+        <b-col>Like this Recipe? Share it! 
+        <div>
+        <a v-bind:href="twitter" target="_blanc"><img src="../assets/twitter.png" alt="twitter-icon" class="social-icons"></a>
+        <a v-bind:href="facebook" target="_blanc"><img src="../assets/facebook.png" alt="facebook-icon" class="social-icons"></a>
+        <a v-bind:href="email" target="_blanc"><img src="../assets/email.png" alt="email-icon" class="social-icons"></a>
+        </div>
       </b-col>
-      <b-col sm="4">
+      </b-col>
+      <b-col sm="6">
         <table>
           <thead>
           <tr>
@@ -19,12 +26,6 @@
             <td class="ingredients">{{ ingredients[index] }}</td>
           </tr>
         </table>
-      </b-col>
-      <b-col>Like this Recipe? Share it with your friends!
-        <!--Interpolation is not possible, how can we fix this?-->
-        <a v-bind:href="twitter" target="_blanc">Twitter</a>
-        <a v-bind:href="facebook" target="_blanc" >Facebook</a>
-        <a v-bind:href="email" target="_blanc">E-Mail</a>
       </b-col>
       <b-col sm="1"></b-col>
     </b-row>
@@ -141,5 +142,10 @@ table {
 }
 .centered {
   text-align: center;
+}
+.social-icons {
+  max-width: 20px;
+  margin-left: 3px;
+  margin-right: 3px;
 }
 </style>
