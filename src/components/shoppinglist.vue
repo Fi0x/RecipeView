@@ -4,7 +4,8 @@
     <h2>Your shopping list</h2>
     <form onsubmit="return false;">
       <label for="listinput">Create a new entry:</label>
-      <input
+     <div>
+        <input
           type="text"
           v-model="input"
           id="listinput"
@@ -12,6 +13,7 @@
           v-on:keyup.enter="additem()"
       />
       <b-button type="button" v-on:click="additem()"> +</b-button>
+     </div>
     </form>
 
     <ul>
