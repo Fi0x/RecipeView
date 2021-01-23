@@ -7,7 +7,7 @@
       <b-col sm="4">
         <img v-bind:src="mealImg" v-bind:alt="mealName" id="mealimage"/>
       </b-col>
-      <b-col sm="6">
+      <b-col sm="4">
         <table>
           <thead>
           <tr>
@@ -19,6 +19,12 @@
             <td class="ingredients">{{ ingredients[index] }}</td>
           </tr>
         </table>
+      </b-col>
+      <b-col>Like this Recipe? Share it with your friends!
+        <!--Interpolation is not possible, how can we fix this?-->
+        <a href="http://twitter.com/share?text=Check out this recipe for!&url=[URL]" target="_blanc">Twitter</a>
+        <a href="http://www.facebook.com/sharer.php?u=[EncodedURL]" target="_blanc" >Facebook</a>
+        <a href="mailto:?subject=[Awesome Recipe]&body=Check out this Recipe! [URL]" target="_blanc">E-Mail</a>
       </b-col>
       <b-col sm="1"></b-col>
     </b-row>
@@ -59,6 +65,7 @@ export default {
       mealArea: "",
       measurements: [],
       ingredients: [],
+      twitter: "",
     };
   },
   props: ['id'],
@@ -86,6 +93,9 @@ export default {
             .map((e) => e.trim());
         this.mealCategory = mealInfo["strCategory"];
         this.mealArea = mealInfo["strArea"];
+
+        //TODO:Social sharing links:
+
 
         this.ingredients.splice(0);
         this.measurements.splice(0);
