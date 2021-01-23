@@ -2,7 +2,7 @@
 <template>
   <div>
     <h2>Your shopping list</h2>
-    <form>
+    <form onsubmit="return false;">
       <label for="listinput">Create a new entry:</label>
       <input
           type="text"
@@ -73,26 +73,32 @@ export default {
 #listinput {
   margin-left: 10px;
 }
+
 .item {
   text-align: left;
 }
+
 .shoppingitem {
   padding: 0px;
   background-color: #f3d9a4;
   border-color: #f3d9a4;
   color: #2c3e50;
 }
+
 .shoppingitem:hover {
   color: #2c3e50;
 }
+
 .shoppingitem:focus {
   background-color: #f3d0a4;
   border-color: #f3d0a4;
   color: #2c3e50;
 }
+
 .shlist {
   list-style: none;
 }
+
 .strikethrough {
   text-decoration: line-through;
 }
