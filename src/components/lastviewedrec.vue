@@ -1,12 +1,12 @@
 <!--------------------------------TEMPLATE----------------------------------->
 <template>
-  <div v-if="mealName.length > 0">
+  <div v-if="mealName.length > 0 && validRecipe">
     <div>Your last viewed recipe:</div>
     <router-link :to="`/recipe/${this.recipeID}`" id="link">
       <h5>{{ mealName }}</h5>
-      <img v-bind:src="mealImg" v-bind:alt="mealName" id="mealimg" />
-      <div id="badges" >
-        <b-badge id="spacing" pill > {{ mealCategory }}</b-badge>
+      <img v-bind:src="mealImg" v-bind:alt="mealName" id="mealimg"/>
+      <div id="badges">
+        <b-badge id="spacing" pill> {{ mealCategory }}</b-badge>
         <b-badge pill> {{ mealArea }}</b-badge>
       </div>
     </router-link>
@@ -19,6 +19,7 @@ export default {
   name: "LastViewed",
   data: function () {
     return {
+      validRecipe: false,
       recipeID: "",
       mealName: "",
       mealImg: "",
@@ -26,22 +27,34 @@ export default {
       mealArea: "",
     };
   },
+  watch: {
+    $route(to, from) {
+      if (from["name"] === "Recipe") {
+        this.recipeID = from["params"]["id"];
+        this.recipeById();
+        this.validRecipe = true;
+      }
+    }
+  },
   created: function () {
-    this.$root.$on("lastRecipeUpdate", this.recipeById);
+    this.$root.$on("newRecipe", this.checkIfValid);
   },
   beforeMount() {
+    this.recipeID = this.$cookies.get("lastrecipeid");
     this.recipeById();
   },
   methods: {
+    checkIfValid(id) {
+      this.validRecipe = this.recipeID !== id;
+    },
     async recipeById() {
-      this.recipeID = this.$cookies.get("lastrecipeid");
       let apiUrl =
-        "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + this.recipeID;
+          "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + this.recipeID;
       let mealInfo;
       try {
         await this.axios
-          .get(apiUrl)
-          .then((response) => (mealInfo = response.data["meals"][0]));
+            .get(apiUrl)
+            .then((response) => (mealInfo = response.data["meals"][0]));
         this.mealName = mealInfo["strMeal"];
         this.mealImg = mealInfo["strMealThumb"];
         this.mealCategory = mealInfo["strCategory"];
@@ -59,15 +72,19 @@ export default {
 #mealimg {
   width: 240px;
 }
+
 #badges {
   font-size: 17px;
 }
+
 #spacing {
   margin-right: 5px;
 }
+
 #link {
   color: #223d57;
 }
+
 #link:hover {
   text-decoration: none;
   color: #6c757d;

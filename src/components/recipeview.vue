@@ -6,13 +6,15 @@
       <b-col sm="1"></b-col>
       <b-col sm="4">
         <img v-bind:src="mealImg" v-bind:alt="mealName" id="mealimage"/>
-        <b-col>Like this Recipe? Share it! 
-        <div> <!--Icon source: https://pixabay.com -->
-        <a v-bind:href="twitter" target="_blanc"><img src="../assets/twitter.png" alt="twitter-icon" class="social-icons"></a>
-        <a v-bind:href="facebook" target="_blanc"><img src="../assets/facebook.png" alt="facebook-icon" class="social-icons"></a>
-        <a v-bind:href="email" target="_blanc"><img src="../assets/email.png" alt="email-icon" class="social-icons"></a>
-        </div>
-      </b-col>
+        <b-col>Like this Recipe? Share it!
+          <div>
+            <a v-bind:href="twitter" target="_blanc"><img src="../assets/twitter.png" alt="twitter-icon"
+                                                          class="social-icons"></a>
+            <a v-bind:href="facebook" target="_blanc"><img src="../assets/facebook.png" alt="facebook-icon"
+                                                           class="social-icons"></a>
+            <a v-bind:href="email" target="_blanc"><img src="../assets/email.png" alt="email-icon" class="social-icons"></a>
+          </div>
+        </b-col>
       </b-col>
       <b-col sm="6">
         <table>
@@ -72,18 +74,21 @@ export default {
     };
   },
   props: ['id'],
+  watch: {
+    id: function () {
+      this.recipeById();
+    }
+  },
   beforeMount() {
     this.recipeById();
   },
 
   methods: {
     async recipeById() {
+      this.$root.$emit("newRecipe", this.id);
+      this.$cookies.set("lastrecipeid", this.id, "3d");
       let apiUrl = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + this.id;
       let mealInfo;
-
-      //Set cookies
-      this.$cookies.set("lastrecipeid", this.id, "3d");
-      this.$root.$emit("lastRecipeUpdate", this.id);
 
       try {
         await this.axios.get(apiUrl).then((response) => (mealInfo = response.data["meals"][0]));
@@ -122,27 +127,34 @@ export default {
 table {
   width: 90%;
 }
+
 #mealimage {
   max-width: 100%;
 }
+
 #instructions {
   text-align: left;
 }
+
 .measurements {
   text-align: right;
   padding-right: 10px;
 }
+
 .ingredients {
   text-align: left;
   padding-left: 10px;
 }
+
 .left-bound {
   text-align: left;
   padding-left: 35px;
 }
+
 .centered {
   text-align: center;
 }
+
 .social-icons {
   max-width: 20px;
   margin-left: 3px;
