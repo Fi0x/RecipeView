@@ -7,7 +7,7 @@
       <b-col sm="4">
         <img v-bind:src="mealImg"
              v-bind:alt="mealName"
-             id="mealimage" />
+             id="mealImg" />
         <b-col>
           Like this Recipe? Share it!
           <div>
@@ -139,7 +139,7 @@ table {
   width: 90%;
 }
 
-#mealimage {
+#mealImage {
   max-width: 100%;
 }
 

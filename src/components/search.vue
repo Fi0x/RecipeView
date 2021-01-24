@@ -8,8 +8,8 @@
           placeholder="Looking for something else instead?"
           v-model="userInput" />
     </div>
-    <div id="searchresults">
-      <div id="searchinfo">Search-results:</div>
+    <div id="searchResults">
+      <div id="searchInfo">Search-results:</div>
       <div v-if="mealInfo != null">
         <div class="card-wrapper"
              v-for="(result, idx) in mealInfo"
@@ -86,10 +86,10 @@ export default {
 </script>
 <!--------------------------------STYLE----------------------------------->
 <style scoped>
-#searchresults {
+#searchResults {
   text-align: left;
 }
-#searchinfo {
+#searchInfo {
   padding-top: 10px;
   padding-bottom: 10px;
 }

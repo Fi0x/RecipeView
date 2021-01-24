@@ -3,12 +3,12 @@
   <div>
     <h2>Your shopping list</h2>
     <form onsubmit="return false;">
-      <label for="listinput">Create a new entry:</label>
+      <label for="listInput">Create a new entry:</label>
       <div>
         <input
             type="text"
             v-model="input"
-            id="listinput"
+            id="listInput"
             placeholder="Bananas, Pork, ..."
             v-on:keyup.enter="addItem()" />
         <b-button type="button"
@@ -21,9 +21,9 @@
       <div class="item"
            v-for="(item, index) in shopList"
            :key="index">
-        <li class="shlist">
+        <li class="shoppingList">
           <b-button
-              class="shoppingitem"
+              class="shoppingItem"
               type="button"
               v-on:click.prevent="toggleClass(item, $event.target)">
             ✔️ {{ item }}
@@ -62,15 +62,15 @@ export default {
     toggleClass(item, target)
     {
       let list = target.classList;
-      if (list.contains("strikethrough")) list.remove("strikethrough");
-      else list.add("strikethrough");
+      if (list.contains("strikeThrough")) list.remove("strikeThrough");
+      else list.add("strikeThrough");
     }
   }
 };
 </script>
 <!---------------------------------------STYLE---------------------------------------->
 <style scoped>
-#listinput {
+#listInput {
   margin-left: 10px;
 }
 
@@ -78,28 +78,26 @@ export default {
   text-align: left;
 }
 
-.shoppingitem {
+.shoppingItem {
   padding: 0;
   background-color: #f3d9a4;
   border-color: #f3d9a4;
   color: #2c3e50;
 }
 
-.shoppingitem:hover {
+.shoppingItem:hover {
   color: #2c3e50;
 }
 
-.shoppingitem:focus {
-  background-color: #f3d0a4;
-  border-color: #f3d0a4;
+.shoppingItem:focus {
   color: #2c3e50;
 }
 
-.shlist {
+.shoppingList {
   list-style: none;
 }
 
-.strikethrough {
+.strikeThrough {
   text-decoration: line-through;
 }
 </style>

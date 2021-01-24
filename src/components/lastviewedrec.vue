@@ -7,7 +7,7 @@
       <h5>{{ mealName }}</h5>
       <img v-bind:src="mealImg"
            v-bind:alt="mealName"
-           id="mealimg" />
+           id="mealImg" />
       <div id="badges">
         <b-badge id="spacing"
                  pill>
@@ -70,7 +70,7 @@ export default {
 </script>
 <!--------------------------------STYLE----------------------------------->
 <style scoped>
-#mealimg {
+#mealImg {
   width: 240px;
 }
 

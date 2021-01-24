@@ -4,7 +4,7 @@
     <div>
       <img src="../assets/logosimple.png"
            alt="recipefinder"
-           id="logoimg" />
+           id="logoImg" />
       is a Vue-js-based Single-Page-Application.
     </div>
     <div>© 2021 Felix Pechtl and Sophia Ochs</div>
@@ -31,7 +31,7 @@
   overflow: hidden;
 }
 
-#logoimg {
+#logoImg {
   height: 55px;
 }
 

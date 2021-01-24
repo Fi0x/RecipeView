@@ -19,7 +19,7 @@
       <router-link :to="`/recipe/${this.mealIDs[this.index]}`">
         <img v-bind:src="mealImg"
              v-bind:alt="mealName"
-             id="carouselimg" />
+             id="img" />
       </router-link>
       <svg width="3em"
            height="9em"
