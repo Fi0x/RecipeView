@@ -119,7 +119,7 @@ export default {
         this.email = "mailto:?subject=Great Recipe&body=Check out this site https://recipe-view.netlify.app/recipe/" + this.id;
         this.ingredients.splice(0);
         this.measurements.splice(0);
-        for (var i = 1; i <= 20; i++)
+        for (let i = 1; i <= 20; i++)
         {
           if (mealInfo["strIngredient" + i] === "") break;
           this.ingredients.push(mealInfo["strIngredient" + i]);

@@ -103,11 +103,10 @@ export default {
     {
       let apiUrl = "https://www.themealdb.com/api/json/v1/1/list.php?c=list";
       let catArray;
-      let i;
       try
       {
         await this.axios.get(apiUrl).then((response) => (catArray = response.data["meals"]));
-        for (i = 0; i < catArray.length; i++)
+        for (let i = 0; i < catArray.length; i++)
         {
           this.categoryArray.push(catArray[i]["strCategory"]);
         }
@@ -120,11 +119,10 @@ export default {
     {
       let apiUrl = "https://www.themealdb.com/api/json/v1/1/list.php?a=list";
       let areaArray;
-      let i;
       try
       {
         await this.axios.get(apiUrl).then((response) => (areaArray = response.data["meals"]));
-        for (i = 0; i < areaArray.length; i++)
+        for (let i = 0; i < areaArray.length; i++)
         {
           this.countryArray.push(areaArray[i]["strArea"]);
         }

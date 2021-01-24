@@ -17,8 +17,8 @@
           <router-link :to="`/recipe/${result.idMeal}`"
                        class="router-links">
             <b-card
-                v-bind:img-src="result.strMealThumb"
-                v-bind:img-alt="result.strMeal"
+                v-bind:img-src="result['strMealThumb']"
+                v-bind:img-alt="result['strMeal']"
                 img-left
                 class="mb-3">
               <b-card-text>

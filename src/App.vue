@@ -11,10 +11,10 @@
                      id="showcase" />
       </b-col>
       <b-col sm="3">
-        <!-------SHOPPINGLIST-------->
+        <!-------SHOPPING-LIST-------->
         <Shoppinglist class="segment"
                       id="shlist" />
-        <!-------LASTVIEWEDRECIPE-------->
+        <!-------LAST VIEWED RECIPE-------->
         <Lastviewed class="segment"
                     id="lastviewed" />
       </b-col>
