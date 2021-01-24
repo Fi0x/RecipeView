@@ -39,7 +39,8 @@
 "use strict";
 export default {
   name: "carousel",
-  data: function () {
+  data: function ()
+  {
     return {
       index: 0,
       mealIDs: [],
@@ -51,64 +52,73 @@ export default {
       mealArea: ""
     };
   },
-  beforeMount() {
+  beforeMount()
+  {
     this.firstRecipe();
   },
   methods: {
-    async previousRecipe() {
+    async previousRecipe()
+    {
       this.index--;
-      if (this.index < 0) {
+      if (this.index < 0)
+      {
         this.index = 0;
         await this.randomrecipe();
         this.mealIDs.unshift(this.currentID);
       } else await this.recipeByID(this.mealIDs[this.index]);
     },
-    async nextRecipe() {
+    async nextRecipe()
+    {
       this.index++;
-      if (this.index >= this.mealIDs.length) {
+      if (this.index >= this.mealIDs.length)
+      {
         await this.randomrecipe();
         this.mealIDs.push(this.currentID);
       } else await this.recipeByID(this.mealIDs[this.index]);
     },
-    async recipeByID(id) {
+    async recipeByID(id)
+    {
       let apiUrl = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + id;
       let mealInfo;
-
-      try {
+      try
+      {
         await this.axios.get(apiUrl).then((response) => (mealInfo = response.data["meals"][0]));
         this.storeData(mealInfo);
-      } catch (e) {
+      } catch (e)
+      {
         console.error(e);
       }
     },
-    async randomrecipe() {
+    async randomrecipe()
+    {
       let apiUrl = "https://www.themealdb.com/api/json/v1/1/random.php";
       let mealInfo;
-
-      try {
+      try
+      {
         await this.axios.get(apiUrl).then((response) => (mealInfo = response.data["meals"][0]));
         if (this.mealIDs.includes(mealInfo["idMeal"])) await this.randomrecipe();
-        else {
-          this.storeData(mealInfo);
-        }
-      } catch (e) {
-        console.error(e); //throws error if promise can't be fulfilled
+        else this.storeData(mealInfo);
+      } catch (e)
+      {
+        console.error(e);
       }
     },
-    async firstRecipe() {
+    async firstRecipe()
+    {
       let apiUrl = "https://www.themealdb.com/api/json/v1/1/random.php";
       let mealInfo;
-
-      try {
+      try
+      {
         await this.axios.get(apiUrl).then((response) => (mealInfo = response.data["meals"][0]));
         this.mealIDs.push(mealInfo["idMeal"]);
         this.storeData(mealInfo);
-
-      } catch (e) {
+      } catch (e)
+      {
         console.error(e);
       }
     },
-    storeData(data) {
+    storeData(data)
+    {
       this.currentID = data["idMeal"];
       this.mealName = data["strMeal"];
       this.mealImg = data["strMealThumb"];

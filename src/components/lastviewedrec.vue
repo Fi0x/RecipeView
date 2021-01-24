@@ -20,47 +20,52 @@
 </template>
 <!--------------------------------SCRIPT----------------------------------->
 <script>
+"use strict";
 export default {
   name: "LastViewed",
-  data: function () {
+  data: function ()
+  {
     return {
       recipeID: "",
       mealName: "",
       mealImg: "",
       mealCategory: "",
-      mealArea: "",
+      mealArea: ""
     };
   },
   watch: {
-    $route(to, from) {
-      if (from["name"] === "Recipe") {
+    $route(to, from)
+    {
+      if (from["name"] === "Recipe")
+      {
         this.recipeID = from["params"]["id"];
         this.recipeById();
       }
     }
   },
-  beforeMount() {
+  beforeMount()
+  {
     this.recipeID = this.$cookies.get("lastrecipeid");
     this.recipeById();
   },
   methods: {
-    async recipeById() {
-      let apiUrl =
-          "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + this.recipeID;
+    async recipeById()
+    {
+      let apiUrl = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + this.recipeID;
       let mealInfo;
-      try {
-        await this.axios
-            .get(apiUrl)
-            .then((response) => (mealInfo = response.data["meals"][0]));
+      try
+      {
+        await this.axios.get(apiUrl).then((response) => (mealInfo = response.data["meals"][0]));
         this.mealName = mealInfo["strMeal"];
         this.mealImg = mealInfo["strMealThumb"];
         this.mealCategory = mealInfo["strCategory"];
         this.mealArea = mealInfo["strArea"];
-      } catch (e) {
+      } catch (e)
+      {
         console.error(e);
       }
-    },
-  },
+    }
+  }
 };
 </script>
 <!--------------------------------STYLE----------------------------------->

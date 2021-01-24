@@ -72,7 +72,8 @@
 "use strict";
 export default {
   name: "top",
-  data: function () {
+  data: function ()
+  {
     return {
       lastRecipe: "",
       userInput: "",
@@ -80,48 +81,59 @@ export default {
       catArray: [],
       categoryArray: [],
       areaArray: [],
-      countryArray: [],
+      countryArray: []
     };
   },
-  created: function () {
+  created: function ()
+  {
     this.$root.$on("lastRecipeUpdate", this.storeID)
   },
-  beforeMount() {
+  beforeMount()
+  {
     this.loadCats();
     this.loadAreas();
     this.lastRecipe = this.$cookies.get("lastrecipeid");
   },
   methods: {
-    storeID() {
+    storeID()
+    {
       this.lastRecipe = this.$cookies.get("lastrecipeid");
     },
-    async loadCats() {
+    async loadCats()
+    {
       let apiUrl = "https://www.themealdb.com/api/json/v1/1/list.php?c=list";
       let catArray;
       let i;
-      try {
+      try
+      {
         await this.axios.get(apiUrl).then((response) => (catArray = response.data["meals"]));
-        for (i = 0; i < catArray.length; i++) {
+        for (i = 0; i < catArray.length; i++)
+        {
           this.categoryArray.push(catArray[i]["strCategory"]);
         }
-      } catch (e) {
+      } catch (e)
+      {
         console.error(e);
       }
     },
-    async loadAreas() {
+    async loadAreas()
+    {
       let apiUrl = "https://www.themealdb.com/api/json/v1/1/list.php?a=list";
       let areaArray;
       let i;
-      try {
+      try
+      {
         await this.axios.get(apiUrl).then((response) => (areaArray = response.data["meals"]));
-        for (i = 0; i < areaArray.length; i++) {
+        for (i = 0; i < areaArray.length; i++)
+        {
           this.countryArray.push(areaArray[i]["strArea"]);
         }
-      } catch (e) {
+      } catch (e)
+      {
         console.error(e);
       }
-    },
-  },
+    }
+  }
 };
 </script>
 <!--------------------------------STYLE----------------------------------->

@@ -37,8 +37,8 @@ export default {
     Top,
     Shoppinglist,
     Lastviewed,
-    Footer,
-  },
+    Footer
+  }
 };
 </script>
 <!--------------------------------STYLE----------------------------------->

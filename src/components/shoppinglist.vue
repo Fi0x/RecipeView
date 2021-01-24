@@ -40,35 +40,32 @@
 <!--------------------------------------SCRIPT-------------------------------------->
 <script>
 "use strict";
-//////////// TODO: menge der zutaten ggf mit store speichern VUEX -> ggf wie einkaufskorb auf website
 export default {
   name: "Shoppinglist",
-  data: function () {
+  data: function ()
+  {
     return {
       shoplist: [],
-      input: "",
+      input: ""
     };
   },
   methods: {
-    additem() {
+    additem()
+    {
       this.shoplist.push(this.input);
       this.input = "";
     },
-    clearlist() {
+    clearlist()
+    {
       this.shoplist = [];
     },
-    clearitem(index) {
-      this.shoplist.splice(index, 1);
-    },
-    toggleClass(item, target) {
+    toggleClass(item, target)
+    {
       let list = target.classList;
-      if (list.contains("strikethrough")) {
-        list.remove("strikethrough");
-      } else {
-        list.add("strikethrough");
-      }
-    },
-  },
+      if (list.contains("strikethrough")) list.remove("strikethrough");
+      else list.add("strikethrough");
+    }
+  }
 };
 </script>
 <!---------------------------------------STYLE---------------------------------------->

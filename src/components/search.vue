@@ -48,51 +48,56 @@
 "use strict";
 export default {
   name: "search",
-  data: function () {
+  data: function ()
+  {
     return {
       userInput: "",
-      mealInfo: "",
+      mealInfo: ""
     };
   },
   props: ["type", "searchKey"],
   watch: {
-    searchKey: function () {
+    searchKey: function ()
+    {
       this.recipeSearchKey();
     },
-    type: function () {
+    type: function ()
+    {
       this.recipeSearchKey();
     },
-    userInput: function () {
+    userInput: function ()
+    {
       this.recipeSearchKey2();
-    },
+    }
   },
-  beforeMount() {
+  beforeMount()
+  {
     this.recipeSearchKey();
   },
-
   methods: {
-    async recipeSearchKey() {
+    async recipeSearchKey()
+    {
       let apiUrl = "https://www.themealdb.com/api/json/v1/1/" + this.type + ".php?" + this.searchKey;
-      try {
-        await this.axios
-            .get(apiUrl)
-            .then((response) => (this.mealInfo = response.data.meals));
-      } catch (e) {
+      try
+      {
+        await this.axios.get(apiUrl).then((response) => (this.mealInfo = response.data.meals));
+      } catch (e)
+      {
         console.error(e);
       }
     },
-    async recipeSearchKey2() {
-      let apiUrl =
-          "https://www.themealdb.com/api/json/v1/1/search.php?s=" + this.userInput;
-      try {
-        await this.axios
-            .get(apiUrl)
-            .then((response) => (this.mealInfo = response.data.meals));
-      } catch (e) {
+    async recipeSearchKey2()
+    {
+      let apiUrl = "https://www.themealdb.com/api/json/v1/1/search.php?s=" + this.userInput;
+      try
+      {
+        await this.axios.get(apiUrl).then((response) => (this.mealInfo = response.data.meals));
+      } catch (e)
+      {
         console.error(e);
       }
-    },
-  },
+    }
+  }
 };
 </script>
 <!--------------------------------STYLE----------------------------------->

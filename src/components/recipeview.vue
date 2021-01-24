@@ -74,7 +74,8 @@
 "use strict";
 export default {
   name: "RecipeView",
-  data: function () {
+  data: function ()
+  {
     return {
       mealName: "",
       mealImg: "",
@@ -85,54 +86,51 @@ export default {
       ingredients: [],
       twitter: "",
       facebook: "",
-      email: "",
+      email: ""
     };
   },
   props: ['id'],
   watch: {
-    id: function () {
+    id: function ()
+    {
       this.recipeById();
     }
   },
-  beforeMount() {
+  beforeMount()
+  {
     this.recipeById();
   },
-
   methods: {
-    async recipeById() {
+    async recipeById()
+    {
       this.$cookies.set("lastrecipeid", this.id, "3d");
       let apiUrl = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + this.id;
       let mealInfo;
-
-      try {
+      try
+      {
         await this.axios.get(apiUrl).then((response) => (mealInfo = response.data["meals"][0]));
-
         this.mealName = mealInfo["strMeal"];
         this.mealImg = mealInfo["strMealThumb"];
-        this.mealInstructions = mealInfo["strInstructions"]
-            .split("\r\n")
-            .filter((e) => e.trim().length > 0)
-            .map((e) => e.trim());
+        this.mealInstructions = mealInfo["strInstructions"].split("\r\n").filter((e) => e.trim().length > 0).map((e) => e.trim());
         this.mealCategory = mealInfo["strCategory"];
         this.mealArea = mealInfo["strArea"];
-
-        //Social sharing links:
         this.twitter = "http://twitter.com/share?text=Check out this recipe for " + this.mealName + "!&url=https://recipe-view.netlify.app/recipe/" + this.id;
         this.facebook = "http://www.facebook.com/sharer.php?u=https://recipe-view.netlify.app/recipe/" + this.id;
         this.email = "mailto:?subject=Great Recipe&body=Check out this site https://recipe-view.netlify.app/recipe/" + this.id;
-
         this.ingredients.splice(0);
         this.measurements.splice(0);
-        for (var i = 1; i <= 20; i++) {
+        for (var i = 1; i <= 20; i++)
+        {
           if (mealInfo["strIngredient" + i] === "") break;
           this.ingredients.push(mealInfo["strIngredient" + i]);
           this.measurements.push(mealInfo["strMeasure" + i]);
         }
-      } catch (e) {
+      } catch (e)
+      {
         console.error(e);
       }
-    },
-  },
+    }
+  }
 };
 </script>
 <!--------------------------------STYLE------------------------------------>
