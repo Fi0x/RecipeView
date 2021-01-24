@@ -1,37 +1,36 @@
 <!--------------------------------TEMPLATE----------------------------------->
 <template>
   <div>
-    <!--TODO: error catch user inputs-->
     <div id="search">
       <b-form-input
-        size="sm"
-        class="mr-sm-2"
-        placeholder="Looking for something else instead?"
-        v-model="userInput"
-      ></b-form-input>
+          size="sm"
+          class="mr-sm-2"
+          placeholder="Looking for something else instead?"
+          v-model="userInput" />
     </div>
     <div id="searchresults">
-      <div id="searchinfo">
-        You searched for <b>{{ searchKey.slice(2) }}</b
-        >. These are your results:
-      </div>
+      <div id="searchinfo">Search-results:</div>
       <div v-if="mealInfo != null">
-        <div class="card-wrapper" v-for="(result, idx) in mealInfo" :key="idx">
-          <router-link :to="`/recipe/${result.idMeal}`" class="router-links">
-            <!-- Source for cards: https://bootstrap-vue.org/docs/components/card -->
+        <div class="card-wrapper"
+             v-for="(result, idx) in mealInfo"
+             :key="idx">
+          <router-link :to="`/recipe/${result.idMeal}`"
+                       class="router-links">
             <b-card
-              v-bind:img-src="result.strMealThumb"
-              v-bind:img-alt="result.strMeal"
-              img-left
-              class="mb-3"
-            >
+                v-bind:img-src="result.strMealThumb"
+                v-bind:img-alt="result.strMeal"
+                img-left
+                class="mb-3">
               <b-card-text>
                 <h5>{{ result.strMeal }}</h5>
                 <div id="badges">
-                  <b-badge id="spacing" pill v-if="result.strCategory != null">
+                  <b-badge id="spacing"
+                           pill
+                           v-if="result.strCategory != null">
                     {{ result.strCategory }}
                   </b-badge>
-                  <b-badge pill v-if="result.strArea">
+                  <b-badge pill
+                           v-if="result.strArea">
                     {{ result.strArea }}
                   </b-badge>
                 </div>
@@ -40,10 +39,7 @@
           </router-link>
         </div>
       </div>
-      <div v-else>
-        We are sorry to inform you that no recipes match your search. Maybe you
-        can try something else!
-      </div>
+      <div v-else>We are sorry to inform you that no recipes match your search. Maybe you can try something else!</div>
     </div>
   </div>
 </template>
@@ -76,22 +72,22 @@ export default {
 
   methods: {
     async recipeSearchKey() {
-      let apiUrl ="https://www.themealdb.com/api/json/v1/1/" + this.type + ".php?" + this.searchKey;
+      let apiUrl = "https://www.themealdb.com/api/json/v1/1/" + this.type + ".php?" + this.searchKey;
       try {
         await this.axios
-          .get(apiUrl)
-          .then((response) => (this.mealInfo = response.data.meals));
+            .get(apiUrl)
+            .then((response) => (this.mealInfo = response.data.meals));
       } catch (e) {
         console.error(e);
       }
     },
     async recipeSearchKey2() {
       let apiUrl =
-        "https://www.themealdb.com/api/json/v1/1/search.php?s=" + this.userInput;
+          "https://www.themealdb.com/api/json/v1/1/search.php?s=" + this.userInput;
       try {
         await this.axios
-          .get(apiUrl)
-          .then((response) => (this.mealInfo = response.data.meals));
+            .get(apiUrl)
+            .then((response) => (this.mealInfo = response.data.meals));
       } catch (e) {
         console.error(e);
       }

@@ -4,37 +4,39 @@
     <h2>Your shopping list</h2>
     <form onsubmit="return false;">
       <label for="listinput">Create a new entry:</label>
-     <div>
+      <div>
         <input
-          type="text"
-          v-model="input"
-          id="listinput"
-          placeholder="Bananas, Pork, ..."
-          v-on:keyup.enter="additem()"
-      />
-      <b-button type="button" v-on:click="additem()"> +</b-button>
-     </div>
+            type="text"
+            v-model="input"
+            id="listinput"
+            placeholder="Bananas, Pork, ..."
+            v-on:keyup.enter="additem()" />
+        <b-button type="button"
+                  v-on:click="additem()">
+          +
+        </b-button>
+      </div>
     </form>
-
     <ul>
-      <div class="item" v-for="(item, index) in shoplist" :key="index">
+      <div class="item"
+           v-for="(item, index) in shoplist"
+           :key="index">
         <li class="shlist">
           <b-button
               class="shoppingitem"
               type="button"
-              v-on:click.prevent="toggleClass(item, $event.target)"
-          >✔️ {{ item }}
+              v-on:click.prevent="toggleClass(item, $event.target)">
+            ✔️ {{ item }}
           </b-button>
         </li>
       </div>
     </ul>
-
-    <b-button type="button" v-on:click="clearlist()"
-    >Clear entire list
+    <b-button type="button"
+              v-on:click="clearlist()">
+      Clear entire list
     </b-button>
   </div>
 </template>
-
 <!--------------------------------------SCRIPT-------------------------------------->
 <script>
 "use strict";
@@ -69,7 +71,6 @@ export default {
   },
 };
 </script>
-
 <!---------------------------------------STYLE---------------------------------------->
 <style scoped>
 #listinput {

@@ -3,16 +3,32 @@
   <div>
     <h2><b>{{ mealName }}</b></h2>
     <b-row>
-      <b-col sm="1"></b-col>
+      <b-col sm="1" />
       <b-col sm="4">
-        <img v-bind:src="mealImg" v-bind:alt="mealName" id="mealimage"/>
-        <b-col>Like this Recipe? Share it!
+        <img v-bind:src="mealImg"
+             v-bind:alt="mealName"
+             id="mealimage" />
+        <b-col>
+          Like this Recipe? Share it!
           <div>
-            <a v-bind:href="twitter" target="_blanc"><img src="../assets/twitter.png" alt="twitter-icon"
-                                                          class="social-icons"></a>
-            <a v-bind:href="facebook" target="_blanc"><img src="../assets/facebook.png" alt="facebook-icon"
-                                                           class="social-icons"></a>
-            <a v-bind:href="email" target="_blanc"><img src="../assets/email.png" alt="email-icon" class="social-icons"></a>
+            <a v-bind:href="twitter"
+               target="_blanc">
+              <img src="../assets/twitter.png"
+                   alt="twitter-icon"
+                   class="social-icons" />
+            </a>
+            <a v-bind:href="facebook"
+               target="_blanc">
+              <img src="../assets/facebook.png"
+                   alt="facebook-icon"
+                   class="social-icons" />
+            </a>
+            <a v-bind:href="email"
+               target="_blanc">
+              <img src="../assets/email.png"
+                   alt="email-icon"
+                   class="social-icons" />
+            </a>
           </div>
         </b-col>
       </b-col>
@@ -20,19 +36,22 @@
         <table>
           <thead>
           <tr>
-            <th colspan="2"><h5>Ingredients</h5></th>
+            <th colspan="2">
+              <h5>Ingredients</h5>
+            </th>
           </tr>
           </thead>
-          <tr v-for="(mes, index) in measurements" :key="index">
+          <tr v-for="(mes, index) in measurements"
+              :key="index">
             <td class="measurements">{{ mes }}</td>
             <td class="ingredients">{{ ingredients[index] }}</td>
           </tr>
         </table>
       </b-col>
-      <b-col sm="1"></b-col>
+      <b-col sm="1" />
     </b-row>
     <b-row>
-      <b-col sm="1"></b-col>
+      <b-col sm="1" />
       <b-col>
         <div>
           <h5 class="left-bound">Instructions</h5>
@@ -40,20 +59,16 @@
             <b-checkbox
                 class="listitem"
                 v-for="(paragraph, index) in mealInstructions"
-                :key="index"
-            >
-              <li>
-                {{ paragraph }}
-              </li>
+                :key="index">
+              <li>{{ paragraph }}</li>
             </b-checkbox>
           </ul>
         </div>
       </b-col>
-      <b-col sm="1"></b-col>
+      <b-col sm="1" />
     </b-row>
   </div>
 </template>
-
 <!--------------------------------SCRIPT----------------------------------->
 <script>
 "use strict";
@@ -120,7 +135,6 @@ export default {
   },
 };
 </script>
-
 <!--------------------------------STYLE------------------------------------>
 <style scoped>
 table {

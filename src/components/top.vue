@@ -1,24 +1,30 @@
 <!------------------------------TEMPLATE-------------------------------------->
 <template>
-  <!--FIXME:    entire dropdown content is clickable -->
   <div>
-    <b-navbar id="navbarAll" toggleable="lg" type="dark">
+    <b-navbar id="navbarAll"
+              toggleable="lg"
+              type="dark">
       <b-navbar-brand href="#">
-        <router-link :to="`/home`"
-        ><img src="../assets/logoimg.png" alt="logo" id="headerlogo"
-        /></router-link>
+        <router-link :to="`/home`">
+          <img src="../assets/logoimg.png"
+               alt="logo"
+               id="headerlogo" />
+        </router-link>
       </b-navbar-brand>
       <b-navbar-brand href="#">
         <router-link :to="`/home`">
-          <img src="../assets/logosimple.png" alt="recipefinder" id="logofont"
-          /></router-link>
+          <img src="../assets/logosimple.png"
+               alt="recipefinder"
+               id="logofont" />
+        </router-link>
       </b-navbar-brand>
-
-      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-
-      <b-collapse id="nav-collapse" is-nav>
+      <b-navbar-toggle target="nav-collapse" />
+      <b-collapse id="nav-collapse"
+                  is-nav>
         <b-navbar-nav>
-          <b-nav-item-dropdown text="Categories" right class="drpdown">
+          <b-nav-item-dropdown text="Categories"
+                               right
+                               class="drpdown">
             <b-dropdown-item class="dropdownitem"
                              :href="`/filter/c=${category}`"
                              v-for="(category, index) in categoryArray"
@@ -26,8 +32,9 @@
               {{ category }}
             </b-dropdown-item>
           </b-nav-item-dropdown>
-
-          <b-nav-item-dropdown text="Countries" right class="drpdown">
+          <b-nav-item-dropdown text="Countries"
+                               right
+                               class="drpdown">
             <b-dropdown-item class="dropdownitem"
                              :href="`/filter/a=${area}`"
                              v-for="(area, index) in countryArray"
@@ -36,8 +43,6 @@
             </b-dropdown-item>
           </b-nav-item-dropdown>
         </b-navbar-nav>
-
-        <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
           <b-nav-form>
             <b-form-input
@@ -45,11 +50,15 @@
                 class="mr-sm-2"
                 placeholder="What do you want to eat?"
                 v-model="userInput"
-                id="searchbar"
-            ></b-form-input>
+                id="searchbar" />
             <router-link :to="`/${this.searchLink}${this.userInput}`">
               <div id="btn-container">
-                <b-button size="sm" class="my-2 my-sm-0" type="submit" id="searchbtn">Search</b-button>
+                <b-button size="sm"
+                          class="my-2 my-sm-0"
+                          type="submit"
+                          id="searchbtn">
+                  Search
+                </b-button>
               </div>
             </router-link>
           </b-nav-form>

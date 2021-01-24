@@ -1,53 +1,39 @@
 <!--------------------------------TEMPLATE----------------------------------->
 <template>
   <div id="car">
-    
-      <router-link :to="`/recipe/${this.mealIDs[this.index]}`" class="router-links">
-        <h2>{{ mealName }}</h2>
+    <router-link :to="`/recipe/${this.mealIDs[this.index]}`"
+                 class="router-links">
+      <h2>{{ mealName }}</h2>
+    </router-link>
+    <div>
+      <svg width="3em"
+           height="9em"
+           viewBox="0 0 16 16"
+           class="chevron"
+           fill="currentColor"
+           xmlns="http://www.w3.org/2000/svg"
+           v-on:click="previousRecipe">
+        <path fill-rule="evenodd"
+              d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+      </svg>
+      <router-link :to="`/recipe/${this.mealIDs[this.index]}`">
+        <img v-bind:src="mealImg"
+             v-bind:alt="mealName"
+             id="carouselimg" />
       </router-link>
-      <!--Both Chevrons are Scaling Vector Graphics from https://kruxor.com/view/code/1pheD/chevron-left/-->
-      <div>
-          <svg
-            width="3em"
-            height="9em"
-            viewBox="0 0 16 16"
-            class="chevron"
-            fill="currentColor"
-            xmlns="http://www.w3.org/2000/svg"
-            v-on:click="previousRecipe"
-        >
-          <path
-              fill-rule="evenodd"
-              d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
-          />
-        </svg>
-        <router-link :to="`/recipe/${this.mealIDs[this.index]}`">
-          <img
-              v-bind:src="mealImg"
-              v-bind:alt="mealName"
-              id="carouselimg"
-          />
-        </router-link>
-
-        <!--Both Chevrons are Scaling Vector Graphics from https://kruxor.com/view/code/1pheD/chevron-right/-->
-        <svg
-            width="3em"
-            height="9em"
-            viewBox="0 0 16 16"
-            class="chevron"
-            fill="currentColor"
-            xmlns="http://www.w3.org/2000/svg"
-            v-on:click="nextRecipe"
-        >
-          <path
-              fill-rule="evenodd"
-              d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
-          />
-        </svg>
-      </div>
+      <svg width="3em"
+           height="9em"
+           viewBox="0 0 16 16"
+           class="chevron"
+           fill="currentColor"
+           xmlns="http://www.w3.org/2000/svg"
+           v-on:click="nextRecipe">
+        <path fill-rule="evenodd"
+              d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+      </svg>
+    </div>
   </div>
 </template>
-
 <!--------------------------------SCRIPT----------------------------------->
 <script>
 "use strict";
@@ -62,7 +48,7 @@ export default {
       mealImg: "",
       mealInstructions: "",
       mealCategory: "",
-      mealArea: "",
+      mealArea: ""
     };
   },
   beforeMount() {
@@ -130,10 +116,9 @@ export default {
       this.mealCategory = data["strCategory"];
       this.mealArea = data["strArea"];
     }
-  },
+  }
 };
 </script>
-
 <!--------------------------------STYLE----------------------------------->
 <style scoped>
 img {

@@ -90,7 +90,7 @@ Um den Code übersichtlicher zu machen und einige technische Dinge zu ermöglich
 
 - Beide Chevrons in der Carousel-Komponente sind SVGs von https://kruxor.com/view/code/1pheD/chevron-left/  und https://kruxor.com/view/code/1pheD/chevron-right/
 - Die Navbar in der Header-Komponente stammt in leicht veränderter Form von https://bootstrap-vue.org/docs/components/navbar
-
+- Die Cards in den Suchergebnissen stammen von https://bootstrap-vue.org/docs/components/card
 
 - Die Logos wurden mit Canva erstellt: https://www.canva.com/
 

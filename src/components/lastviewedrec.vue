@@ -2,17 +2,22 @@
 <template>
   <div v-if="mealName.length > 0">
     <div>Your last viewed recipe:</div>
-    <router-link :to="`/recipe/${this.recipeID}`" id="link">
+    <router-link :to="`/recipe/${this.recipeID}`"
+                 id="link">
       <h5>{{ mealName }}</h5>
-      <img v-bind:src="mealImg" v-bind:alt="mealName" id="mealimg"/>
+      <img v-bind:src="mealImg"
+           v-bind:alt="mealName"
+           id="mealimg" />
       <div id="badges">
-        <b-badge id="spacing" pill> {{ mealCategory }}</b-badge>
-        <b-badge pill> {{ mealArea }}</b-badge>
+        <b-badge id="spacing"
+                 pill>
+          {{ mealCategory }}
+        </b-badge>
+        <b-badge pill>{{ mealArea }}</b-badge>
       </div>
     </router-link>
   </div>
 </template>
-
 <!--------------------------------SCRIPT----------------------------------->
 <script>
 export default {
@@ -58,7 +63,6 @@ export default {
   },
 };
 </script>
-
 <!--------------------------------STYLE----------------------------------->
 <style scoped>
 #mealimg {
