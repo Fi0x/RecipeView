@@ -59,39 +59,23 @@ export default {
   watch: {
     searchKey: function ()
     {
-      this.recipeSearchKey();
-    },
-    type: function ()
-    {
-      this.recipeSearchKey();
+      this.recipeSearch(this.type + ".php?" + this.searchKey)
     },
     userInput: function ()
     {
-      this.recipeSearchKey2();
+      this.recipeSearch("search.php?s=" + this.userInput);
     }
   },
   beforeMount()
   {
-    this.recipeSearchKey();
+    this.recipeSearch(this.type + ".php?" + this.searchKey);
   },
   methods: {
-    async recipeSearchKey()
+    async recipeSearch(endpoint)
     {
-      let apiUrl = "https://www.themealdb.com/api/json/v1/1/" + this.type + ".php?" + this.searchKey;
       try
       {
-        await this.axios.get(apiUrl).then((response) => (this.mealInfo = response.data.meals));
-      } catch (e)
-      {
-        console.error(e);
-      }
-    },
-    async recipeSearchKey2()
-    {
-      let apiUrl = "https://www.themealdb.com/api/json/v1/1/search.php?s=" + this.userInput;
-      try
-      {
-        await this.axios.get(apiUrl).then((response) => (this.mealInfo = response.data.meals));
+        await this.axios.get("https://www.themealdb.com/api/json/v1/1/" + endpoint).then((response) => (this.mealInfo = response.data["meals"]))
       } catch (e)
       {
         console.error(e);
