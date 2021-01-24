@@ -1,6 +1,5 @@
 <!------------------------------TEMPLATE-------------------------------------->
 <template>
-  <!--FIXME:    entire dropdown content is clickable -->
   <div>
     <b-navbar id="navbarAll" toggleable="lg" type="dark">
       <b-navbar-brand href="#">
