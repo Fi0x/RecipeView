@@ -14,7 +14,7 @@
         <div class="card-wrapper"
              v-for="(result, idx) in mealInfo"
              :key="idx">
-          <router-link :to="`/recipe/${result.idMeal}`"
+          <router-link :to="`/recipe/${result['idMeal']}`"
                        class="router-links">
             <b-card
                 v-bind:img-src="result['strMealThumb']"
@@ -22,16 +22,16 @@
                 img-left
                 class="mb-3">
               <b-card-text>
-                <h5>{{ result.strMeal }}</h5>
+                <h5>{{ result['strMeal'] }}</h5>
                 <div id="badges">
                   <b-badge id="spacing"
                            pill
-                           v-if="result.strCategory != null">
-                    {{ result.strCategory }}
+                           v-if="result['strCategory'] != null">
+                    {{ result['strCategory'] }}
                   </b-badge>
                   <b-badge pill
-                           v-if="result.strArea">
-                    {{ result.strArea }}
+                           v-if="result['strArea']">
+                    {{ result['strArea'] }}
                   </b-badge>
                 </div>
               </b-card-text>

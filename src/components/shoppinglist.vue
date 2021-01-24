@@ -10,16 +10,16 @@
             v-model="input"
             id="listinput"
             placeholder="Bananas, Pork, ..."
-            v-on:keyup.enter="additem()" />
+            v-on:keyup.enter="addItem()" />
         <b-button type="button"
-                  v-on:click="additem()">
+                  v-on:click="addItem()">
           +
         </b-button>
       </div>
     </form>
     <ul>
       <div class="item"
-           v-for="(item, index) in shoplist"
+           v-for="(item, index) in shopList"
            :key="index">
         <li class="shlist">
           <b-button
@@ -32,7 +32,7 @@
       </div>
     </ul>
     <b-button type="button"
-              v-on:click="clearlist()">
+              v-on:click="clearList()">
       Clear entire list
     </b-button>
   </div>
@@ -45,19 +45,19 @@ export default {
   data: function ()
   {
     return {
-      shoplist: [],
+      shopList: [],
       input: ""
     };
   },
   methods: {
-    additem()
+    addItem()
     {
-      this.shoplist.push(this.input);
+      this.shopList.push(this.input);
       this.input = "";
     },
-    clearlist()
+    clearList()
     {
-      this.shoplist = [];
+      this.shopList = [];
     },
     toggleClass(item, target)
     {
@@ -79,7 +79,7 @@ export default {
 }
 
 .shoppingitem {
-  padding: 0px;
+  padding: 0;
   background-color: #f3d9a4;
   border-color: #f3d9a4;
   color: #2c3e50;

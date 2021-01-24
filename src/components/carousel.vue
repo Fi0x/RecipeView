@@ -63,7 +63,7 @@ export default {
       if (this.index < 0)
       {
         this.index = 0;
-        await this.randomrecipe();
+        await this.randomRecipe();
         this.mealIDs.unshift(this.currentID);
       } else await this.recipeByID(this.mealIDs[this.index]);
     },
@@ -72,7 +72,7 @@ export default {
       this.index++;
       if (this.index >= this.mealIDs.length)
       {
-        await this.randomrecipe();
+        await this.randomRecipe();
         this.mealIDs.push(this.currentID);
       } else await this.recipeByID(this.mealIDs[this.index]);
     },
@@ -89,14 +89,14 @@ export default {
         console.error(e);
       }
     },
-    async randomrecipe()
+    async randomRecipe()
     {
       let apiUrl = "https://www.themealdb.com/api/json/v1/1/random.php";
       let mealInfo;
       try
       {
         await this.axios.get(apiUrl).then((response) => (mealInfo = response.data["meals"][0]));
-        if (this.mealIDs.includes(mealInfo["idMeal"])) await this.randomrecipe();
+        if (this.mealIDs.includes(mealInfo["idMeal"])) await this.randomRecipe();
         else this.storeData(mealInfo);
       } catch (e)
       {
