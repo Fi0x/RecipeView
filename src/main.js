@@ -16,12 +16,9 @@ Vue.use(VueAxios, axios);
 import router from './router';
 
 //import vue-cookies
-// require
-Vue.use(require('vue-cookies'));
-
-// es2015 module
 import VueCookies from 'vue-cookies';
 Vue.use(VueCookies);
+Vue.use(require('vue-cookies'));
 
 
 Vue.config.productionTip = false;

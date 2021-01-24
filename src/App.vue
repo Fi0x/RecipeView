@@ -1,24 +1,23 @@
 <!------------------------------TEMPLATE-------------------------------------->
 <template>
-  <!--TODO: Add Skeletons to each text-area and image that might get reloaded
-https://bootstrap-vue.org/docs/components/skeleton----->
-
   <div id="app">
     <!--------HEADER-------->
     <Top />
     <b-row class="no-gutters">
       <b-col sm="1"></b-col>
-      <!------ROUTER-VIEW--------->
+      <!------ROUTER-VIEW / SHOWCASE--------->
       <b-col sm="7">
-        <router-view id="showcase" />
+        <router-view class="segment" id="showcase" />
       </b-col>
-      <!-------SHOPPINGLIST-------->
       <b-col sm="3">
-        <Shoppinglist id="shlist" />
-        <Lastviewed id="lastviewed"/>
+      <!-------SHOPPINGLIST-------->
+        <Shoppinglist class="segment" id="shlist" />
+      <!-------LASTVIEWEDRECIPE-------->
+        <Lastviewed class="segment" id="lastviewed"/>
       </b-col>
       <b-col sm="1"></b-col>
     </b-row>
+    <!-------FOOTER-------->
     <Footer />
   </div>
 </template>
@@ -50,25 +49,23 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+
+.segment {
+  background-color: #f3d9a4;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding: 20px;
+}
+
 #showcase {
-  background-color: #f3d9a4;
-  margin-top: 15px;
-  margin-bottom: 15px;
   margin-right: 10px;
-  padding: 20px;
 }
+
 #shlist {
-  background-color: #f3d9a4;
-  margin-top: 15px;
-  margin-bottom: 15px;
   margin-left: 10px;
-  padding: 20px;
 }
+
 #lastviewed {
-  background-color: #f3d9a4;
-  margin-top: 15px;
-  margin-bottom: 15px;
   margin-left: 10px;
-  padding: 20px;
 }
 </style>
