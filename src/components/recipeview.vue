@@ -85,7 +85,6 @@ export default {
 
   methods: {
     async recipeById() {
-      this.$root.$emit("newRecipe", this.id);
       this.$cookies.set("lastrecipeid", this.id, "3d");
       let apiUrl = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + this.id;
       let mealInfo;
