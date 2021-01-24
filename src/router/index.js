@@ -28,13 +28,13 @@ export default new Router({
             path: '/recipe/:id',
             name: 'Recipe',
             component: Recipe,
-            props: true,
+            props: true
         },
         {
             path: '/:type/:searchKey',
             name: 'Search',
             component: Search,
-            props: true,
+            props: true
         }
     ]
 })

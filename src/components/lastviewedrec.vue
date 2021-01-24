@@ -2,63 +2,72 @@
 <template>
   <div v-if="mealName.length > 0">
     <div>Your last viewed recipe:</div>
-    <router-link :to="`/recipe/${this.recipeID}`" id="link">
+    <router-link :to="`/recipe/${this.recipeID}`"
+                 id="link">
       <h5>{{ mealName }}</h5>
-      <img v-bind:src="mealImg" v-bind:alt="mealName" id="mealimg"/>
+      <img v-bind:src="mealImg"
+           v-bind:alt="mealName"
+           id="mealimg" />
       <div id="badges">
-        <b-badge id="spacing" pill> {{ mealCategory }}</b-badge>
-        <b-badge pill> {{ mealArea }}</b-badge>
+        <b-badge id="spacing"
+                 pill>
+          {{ mealCategory }}
+        </b-badge>
+        <b-badge pill>{{ mealArea }}</b-badge>
       </div>
     </router-link>
   </div>
 </template>
-
 <!--------------------------------SCRIPT----------------------------------->
 <script>
+"use strict";
 export default {
   name: "LastViewed",
-  data: function () {
+  data: function ()
+  {
     return {
       recipeID: "",
       mealName: "",
       mealImg: "",
       mealCategory: "",
-      mealArea: "",
+      mealArea: ""
     };
   },
   watch: {
-    $route(to, from) {
-      if (from["name"] === "Recipe") {
+    $route(to, from)
+    {
+      if (from["name"] === "Recipe")
+      {
         this.recipeID = from["params"]["id"];
         this.recipeById();
       }
     }
   },
-  beforeMount() {
+  beforeMount()
+  {
     this.recipeID = this.$cookies.get("lastrecipeid");
     this.recipeById();
   },
   methods: {
-    async recipeById() {
-      let apiUrl =
-          "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + this.recipeID;
+    async recipeById()
+    {
+      let apiUrl = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + this.recipeID;
       let mealInfo;
-      try {
-        await this.axios
-            .get(apiUrl)
-            .then((response) => (mealInfo = response.data["meals"][0]));
+      try
+      {
+        await this.axios.get(apiUrl).then((response) => (mealInfo = response.data["meals"][0]));
         this.mealName = mealInfo["strMeal"];
         this.mealImg = mealInfo["strMealThumb"];
         this.mealCategory = mealInfo["strCategory"];
         this.mealArea = mealInfo["strArea"];
-      } catch (e) {
+      } catch (e)
+      {
         console.error(e);
       }
-    },
-  },
+    }
+  }
 };
 </script>
-
 <!--------------------------------STYLE----------------------------------->
 <style scoped>
 #mealimg {

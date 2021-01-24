@@ -1,23 +1,30 @@
 <!------------------------------TEMPLATE-------------------------------------->
 <template>
   <div>
-    <b-navbar id="navbarAll" toggleable="lg" type="dark">
+    <b-navbar id="navbarAll"
+              toggleable="lg"
+              type="dark">
       <b-navbar-brand href="#">
-        <router-link :to="`/home`"
-        ><img src="../assets/logoimg.png" alt="logo" id="headerlogo"
-        /></router-link>
+        <router-link :to="`/home`">
+          <img src="../assets/logoimg.png"
+               alt="logo"
+               id="headerlogo" />
+        </router-link>
       </b-navbar-brand>
       <b-navbar-brand href="#">
         <router-link :to="`/home`">
-          <img src="../assets/logosimple.png" alt="recipefinder" id="logofont"
-          /></router-link>
+          <img src="../assets/logosimple.png"
+               alt="recipefinder"
+               id="logofont" />
+        </router-link>
       </b-navbar-brand>
-
-      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-
-      <b-collapse id="nav-collapse" is-nav>
+      <b-navbar-toggle target="nav-collapse" />
+      <b-collapse id="nav-collapse"
+                  is-nav>
         <b-navbar-nav>
-          <b-nav-item-dropdown text="Categories" right class="drpdown">
+          <b-nav-item-dropdown text="Categories"
+                               right
+                               class="drpdown">
             <b-dropdown-item class="dropdownitem"
                              :href="`/filter/c=${category}`"
                              v-for="(category, index) in categoryArray"
@@ -25,8 +32,9 @@
               {{ category }}
             </b-dropdown-item>
           </b-nav-item-dropdown>
-
-          <b-nav-item-dropdown text="Countries" right class="drpdown">
+          <b-nav-item-dropdown text="Countries"
+                               right
+                               class="drpdown">
             <b-dropdown-item class="dropdownitem"
                              :href="`/filter/a=${area}`"
                              v-for="(area, index) in countryArray"
@@ -35,8 +43,6 @@
             </b-dropdown-item>
           </b-nav-item-dropdown>
         </b-navbar-nav>
-
-        <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
           <b-nav-form>
             <b-form-input
@@ -44,11 +50,15 @@
                 class="mr-sm-2"
                 placeholder="What do you want to eat?"
                 v-model="userInput"
-                id="searchbar"
-            ></b-form-input>
+                id="searchbar" />
             <router-link :to="`/${this.searchLink}${this.userInput}`">
               <div id="btn-container">
-                <b-button size="sm" class="my-2 my-sm-0" type="submit" id="searchbtn">Search</b-button>
+                <b-button size="sm"
+                          class="my-2 my-sm-0"
+                          type="submit"
+                          id="searchbtn">
+                  Search
+                </b-button>
               </div>
             </router-link>
           </b-nav-form>
@@ -62,7 +72,8 @@
 "use strict";
 export default {
   name: "top",
-  data: function () {
+  data: function ()
+  {
     return {
       lastRecipe: "",
       userInput: "",
@@ -70,48 +81,57 @@ export default {
       catArray: [],
       categoryArray: [],
       areaArray: [],
-      countryArray: [],
+      countryArray: []
     };
   },
-  created: function () {
+  created: function ()
+  {
     this.$root.$on("lastRecipeUpdate", this.storeID)
   },
-  beforeMount() {
+  beforeMount()
+  {
     this.loadCats();
     this.loadAreas();
     this.lastRecipe = this.$cookies.get("lastrecipeid");
   },
   methods: {
-    storeID() {
+    storeID()
+    {
       this.lastRecipe = this.$cookies.get("lastrecipeid");
     },
-    async loadCats() {
+    async loadCats()
+    {
       let apiUrl = "https://www.themealdb.com/api/json/v1/1/list.php?c=list";
       let catArray;
-      let i;
-      try {
+      try
+      {
         await this.axios.get(apiUrl).then((response) => (catArray = response.data["meals"]));
-        for (i = 0; i < catArray.length; i++) {
+        for (let i = 0; i < catArray.length; i++)
+        {
           this.categoryArray.push(catArray[i]["strCategory"]);
         }
-      } catch (e) {
+      } catch (e)
+      {
         console.error(e);
       }
     },
-    async loadAreas() {
+    async loadAreas()
+    {
       let apiUrl = "https://www.themealdb.com/api/json/v1/1/list.php?a=list";
       let areaArray;
-      let i;
-      try {
+      try
+      {
         await this.axios.get(apiUrl).then((response) => (areaArray = response.data["meals"]));
-        for (i = 0; i < areaArray.length; i++) {
+        for (let i = 0; i < areaArray.length; i++)
+        {
           this.countryArray.push(areaArray[i]["strArea"]);
         }
-      } catch (e) {
+      } catch (e)
+      {
         console.error(e);
       }
-    },
-  },
+    }
+  }
 };
 </script>
 <!--------------------------------STYLE----------------------------------->

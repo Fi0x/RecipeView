@@ -3,16 +3,32 @@
   <div>
     <h2><b>{{ mealName }}</b></h2>
     <b-row>
-      <b-col sm="1"></b-col>
+      <b-col sm="1" />
       <b-col sm="4">
-        <img v-bind:src="mealImg" v-bind:alt="mealName" id="mealimage"/>
-        <b-col>Like this Recipe? Share it!
+        <img v-bind:src="mealImg"
+             v-bind:alt="mealName"
+             id="mealimage" />
+        <b-col>
+          Like this Recipe? Share it!
           <div>
-            <a v-bind:href="twitter" target="_blanc"><img src="../assets/twitter.png" alt="twitter-icon"
-                                                          class="social-icons"></a>
-            <a v-bind:href="facebook" target="_blanc"><img src="../assets/facebook.png" alt="facebook-icon"
-                                                           class="social-icons"></a>
-            <a v-bind:href="email" target="_blanc"><img src="../assets/email.png" alt="email-icon" class="social-icons"></a>
+            <a v-bind:href="twitter"
+               target="_blanc">
+              <img src="../assets/twitter.png"
+                   alt="twitter-icon"
+                   class="social-icons" />
+            </a>
+            <a v-bind:href="facebook"
+               target="_blanc">
+              <img src="../assets/facebook.png"
+                   alt="facebook-icon"
+                   class="social-icons" />
+            </a>
+            <a v-bind:href="email"
+               target="_blanc">
+              <img src="../assets/email.png"
+                   alt="email-icon"
+                   class="social-icons" />
+            </a>
           </div>
         </b-col>
       </b-col>
@@ -20,19 +36,22 @@
         <table>
           <thead>
           <tr>
-            <th colspan="2"><h5>Ingredients</h5></th>
+            <th colspan="2">
+              <h5>Ingredients</h5>
+            </th>
           </tr>
           </thead>
-          <tr v-for="(mes, index) in measurements" :key="index">
+          <tr v-for="(mes, index) in measurements"
+              :key="index">
             <td class="measurements">{{ mes }}</td>
             <td class="ingredients">{{ ingredients[index] }}</td>
           </tr>
         </table>
       </b-col>
-      <b-col sm="1"></b-col>
+      <b-col sm="1" />
     </b-row>
     <b-row>
-      <b-col sm="1"></b-col>
+      <b-col sm="1" />
       <b-col>
         <div>
           <h5 class="left-bound">Instructions</h5>
@@ -40,26 +59,23 @@
             <b-checkbox
                 class="listitem"
                 v-for="(paragraph, index) in mealInstructions"
-                :key="index"
-            >
-              <li>
-                {{ paragraph }}
-              </li>
+                :key="index">
+              <li>{{ paragraph }}</li>
             </b-checkbox>
           </ul>
         </div>
       </b-col>
-      <b-col sm="1"></b-col>
+      <b-col sm="1" />
     </b-row>
   </div>
 </template>
-
 <!--------------------------------SCRIPT----------------------------------->
 <script>
 "use strict";
 export default {
   name: "RecipeView",
-  data: function () {
+  data: function ()
+  {
     return {
       mealName: "",
       mealImg: "",
@@ -70,57 +86,53 @@ export default {
       ingredients: [],
       twitter: "",
       facebook: "",
-      email: "",
+      email: ""
     };
   },
   props: ['id'],
   watch: {
-    id: function () {
+    id: function ()
+    {
       this.recipeById();
     }
   },
-  beforeMount() {
+  beforeMount()
+  {
     this.recipeById();
   },
-
   methods: {
-    async recipeById() {
+    async recipeById()
+    {
       this.$cookies.set("lastrecipeid", this.id, "3d");
       let apiUrl = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + this.id;
       let mealInfo;
-
-      try {
+      try
+      {
         await this.axios.get(apiUrl).then((response) => (mealInfo = response.data["meals"][0]));
-
         this.mealName = mealInfo["strMeal"];
         this.mealImg = mealInfo["strMealThumb"];
-        this.mealInstructions = mealInfo["strInstructions"]
-            .split("\r\n")
-            .filter((e) => e.trim().length > 0)
-            .map((e) => e.trim());
+        this.mealInstructions = mealInfo["strInstructions"].split("\r\n").filter((e) => e.trim().length > 0).map((e) => e.trim());
         this.mealCategory = mealInfo["strCategory"];
         this.mealArea = mealInfo["strArea"];
-
-        //Social sharing links:
         this.twitter = "http://twitter.com/share?text=Check out this recipe for " + this.mealName + "!&url=https://recipe-view.netlify.app/recipe/" + this.id;
         this.facebook = "http://www.facebook.com/sharer.php?u=https://recipe-view.netlify.app/recipe/" + this.id;
         this.email = "mailto:?subject=Great Recipe&body=Check out this site https://recipe-view.netlify.app/recipe/" + this.id;
-
         this.ingredients.splice(0);
         this.measurements.splice(0);
-        for (var i = 1; i <= 20; i++) {
+        for (let i = 1; i <= 20; i++)
+        {
           if (mealInfo["strIngredient" + i] === "") break;
           this.ingredients.push(mealInfo["strIngredient" + i]);
           this.measurements.push(mealInfo["strMeasure" + i]);
         }
-      } catch (e) {
+      } catch (e)
+      {
         console.error(e);
       }
-    },
-  },
+    }
+  }
 };
 </script>
-
 <!--------------------------------STYLE------------------------------------>
 <style scoped>
 table {

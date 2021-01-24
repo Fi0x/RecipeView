@@ -1,59 +1,46 @@
 <!--------------------------------TEMPLATE----------------------------------->
 <template>
   <div id="car">
-    
-      <router-link :to="`/recipe/${this.mealIDs[this.index]}`" class="router-links">
-        <h2>{{ mealName }}</h2>
+    <router-link :to="`/recipe/${this.mealIDs[this.index]}`"
+                 class="router-links">
+      <h2>{{ mealName }}</h2>
+    </router-link>
+    <div>
+      <svg width="3em"
+           height="9em"
+           viewBox="0 0 16 16"
+           class="chevron"
+           fill="currentColor"
+           xmlns="http://www.w3.org/2000/svg"
+           v-on:click="previousRecipe">
+        <path fill-rule="evenodd"
+              d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+      </svg>
+      <router-link :to="`/recipe/${this.mealIDs[this.index]}`">
+        <img v-bind:src="mealImg"
+             v-bind:alt="mealName"
+             id="carouselimg" />
       </router-link>
-      <!--Both Chevrons are Scaling Vector Graphics from https://kruxor.com/view/code/1pheD/chevron-left/-->
-      <div>
-          <svg
-            width="3em"
-            height="9em"
-            viewBox="0 0 16 16"
-            class="chevron"
-            fill="currentColor"
-            xmlns="http://www.w3.org/2000/svg"
-            v-on:click="previousRecipe"
-        >
-          <path
-              fill-rule="evenodd"
-              d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
-          />
-        </svg>
-        <router-link :to="`/recipe/${this.mealIDs[this.index]}`">
-          <img
-              v-bind:src="mealImg"
-              v-bind:alt="mealName"
-              id="carouselimg"
-          />
-        </router-link>
-
-        <!--Both Chevrons are Scaling Vector Graphics from https://kruxor.com/view/code/1pheD/chevron-right/-->
-        <svg
-            width="3em"
-            height="9em"
-            viewBox="0 0 16 16"
-            class="chevron"
-            fill="currentColor"
-            xmlns="http://www.w3.org/2000/svg"
-            v-on:click="nextRecipe"
-        >
-          <path
-              fill-rule="evenodd"
-              d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
-          />
-        </svg>
-      </div>
+      <svg width="3em"
+           height="9em"
+           viewBox="0 0 16 16"
+           class="chevron"
+           fill="currentColor"
+           xmlns="http://www.w3.org/2000/svg"
+           v-on:click="nextRecipe">
+        <path fill-rule="evenodd"
+              d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+      </svg>
+    </div>
   </div>
 </template>
-
 <!--------------------------------SCRIPT----------------------------------->
 <script>
 "use strict";
 export default {
   name: "carousel",
-  data: function () {
+  data: function ()
+  {
     return {
       index: 0,
       mealIDs: [],
@@ -62,67 +49,76 @@ export default {
       mealImg: "",
       mealInstructions: "",
       mealCategory: "",
-      mealArea: "",
+      mealArea: ""
     };
   },
-  beforeMount() {
+  beforeMount()
+  {
     this.firstRecipe();
   },
   methods: {
-    async previousRecipe() {
+    async previousRecipe()
+    {
       this.index--;
-      if (this.index < 0) {
+      if (this.index < 0)
+      {
         this.index = 0;
-        await this.randomrecipe();
+        await this.randomRecipe();
         this.mealIDs.unshift(this.currentID);
       } else await this.recipeByID(this.mealIDs[this.index]);
     },
-    async nextRecipe() {
+    async nextRecipe()
+    {
       this.index++;
-      if (this.index >= this.mealIDs.length) {
-        await this.randomrecipe();
+      if (this.index >= this.mealIDs.length)
+      {
+        await this.randomRecipe();
         this.mealIDs.push(this.currentID);
       } else await this.recipeByID(this.mealIDs[this.index]);
     },
-    async recipeByID(id) {
+    async recipeByID(id)
+    {
       let apiUrl = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + id;
       let mealInfo;
-
-      try {
+      try
+      {
         await this.axios.get(apiUrl).then((response) => (mealInfo = response.data["meals"][0]));
         this.storeData(mealInfo);
-      } catch (e) {
+      } catch (e)
+      {
         console.error(e);
       }
     },
-    async randomrecipe() {
+    async randomRecipe()
+    {
       let apiUrl = "https://www.themealdb.com/api/json/v1/1/random.php";
       let mealInfo;
-
-      try {
+      try
+      {
         await this.axios.get(apiUrl).then((response) => (mealInfo = response.data["meals"][0]));
-        if (this.mealIDs.includes(mealInfo["idMeal"])) await this.randomrecipe();
-        else {
-          this.storeData(mealInfo);
-        }
-      } catch (e) {
-        console.error(e); //throws error if promise can't be fulfilled
+        if (this.mealIDs.includes(mealInfo["idMeal"])) await this.randomRecipe();
+        else this.storeData(mealInfo);
+      } catch (e)
+      {
+        console.error(e);
       }
     },
-    async firstRecipe() {
+    async firstRecipe()
+    {
       let apiUrl = "https://www.themealdb.com/api/json/v1/1/random.php";
       let mealInfo;
-
-      try {
+      try
+      {
         await this.axios.get(apiUrl).then((response) => (mealInfo = response.data["meals"][0]));
         this.mealIDs.push(mealInfo["idMeal"]);
         this.storeData(mealInfo);
-
-      } catch (e) {
+      } catch (e)
+      {
         console.error(e);
       }
     },
-    storeData(data) {
+    storeData(data)
+    {
       this.currentID = data["idMeal"];
       this.mealName = data["strMeal"];
       this.mealImg = data["strMealThumb"];
@@ -130,10 +126,9 @@ export default {
       this.mealCategory = data["strCategory"];
       this.mealArea = data["strArea"];
     }
-  },
+  }
 };
 </script>
-
 <!--------------------------------STYLE----------------------------------->
 <style scoped>
 img {

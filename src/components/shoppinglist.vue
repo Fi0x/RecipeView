@@ -4,72 +4,70 @@
     <h2>Your shopping list</h2>
     <form onsubmit="return false;">
       <label for="listinput">Create a new entry:</label>
-     <div>
+      <div>
         <input
-          type="text"
-          v-model="input"
-          id="listinput"
-          placeholder="Bananas, Pork, ..."
-          v-on:keyup.enter="additem()"
-      />
-      <b-button type="button" v-on:click="additem()"> +</b-button>
-     </div>
+            type="text"
+            v-model="input"
+            id="listinput"
+            placeholder="Bananas, Pork, ..."
+            v-on:keyup.enter="addItem()" />
+        <b-button type="button"
+                  v-on:click="addItem()">
+          +
+        </b-button>
+      </div>
     </form>
-
     <ul>
-      <div class="item" v-for="(item, index) in shoplist" :key="index">
+      <div class="item"
+           v-for="(item, index) in shopList"
+           :key="index">
         <li class="shlist">
           <b-button
               class="shoppingitem"
               type="button"
-              v-on:click.prevent="toggleClass(item, $event.target)"
-          >✔️ {{ item }}
+              v-on:click.prevent="toggleClass(item, $event.target)">
+            ✔️ {{ item }}
           </b-button>
         </li>
       </div>
     </ul>
-
-    <b-button type="button" v-on:click="clearlist()"
-    >Clear entire list
+    <b-button type="button"
+              v-on:click="clearList()">
+      Clear entire list
     </b-button>
   </div>
 </template>
-
 <!--------------------------------------SCRIPT-------------------------------------->
 <script>
 "use strict";
-//////////// TODO: menge der zutaten ggf mit store speichern VUEX -> ggf wie einkaufskorb auf website
 export default {
   name: "Shoppinglist",
-  data: function () {
+  data: function ()
+  {
     return {
-      shoplist: [],
-      input: "",
+      shopList: [],
+      input: ""
     };
   },
   methods: {
-    additem() {
-      this.shoplist.push(this.input);
+    addItem()
+    {
+      this.shopList.push(this.input);
       this.input = "";
     },
-    clearlist() {
-      this.shoplist = [];
+    clearList()
+    {
+      this.shopList = [];
     },
-    clearitem(index) {
-      this.shoplist.splice(index, 1);
-    },
-    toggleClass(item, target) {
+    toggleClass(item, target)
+    {
       let list = target.classList;
-      if (list.contains("strikethrough")) {
-        list.remove("strikethrough");
-      } else {
-        list.add("strikethrough");
-      }
-    },
-  },
+      if (list.contains("strikethrough")) list.remove("strikethrough");
+      else list.add("strikethrough");
+    }
+  }
 };
 </script>
-
 <!---------------------------------------STYLE---------------------------------------->
 <style scoped>
 #listinput {
@@ -81,7 +79,7 @@ export default {
 }
 
 .shoppingitem {
-  padding: 0px;
+  padding: 0;
   background-color: #f3d9a4;
   border-color: #f3d9a4;
   color: #2c3e50;

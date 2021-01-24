@@ -4,24 +4,26 @@
     <!--------HEADER-------->
     <Top />
     <b-row class="no-gutters">
-      <b-col sm="1"></b-col>
+      <b-col sm="1" />
       <!------ROUTER-VIEW / SHOWCASE--------->
       <b-col sm="7">
-        <router-view class="segment" id="showcase" />
+        <router-view class="segment"
+                     id="showcase" />
       </b-col>
       <b-col sm="3">
-      <!-------SHOPPINGLIST-------->
-        <Shoppinglist class="segment" id="shlist" />
-      <!-------LASTVIEWEDRECIPE-------->
-        <Lastviewed class="segment" id="lastviewed"/>
+        <!-------SHOPPING-LIST-------->
+        <Shoppinglist class="segment"
+                      id="shlist" />
+        <!-------LAST VIEWED RECIPE-------->
+        <Lastviewed class="segment"
+                    id="lastviewed" />
       </b-col>
-      <b-col sm="1"></b-col>
+      <b-col sm="1" />
     </b-row>
     <!-------FOOTER-------->
     <Footer />
   </div>
 </template>
-
 <!--------------------------------SCRIPT----------------------------------->
 <script>
 import Top from "./components/top.vue";
@@ -35,11 +37,10 @@ export default {
     Top,
     Shoppinglist,
     Lastviewed,
-    Footer,
-  },
+    Footer
+  }
 };
 </script>
-
 <!--------------------------------STYLE----------------------------------->
 <style>
 #app {
