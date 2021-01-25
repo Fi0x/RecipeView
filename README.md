@@ -32,8 +32,8 @@ Es soll Nutzern möglich sein, Rezepte mit Freunden zu teilen und sich inspirier
 
 ## Architektur
 ### `/public/index.html`
-Unsere index.html Datei enthält nur ein `div`-Element, welches auf die App.vue Komponente verweist,
-und ein paar `meta`-Tags für SEO.
+Unsere index.html Datei enthält nur ein `div`-Element, welches die App.vue-Komponente enthält
+und ein paar `meta`-Tags für eine sehr einfach SEO.
 
 ### `/src/main.js`
 Die verwendeten Libraries werden in dieser Datei importiert und `App.vue` wird gemountet und gerendert.
@@ -50,7 +50,7 @@ Es war uns wichtig, diese Komponente möglichst übersichtlich zu halten und vie
 ### `/src/components/carousel.vue`
 In unserer Carousel-Componente werden zufällige Rezepte aus der API geladen um einem etwaigen Nutzer zur Inspiration zu dienen.
 Sie bildet damit auch einen wichtigen Bestandteil unserer Landing Page.
-Die Rezepze werden in einem Array gespeichert und können somit bei einem Click auf die Zurück-Taste (**<**) erneut angesehen werden.
+Die Rezepze werden in einem Array gespeichert und können somit bei einem Click auf den Zurück-Button (**<**) erneut angesehen werden.
 Sollte eines der Rezepte in der Carousel-Componente angeklickt werden, wird der Nutzer zur Recipeview-Ansicht weitergeleitet.
 
 ### `/src/components/errorpage.vue`
