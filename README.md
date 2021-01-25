@@ -4,10 +4,15 @@
 
 Recipefinder ist eine Vue-basierte Singlepage-Application gestaltet von Felix Pechtl und Sophia Ochs. In Recipefinder werden Rezepte dynamisch dargestellt und durch vorgeschlagene Rezepte oder Suchanfragen verschiedener Typen aufgelistet.
 
-Unsere Anwendung ist unter folgendem Link online verfügbar: LINK EINFÜGEN
+Unsere Anwendung ist unter folgendem Link online verfügbar: https://recipe-view.netlify.app/home
 
 Zur Umsetzung wurde die API der themealdb Database genutzt:
 https://www.themealdb.com/api.php
+
+---
+
+## Lokaler Start der Applikation
+Um die Applikation lokal zu starten, muss lediglich `npm install` im CLI des Projektverzeichnisses eingegeben werden. Zugehörige Dependecies sollten dann automatisch installiert werden.
 
 ---
 
@@ -44,7 +49,7 @@ Wenn eine Suchanfrage im Header eingegeben wird oder ein Element des Country- od
 
 #### Shoppinglist.vue
 
-Diese Komponente bietet dem Nutzer die Möglichkeit, Zutaten einzutragen und ggf. bei erfolgtem Einkauf abzuhaken. Dies wurde mit einem einfach Array umgesetzt.
+Diese Komponente bietet dem Nutzer die Möglichkeit, Zutaten einzutragen und ggf. bei erfolgtem Einkauf wieder von der Liste zu löschen. Dies wurde mit einem Array umgesetzt. Der Array wird in einen String umgewandelt und als Cookie gespeichert, damit die Liste auch nach etwaigem Verlassen der Applikation noch verfügbar ist. Der Cookie ist für 3 Tage gültig.
 
 #### Lastviewedrec.vue
 
@@ -91,7 +96,7 @@ Um den Code übersichtlicher zu machen und einige technische Dinge zu ermöglich
 - Beide Chevrons in der Carousel-Komponente sind SVGs von https://kruxor.com/view/code/1pheD/chevron-left/  und https://kruxor.com/view/code/1pheD/chevron-right/
 - Die Navbar in der Header-Komponente stammt in leicht veränderter Form von https://bootstrap-vue.org/docs/components/navbar
 - Die Cards in den Suchergebnissen stammen von https://bootstrap-vue.org/docs/components/card
-
+- Die Social-Icons in der Recipeview-Komponente stammen von https://pixabay.com/de/vectors/
 - Die Logos wurden mit Canva erstellt: https://www.canva.com/
 
 
