@@ -42,7 +42,10 @@ Die verwendeten Libraries werden in dieser Datei importiert und `App.vue` wird g
 In dieser Datei werden unsere vue-router Routen definiert.
 
 ### `/src/App.vue`
-Unsere Hauptkomponente App.vue beinhaltet die Grundstruktur der Seite. Header, Footer und Sidebar (shoppinglist.vue und lastviewedrec.vue) werden bei jeder Routing-Ansicht stets angezeigt. Es war uns wichtig, diese Komponente möglichst übersichtlich zu halten und viel Code auszulagern.
+Unsere Hauptkomponente App.vue beinhaltet die Grundstruktur der Seite.
+Hier wird beim ersten Besuch unserer Seite darauf hingewiesen dass wir Cookies verwenden.
+Header, Footer und Sidebar (shoppinglist.vue und lastviewedrec.vue) werden bei jeder Routing-Ansicht stets angezeigt.
+Es war uns wichtig, diese Komponente möglichst übersichtlich zu halten und viel Code auszulagern.
 
 ### `/src/components/carousel.vue`
 In unserer Carousel-Componente werden zufällige Rezepte aus der API geladen um einem etwaigen Nutzer zur Inspiration zu dienen.
