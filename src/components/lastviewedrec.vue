@@ -71,7 +71,8 @@ export default {
 <!--------------------------------STYLE----------------------------------->
 <style scoped>
 #mealImg {
-  width: 240px;
+  width: 55%;
+  max-width: 500px;
 }
 
 #badges {
