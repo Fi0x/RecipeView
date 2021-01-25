@@ -26,20 +26,24 @@
                                right
                                class="drpdown">
             <b-dropdown-item class="dropdownitem"
-                             :href="`/filter/c=${category}`"
                              v-for="(category, index) in categoryArray"
                              :key="index">
-              {{ category }}
+              <router-link :to="`/filter/c=${category}`"
+                           class="link">
+                {{ category }}
+              </router-link>
             </b-dropdown-item>
           </b-nav-item-dropdown>
           <b-nav-item-dropdown text="Countries"
                                right
                                class="drpdown">
             <b-dropdown-item class="dropdownitem"
-                             :href="`/filter/a=${area}`"
                              v-for="(area, index) in countryArray"
                              :key="index">
-              {{ area }}
+              <router-link :to="`/filter/a=${area}`"
+                           class="link">
+                {{ area }}
+              </router-link>
             </b-dropdown-item>
           </b-nav-item-dropdown>
         </b-navbar-nav>

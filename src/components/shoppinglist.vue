@@ -22,12 +22,12 @@
            v-for="(item, index) in shopList"
            :key="index">
         <li class="shoppingList">
-              {{ item }}
-              <b-button class="trashButton"
-                        type="button"
-                        v-on:click="clearItem(index)">
-              🗑️
-              </b-button>
+          {{ item }}
+          <b-button class="trashButton"
+                    type="button"
+                    v-on:click="clearItem(index)">
+            🗑️
+          </b-button>
         </li>
       </div>
     </ul>
@@ -55,20 +55,19 @@ export default {
   },
   methods: {
     addItem()
-    { 
-      if (this.input.length > 0) 
+    {
+      if (this.input.length > 0)
       {
-      this.shopList.push(this.input);
-      this.input = "";
-      let arrayString = this.shopList.toString();
-      this.$cookies.set("listCookie", arrayString, "3d");
-      }
-      else 
+        this.shopList.push(this.input);
+        this.input = "";
+        let arrayString = this.shopList.toString();
+        this.$cookies.set("listCookie", arrayString, "3d");
+      } else
       {
         alert("You can't submit an empty string to your shopping list");
       }
     },
-    clearItem(index) 
+    clearItem(index)
     {
       this.shopList.splice(index, 1);
       let arrayString = this.shopList.toString();
@@ -82,14 +81,8 @@ export default {
     },
     loadCookie()
     {
-      if (this.$cookies.get("listCookie") == null )
-      {
-        console.log ("You don't have any shopping list items saved");
-      }
-      else 
-      {
-        this.shopList = this.$cookies.get("listCookie").split(",");
-      }
+      if (this.$cookies.get("listCookie") == null) console.log("You don't have any shopping list items saved");
+      else this.shopList = this.$cookies.get("listCookie").split(",");
     }
   }
 };
@@ -109,7 +102,7 @@ export default {
 }
 
 .trashButton {
-  background-color:  #f3d9a4;
-  border-color:  #f3d9a4;
+  background-color: #f3d9a4;
+  border-color: #f3d9a4;
 }
 </style>
