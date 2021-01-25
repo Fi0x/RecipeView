@@ -114,6 +114,7 @@ export default {
         this.mealInstructions = mealInfo["strInstructions"].split("\r\n").filter((e) => e.trim().length > 0).map((e) => e.trim());
         this.mealCategory = mealInfo["strCategory"];
         this.mealArea = mealInfo["strArea"];
+        // Source of Social Icons: see Readme 4
         this.twitter = "http://twitter.com/share?text=Check out this recipe for " + this.mealName + "!&url=https://recipe-view.netlify.app/recipe/" + this.id;
         this.facebook = "http://www.facebook.com/sharer.php?u=https://recipe-view.netlify.app/recipe/" + this.id;
         this.email = "mailto:?subject=Great Recipe&body=Check out this site https://recipe-view.netlify.app/recipe/" + this.id;

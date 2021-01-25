@@ -16,6 +16,7 @@
              :key="idx">
           <router-link :to="`/recipe/${result['idMeal']}`"
                        class="router-links">
+            <!--Beginning of Foreign Code see Readme 3.-->
             <b-card
                 v-bind:img-src="result['strMealThumb']"
                 v-bind:img-alt="result['strMeal']"
@@ -36,6 +37,7 @@
                 </div>
               </b-card-text>
             </b-card>
+            <!--End of Foreign Code see Readme 3.-->
           </router-link>
         </div>
       </div>

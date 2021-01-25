@@ -46,7 +46,7 @@ Die Recipeview-Komponente bietet eine Übersicht über das gewählte Rezept:
 
 #### Search.vue
 
-Wenn eine Suchanfrage im Header eingegeben wird oder ein Element des Country- oder des Category-Dropdowns ausgewählt wird, werden die Ergebnisse in dieser Komponente dargestellt. Ebenfalls ist möglich mit dem Suchbalken direkt in der Search-Komponente in Echtzeit nach Gerichten zu suchen. 
+Wenn eine Suchanfrage in der Top-Komponente eingegeben wird oder ein Element des Country- oder des Category-Dropdowns ausgewählt wird, werden die Ergebnisse in dieser Komponente dargestellt. Ebenfalls ist möglich mit dem Suchbalken direkt in der Search-Komponente in Echtzeit nach Gerichten zu suchen. 
 
 #### Shoppinglist.vue
 
@@ -56,9 +56,9 @@ Diese Komponente bietet dem Nutzer die Möglichkeit, Zutaten einzutragen und ggf
 
 In dieser Komponente wird das zuletzt in Recipeview.vue angesehene Rezept als Cookie gespeichert und dem Nutzer unter der Shoppinglist angezeigt. Der Cookie gilt für 3 Tage und soll dem Nutzer ermöglichen, auch bei versehentlichem Verlassen der Seite wieder zu seinem Rezept zurückzufinden. 
 
-#### Header.vue
+#### Top.vue
 
-Im Header, dem Kopfteil werden über Vue-Router-Links Wege zu verschiedenen Seitenzuständen geboten. Zudem gibt es zwei Dropdowns, um Rezepte nach Kategorien oder Ländern zu suchen.
+Im Top, dem Kopfteil werden über Vue-Router-Links Wege zu verschiedenen Seitenzuständen geboten. Zudem gibt es zwei Dropdowns, um Rezepte nach Kategorien oder Ländern zu suchen.
 
 #### Footer.vue
 
@@ -96,11 +96,17 @@ Um den Code übersichtlicher zu machen und einige technische Dinge zu ermöglich
 
 ## Quellen fremder Codebestandteile
 
-- Beide Chevrons in der Carousel-Komponente sind SVGs von https://kruxor.com/view/code/1pheD/chevron-left/  und https://kruxor.com/view/code/1pheD/chevron-right/
-- Die Navbar in der Header-Komponente stammt in leicht veränderter Form von https://bootstrap-vue.org/docs/components/navbar
-- Die Cards in den Suchergebnissen stammen von https://bootstrap-vue.org/docs/components/card
-- Die Social-Icons in der Recipeview-Komponente stammen von https://pixabay.com/de/vectors/
-- Die Logos wurden mit Canva erstellt: https://www.canva.com/
+1. Beide Chevrons in der Carousel-Komponente sind SVGs von https://kruxor.com/view/code/1pheD/chevron-left/  und https://kruxor.com/view/code/1pheD/chevron-right/
+2. Die Navbar in der Top-Komponente stammt in leicht veränderter Form von https://bootstrap-vue.org/docs/components/navbar
+3. Die Cards in den Suchergebnissen stammen von https://bootstrap-vue.org/docs/components/card
+4. Die Social-Icons in der Recipeview-Komponente stammen von https://pixabay.com/de/vectors/
+5. Die Logos wurden mit Canva erstellt: https://www.canva.com/
+
+## Weitere Informationsquellen
+Diese Quellen wurden zur Vertiefung des Grundverständnisses eingesetzt: 
+
+- https://www.youtube.com/watch?v=4deVCNJq3qc
+- https://www.youtube.com/watch?v=dhNVLZsRwAg
 
 
 

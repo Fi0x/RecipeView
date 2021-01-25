@@ -6,6 +6,7 @@
       <h2>{{ mealName }}</h2>
     </router-link>
     <div>
+      <!--Beginning of Foreign Code see Readme 1.-->
       <svg width="3em"
            height="9em"
            viewBox="0 0 16 16"
@@ -16,11 +17,13 @@
         <path fill-rule="evenodd"
               d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
       </svg>
+      <!--End of Foreign Code see Readme 1.-->
       <router-link :to="`/recipe/${this.mealIDs[this.index]}`">
         <img v-bind:src="mealImg"
              v-bind:alt="mealName"
              id="img" />
       </router-link>
+      <!--Beginning of Foreign Code see Readme 1.-->
       <svg width="3em"
            height="9em"
            viewBox="0 0 16 16"
@@ -31,6 +34,7 @@
         <path fill-rule="evenodd"
               d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
       </svg>
+      <!--End of Foreign Code see Readme 1.-->
     </div>
   </div>
 </template>
