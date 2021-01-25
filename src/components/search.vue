@@ -95,9 +95,6 @@ export default {
   padding-top: 10px;
   padding-bottom: 10px;
 }
-#tags {
-  color: black;
-}
 img {
   max-width: 100px;
 }
