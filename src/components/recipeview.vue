@@ -7,7 +7,7 @@
       <b-col sm="4">
         <img v-bind:src="mealImg"
              v-bind:alt="mealName"
-             id="mealImg" />
+             id="mealImage" />
         <b-col>
           Like this Recipe? Share it!
           <div>

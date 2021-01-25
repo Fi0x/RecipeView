@@ -38,8 +38,29 @@ export default {
     Shoppinglist,
     Lastviewed,
     Footer
+  },
+  beforeMount () 
+  {
+    this.cookiePopup()
+  },
+  methods:
+  {
+    cookiePopup()
+    {
+      if (this.$cookies.get('cookiePolicySeen') == null)
+      {
+        this.$bvToast.toast(`🍪Our Website uses Cookies to provide the best user experience.🍪`, 
+          {
+            title: 'Our cookie policy',
+            autoHideDelay: 10000,
+            variant: 'warning',
+            toaster: 'b-toaster-bottom-full'
+          });
+      this.$cookies.set('cookiePolicySeen', true, '20d');
+      }
+    }
   }
-};
+}
 </script>
 <!--------------------------------STYLE----------------------------------->
 <style>
