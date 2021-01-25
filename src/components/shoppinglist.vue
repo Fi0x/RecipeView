@@ -22,12 +22,12 @@
            v-for="(item, index) in shopList"
            :key="index">
         <li class="shoppingList">
-          <b-button
-              class="shoppingItem"
-              type="button"
-              v-on:click.prevent="toggleClass(item, $event.target)">
-            ✔️ {{ item }}
-          </b-button>
+              {{ item }}
+              <b-button class="trashButton"
+                        type="button"
+                        v-on:click="clearItem(index)">
+              🗑️
+              </b-button>
         </li>
       </div>
     </ul>
@@ -49,21 +49,47 @@ export default {
       input: ""
     };
   },
+  beforeMount()
+  {
+    this.loadCookie();
+  },
   methods: {
     addItem()
-    {
+    { 
+      if (this.input.length > 0) 
+      {
       this.shopList.push(this.input);
       this.input = "";
+      let arrayString = this.shopList.toString();
+      this.$cookies.set("listCookie", arrayString, "3d");
+      }
+      else 
+      {
+        alert("You can't submit an empty string to your shopping list");
+      }
+    },
+    clearItem(index) 
+    {
+      this.shopList.splice(index, 1);
+      let arrayString = this.shopList.toString();
+      this.$cookies.set("listCookie", arrayString, "3d");
     },
     clearList()
     {
       this.shopList = [];
+      let arrayString = this.shopList.toString();
+      this.$cookies.set("listCookie", arrayString, "3d");
     },
-    toggleClass(item, target)
+    loadCookie()
     {
-      let list = target.classList;
-      if (list.contains("strikeThrough")) list.remove("strikeThrough");
-      else list.add("strikeThrough");
+      if (this.$cookies.get("listCookie") == null )
+      {
+        console.log ("You don't have any shopping list items saved");
+      }
+      else 
+      {
+        this.shopList = this.$cookies.get("listCookie").split(",");
+      }
     }
   }
 };
@@ -78,26 +104,12 @@ export default {
   text-align: left;
 }
 
-.shoppingItem {
-  padding: 0;
-  background-color: #f3d9a4;
-  border-color: #f3d9a4;
-  color: #2c3e50;
-}
-
-.shoppingItem:hover {
-  color: #2c3e50;
-}
-
-.shoppingItem:focus {
-  color: #2c3e50;
-}
-
 .shoppingList {
   list-style: none;
 }
 
-.strikeThrough {
-  text-decoration: line-through;
+.trashButton {
+  background-color:  #f3d9a4;
+  border-color:  #f3d9a4;
 }
 </style>
