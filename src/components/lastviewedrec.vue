@@ -46,7 +46,7 @@ export default {
   beforeMount()
   {
     this.recipeID = this.$cookies.get("lastrecipeid");
-    this.recipeById();
+    if(this.recipeID !== null) this.recipeById();
   },
   methods: {
     async recipeById()
