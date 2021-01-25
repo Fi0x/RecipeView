@@ -1,11 +1,13 @@
 <!------------------------------TEMPLATE-------------------------------------->
 <template>
   <div>
+    <!--Beginning of Foreign Code see Readme 2.-->
     <b-navbar id="navbarAll"
               toggleable="lg"
               type="dark">
       <b-navbar-brand href="#">
         <router-link :to="`/home`">
+          <!--Source of all Logo-Icons: see Readme 5.-->
           <img src="../assets/logoimg.png"
                alt="logo"
                id="headerlogo" />
@@ -13,6 +15,7 @@
       </b-navbar-brand>
       <b-navbar-brand href="#">
         <router-link :to="`/home`">
+          <!--Source of all Logo-Icons: see Readme 5.-->
           <img src="../assets/logosimple.png"
                alt="recipefinder"
                id="logofont" />
@@ -25,26 +28,20 @@
           <b-nav-item-dropdown text="Categories"
                                right
                                class="drpdown">
-            <b-dropdown-item class="dropdownitem"
-                             v-for="(category, index) in categoryArray"
-                             :key="index">
-              <router-link :to="`/filter/c=${category}`"
-                           class="link">
-                {{ category }}
-              </router-link>
-            </b-dropdown-item>
+            <b-link :to="`/filter/c=${category}`" v-for="(category, index) in categoryArray"
+                             :key="index"
+                             router-tag="b-dropdown-item">
+            {{ category }}
+            </b-link>
           </b-nav-item-dropdown>
-          <b-nav-item-dropdown text="Countries"
+          <b-nav-item-dropdown text="Categories"
                                right
                                class="drpdown">
-            <b-dropdown-item class="dropdownitem"
-                             v-for="(area, index) in countryArray"
-                             :key="index">
-              <router-link :to="`/filter/a=${area}`"
-                           class="link">
-                {{ area }}
-              </router-link>
-            </b-dropdown-item>
+            <b-link :to="`/filter/a=${area}`" v-for="(area, index) in countryArray"
+                             :key="index"
+                             router-tag="b-dropdown-item">
+            {{ area }}
+            </b-link>
           </b-nav-item-dropdown>
         </b-navbar-nav>
         <b-navbar-nav class="ml-auto">
@@ -69,6 +66,7 @@
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
+    <!--End of Foreign Code see Readme 1.-->
   </div>
 </template>
 <!--------------------------------SCRIPT----------------------------------->
@@ -175,5 +173,10 @@ export default {
 
 .dropdownitem {
   color: #223d57;
+}
+
+.link {
+  float: left;
+  width: 100%;
 }
 </style>

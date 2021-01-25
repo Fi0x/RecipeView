@@ -2,6 +2,7 @@
 <template>
   <div id="footer">
     <div>
+      <!--Source of all Logo-Icons: see Readme 5.-->
       <img src="../assets/logosimple.png"
            alt="recipefinder"
            id="logoImg" />
