@@ -42,6 +42,7 @@ Die Recipeview-Komponente bietet eine Übersicht über das gewählte Rezept:
 2. Zugehöriges Bild
 3. Zutaten und Mengenangaben
 4. Zubereitung, unterteilt in abhakbare Schritte
+5. Social Sharing eines Rezepts via Facebook, Twitter und E-Mail mit vorgefertigten Texten.
 
 #### Search.vue
 
