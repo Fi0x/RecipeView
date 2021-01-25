@@ -73,6 +73,8 @@ Zu dieser Komponente wird der User geleitet, wenn ein eingegebener Link nicht vo
 Durch den Einsatz von vue-router konnten wir eine einheitliche Linkstruktur für alle Rezepte und Ansichten erstellen: 
  - /home: Anzeige der Carousel-Komponente
  - /search/s=\<Suchanfrage>: Anzeige der Search-Komponente mit der jeweiligen Suchanfrage des Nutzers
+ - /filter/c=\<Kategorie>: Anzeige aller in der DB verfügbaren Rezepte einer Kategorie
+ - /filter/a=\<Area>: Anzeige aller in der DB verfügbaren Rezepte eines Landes
  - /recipe/\<id>: Anzeige eines Rezeptes mit einer bestimmten ID. Dieser Link ermöglicht das Teilen eines bestimmten Rezeptes. 
  - /<*>: Bei nicht aufgefundenen Links wird der User auf eine Error-Seite geleitet.
 
