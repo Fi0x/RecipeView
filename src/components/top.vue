@@ -35,7 +35,7 @@
               {{ category }}
             </b-link>
           </b-nav-item-dropdown>
-          <b-nav-item-dropdown text="Categories"
+          <b-nav-item-dropdown text="Countries"
                                right
                                class="drpdown">
             <b-link :to="`/filter/a=${area}`"
