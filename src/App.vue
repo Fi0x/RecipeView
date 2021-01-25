@@ -31,6 +31,7 @@ import Shoppinglist from "./components/shoppinglist.vue";
 import Footer from "./components/footer.vue";
 import Lastviewed from "./components/lastviewedrec.vue";
 
+"use strict";
 export default {
   name: "App",
   components: {

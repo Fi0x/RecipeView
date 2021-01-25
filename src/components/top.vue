@@ -28,19 +28,21 @@
           <b-nav-item-dropdown text="Categories"
                                right
                                class="drpdown">
-            <b-link :to="`/filter/c=${category}`" v-for="(category, index) in categoryArray"
-                             :key="index"
-                             router-tag="b-dropdown-item">
-            {{ category }}
+            <b-link :to="`/filter/c=${category}`"
+                    v-for="(category, index) in categoryArray"
+                    :key="index"
+                    router-tag="b-dropdown-item">
+              {{ category }}
             </b-link>
           </b-nav-item-dropdown>
           <b-nav-item-dropdown text="Categories"
                                right
                                class="drpdown">
-            <b-link :to="`/filter/a=${area}`" v-for="(area, index) in countryArray"
-                             :key="index"
-                             router-tag="b-dropdown-item">
-            {{ area }}
+            <b-link :to="`/filter/a=${area}`"
+                    v-for="(area, index) in countryArray"
+                    :key="index"
+                    router-tag="b-dropdown-item">
+              {{ area }}
             </b-link>
           </b-nav-item-dropdown>
         </b-navbar-nav>
@@ -169,14 +171,5 @@ export default {
 
 .drpdown {
   margin-top: 0.5rem;
-}
-
-.dropdownitem {
-  color: #223d57;
-}
-
-.link {
-  float: left;
-  width: 100%;
 }
 </style>

@@ -91,6 +91,7 @@ export default {
 <style scoped>
 #listInput {
   margin-left: 10px;
+  width: 60%;
 }
 
 .item {

@@ -163,10 +163,6 @@ table {
   padding-left: 35px;
 }
 
-.centered {
-  text-align: center;
-}
-
 .social-icons {
   max-width: 20px;
   margin-left: 3px;
