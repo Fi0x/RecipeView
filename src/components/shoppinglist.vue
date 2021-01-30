@@ -2,7 +2,7 @@
 <template>
   <div>
     <h2>Your shopping list</h2>
-    <form onsubmit="return false;">
+    <form onsubmit="return false;"> <!--stops page from reloading on enter press-->
       <label for="listInput">Create a new entry:</label>
       <div>
         <input

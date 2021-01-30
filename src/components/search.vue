@@ -58,10 +58,10 @@ export default {
     };
   },
   props: ["type", "searchKey"],
-  watch: {
+  watch: { //eventlistener listening to changes
     searchKey: function ()
     {
-      this.recipeSearch(this.type + ".php?" + this.searchKey)
+      this.recipeSearch(this.type + ".php?" + this.searchKey)  //type can be either filter or search; searchKey starts with 'c=', 's=' or 'a='
     },
     userInput: function ()
     {

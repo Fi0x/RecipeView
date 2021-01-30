@@ -68,7 +68,7 @@ export default {
       {
         this.index = 0;
         await this.randomRecipe();
-        this.mealIDs.unshift(this.currentID);
+        this.mealIDs.unshift(this.currentID); // add element to start of array
       } else await this.recipeByID(this.mealIDs[this.index]);
     },
     async nextRecipe()
@@ -100,7 +100,7 @@ export default {
       try
       {
         await this.axios.get(apiUrl).then((response) => (mealInfo = response.data["meals"][0]));
-        if (this.mealIDs.includes(mealInfo["idMeal"])) await this.randomRecipe();
+        if (this.mealIDs.includes(mealInfo["idMeal"])) await this.randomRecipe();  //is recursive
         else this.storeData(mealInfo);
       } catch (e)
       {
