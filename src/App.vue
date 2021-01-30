@@ -47,7 +47,7 @@ export default {
   methods: {
     cookiePopup()
     {
-      if (this.$cookies.get('cookiePolicySeen') == null)
+      if (this.$cookies.get('cookiePolicySeen') == null || !this.$cookies.get('cookiePolicySeen')) //check if cookie was changed to false manually
       {
         this.$bvToast.toast(`🍪Our Website uses Cookies to provide the best user experience.🍪`,
             {

@@ -54,7 +54,7 @@
                 placeholder="What do you want to eat?"
                 v-model="userInput"
                 id="searchbar" />
-            <router-link :to="`/${this.searchLink}${this.userInput}`">
+            <router-link :to="`/search/s=${this.userInput}`">
               <div id="btn-container">
                 <b-button size="sm"
                           class="my-2 my-sm-0"
@@ -79,30 +79,19 @@ export default {
   data: function ()
   {
     return {
-      lastRecipe: "",
       userInput: "",
-      searchLink: "search/s=",
       catArray: [],
       categoryArray: [],
       areaArray: [],
       countryArray: []
     };
   },
-  created: function ()
-  {
-    this.$root.$on("lastRecipeUpdate", this.storeID)
-  },
   beforeMount()
   {
     this.loadCats();
     this.loadAreas();
-    this.lastRecipe = this.$cookies.get("lastrecipeid");
   },
   methods: {
-    storeID()
-    {
-      this.lastRecipe = this.$cookies.get("lastrecipeid");
-    },
     async loadCats()
     {
       let apiUrl = "https://www.themealdb.com/api/json/v1/1/list.php?c=list";
