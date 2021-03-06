@@ -8,7 +8,7 @@
            id="logoImg" />
       is a Vue-js-based Single-Page-Application.
     </div>
-    <div>© 2021 Felix Pechtl and Sophia Ochs</div>
+    <div>© 2021 Felix P. and Sophia O.</div>
     <div>powered by
       <a href="https://themealdb.com"
          target="_blank">
